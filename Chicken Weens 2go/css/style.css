@@ -77,7 +77,7 @@ nav a {
 
 .container > header,
 .codrops-top {
-    font-family: 'Lato', Arial, sans-serif;
+    font-family: "Lato", sans-serif;
 }
 
 .container > header {
@@ -223,9 +223,21 @@ nav a {
     line-height: 1.625;
 }
 
-/*------------------------------------*\
-	MENU
-\*------------------------------------*/
+/*MENU*/
+.parallax {
+    /* The image used */
+    background-image: url("img_parallax.jpg");
+
+    /* Set a specific height */
+    min-height: 500px;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .menu {
     width: 100%;
     padding-top: 85px;
@@ -235,6 +247,10 @@ nav a {
     background-size: cover;
     background-position: center top;
     background-color: #000;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .menu h2 {
@@ -307,7 +323,6 @@ nav a {
 }
 
 /*menu box*/
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:600;);
 
 .snip1573 {
     background-color: #000;
@@ -534,4 +549,388 @@ nav a {
 
 .submit--subscribe:hover {
     cursor: pointer;
+}
+
+/*Footer*/
+
+
+h1 {
+    font-weight: 600;
+    font-size: 72px;
+    color: white;
+    text-align: center;
+}
+
+h4 {
+    font-family: 'Roboto', sans-serif, 'arial';
+    font-weight: 400;
+    font-size: 20px;
+    color: #9b9b9b;
+    line-height: 1.5;
+}
+
+/*contact us*/
+
+
+h1 {
+    font-weight: 600;
+    font-size: 72px;
+    color: white;
+    text-align: center;
+}
+
+h4 {
+    font-family: 'Roboto', sans-serif, 'arial';
+    font-weight: 400;
+    font-size: 20px;
+    color: #9b9b9b;
+    line-height: 1.5;
+}
+
+/* ///// inputs /////*/
+
+input:focus ~ label,
+textarea:focus ~ label,
+input:valid ~ label,
+textarea:valid ~ label {
+    font-size: 12px;
+    ;
+    color: #999;
+    top: -5px;
+    -webkit-transition: all 0.225s ease;
+    transition: all 0.225s ease;
+}
+
+.styled-input {
+    float: left;
+    width: 293px;
+    margin: 5px;
+    ;
+    position: relative;
+    border-radius: 4px;
+}
+
+@media only screen and (max-width: 768px) {
+    .styled-input {
+        width: 100%;
+    }
+}
+
+.styled-input label {
+    color: #999;
+    padding: 1.3rem 30px 1rem 30px;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    -webkit-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+    pointer-events: none;
+}
+
+.styled-input.wide {
+    width: 650px;
+    max-width: 100%;
+}
+
+input,
+textarea {
+    padding: 30px;
+    border: 0;
+    width: 100%;
+    font-size: 19px;
+    background-color: #2d2d2d;
+    color: white;
+    border-radius: 4px;
+}
+
+input:focus,
+textarea:focus {
+    outline: 0;
+}
+
+input:focus ~ span,
+textarea:focus ~ span {
+    width: 100%;
+    -webkit-transition: all 0.075s ease;
+    transition: all 0.075s ease;
+}
+
+textarea {
+    width: 100%;
+    min-height: 10em;
+}
+
+.input-container {
+    width: 650px;
+    max-width: 100%;
+    margin: 20px auto 25px auto;
+}
+
+.tracks {
+    display: grid;
+    grid-template-columns: 10% 80% 10%;
+    background: #1b120f;
+}
+
+.ulit {
+    display: grid;
+    grid-template-columns: 4% 30% 30% 30% 4%;
+    background: #1b120f;
+}
+
+.btn-overlay {
+    border: none;
+    display: block;
+    width: 150px;
+    height: 40px;
+    padding: 10px;
+    color: #221715;
+    font-size: 16px;
+    margin-bottom: 20px;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    border-radius: 15px;
+    ;
+    box-shadow: 0px 5px 24px rgba(34, 34, 34, 0.3);
+    text-transform: uppercase;
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+}
+
+.btn-overlay:focus {
+    outline: none;
+}
+
+
+.btn-overlay {
+    background: #ac3f21;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-overlay:after {
+    content: "";
+    position: absolute;
+    width: 115%;
+    height: 200px;
+    background: #f89d13;
+    transform: translateY(-45%) skew(25deg) scale(0);
+    left: -5%;
+    transition: 200ms ease-in-out;
+}
+
+.btn-overlay:hover:after {
+    transform: translateY(-45%) skew(25deg) scale(1);
+}
+
+.btn-overlay span {
+    position: relative;
+    z-index: 1;
+}
+
+/*Testimonial*/
+
+.heading {
+    text-align: center;
+    color: #454343;
+    font-size: 30px;
+    font-weight: 700;
+    position: relative;
+    margin-bottom: 70px;
+    text-transform: uppercase;
+    z-index: 999;
+}
+
+.white-heading {
+    color: #ffffff;
+}
+
+.heading:after {
+    content: ' ';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    height: 40px;
+    width: 180px;
+    border-radius: 4px;
+    transform: translateX(-50%);
+    background: url(img/heading-line.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.white-heading:after {
+    background: url(https://i.ibb.co/d7tSD1R/heading-line-white.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.heading span {
+    font-size: 18px;
+    display: block;
+    font-weight: 500;
+}
+
+.white-heading span {
+    color: #ffffff;
+}
+
+/*-----Testimonial-------*/
+/*Carousel*/
+.carrousel {
+    background: #e6dedd;
+    text-align: center;
+    padding: 4em 0;
+    height: 300px;
+    max-width: 750px;
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.carrousel h2 {
+    margin: 0;
+    margin-top: -1.7em;
+    padding: 0;
+    font-size: 1em;
+    text-align: center;
+    color: #bbbbbb;
+}
+
+.carrousel .slides {
+    width: 400%;
+    left: 0;
+    padding-left: 0;
+    padding-top: 1em;
+    overflow: hidden;
+    list-style: none;
+    position: relative;
+
+    -webkit-transition: transform .5s;
+    -moz-transition: transform .5s;
+    -o-transition: transform .5s;
+    transition: transform .5s;
+}
+
+.carrousel .slides li {
+    width: 25%;
+    position: relative;
+    float: left;
+}
+
+.carrousel li p {
+    margin-top: 0;
+}
+
+.carrousel li q {
+    max-width: 90%;
+    margin: auto;
+    font-family: 'Lato', sans-serif;
+    color: #1b120f;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.carrousel li img {
+    width: 3em;
+    border-radius: 50%;
+    margin-left: -1.5em;
+    margin-right: 0.5em;
+    vertical-align: middle;
+}
+
+.carrousel li span.author {
+    margin-top: 0.5em;
+    font-size: 1.2em;
+    color: #777777;
+    display: block;
+}
+
+.carrousel .slidesNavigation {
+    display: block;
+    list-style: none;
+    text-align: center;
+    bottom: 1em;
+    /*--- Centering trick---*/
+    /* Absolute positioning*/
+    position: absolute;
+    /* Abosulte positioning*/
+    width: 104px;
+    /*This width  is the addition of the width of all the navigations dots - So in this case is   104 because the navigation dots are 26px (width:10px and 6px marginleft + 6 px marginright) and there are 4 dots so 4x26=104 */
+    left: 50%;
+    /*Centering de element*/
+    margin-left: -52px;
+    /*adjusting the centering by applying a negative margin of half of the width*/
+}
+
+.carrousel input {
+    display: none;
+}
+
+.carrousel .slidesNavigation label {
+    float: left;
+    margin: 6px;
+    display: block;
+    height: 10px;
+    width: 10px;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    border: solid 2px #ce7807;
+    font-size: 0;
+}
+
+/* You have to repeat this with each slide
+TODO: make it easier with SCSS
+25% movement 100/slides-num
+*/
+#radio-1:checked ~ .slides {
+    transform: translateX(0%);
+}
+
+#radio-2:checked ~ .slides {
+    transform: translateX(-25%);
+}
+
+#radio-3:checked ~ .slides {
+    transform: translateX(-50%);
+}
+
+#radio-4:checked ~ .slides {
+    transform: translateX(-75%);
+}
+
+
+.carrousel .slidesNavigation label:hover {
+    cursor: pointer;
+}
+
+/* You have to repeat this with each slide/dot */
+.carrousel #radio-1:checked ~ .slidesNavigation label#dotForRadio-1,
+.carrousel #radio-2:checked ~ .slidesNavigation label#dotForRadio-2,
+.carrousel #radio-3:checked ~ .slidesNavigation label#dotForRadio-3,
+.carrousel #radio-4:checked ~ .slidesNavigation label#dotForRadio-4 {
+    background: #ac3f21;
+}
+
+@media (max-width: 796px) {
+    .carrousel {
+        height: 8.5em;
+    }
+}
+
+@media (max-width: 480px) {
+    .carrousel li p {
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+    }
+
+    .carrousel li q {
+        font-size: 1em;
+    }
+
+    .carrousel li img {
+        width: 2em;
+        margin-left: -1em;
+        margin-right: 0.25em;
+    }
 }
