@@ -24,8 +24,8 @@
                     <nav class="cl-effect-4" style="height: 1px; ">
                         <img class="logo-img" src="images/sojubtry.png" style="margin-left: 90px; margin-top: -5px;" width="210" height="80" ALT="align box" ALIGN=CENTER>
                         <a href="#" style="margin-left: 300px;">HOME</a>
-                        <a href="#">ORDERED</a>
-                        <a href="#">DELIVERED ORDER</a>
+                        <a href="orders.html">ORDERED</a>
+                        <a href="delivereduser.html">DELIVERED ORDER</a>
                         <a href="#">USER </a>
                     </nav>
                 </section>
@@ -266,53 +266,6 @@
       
     </div>
     <script>
-            let slideAllCont = document.querySelectorAll('.js-slide-all');
-
-            slideAllCont.forEach(slideAll => {
-                let allElements = slideAll.querySelectorAll('*');
-                allElements.forEach(element => {
-                    element.classList.add('js-slide-in');
-                    element.classList.add('slideInSingle');
-                })
-            });
-
-            let slideInElem = document.querySelectorAll('.js-slide-in');
-
-            function addAnimationClass() {
-                slideInElem.forEach(container => {
-                    let children = container.children.length;
-                    container.classList.add('slideIn-' + children);
-                });
-            }
-
-            addAnimationClass();
-
-            function inView(elements) {
-                elements.forEach(element => {
-
-                    const slideInAt = window.scrollY + window.innerHeight - element.offsetHeight / 2,
-                        slideBottom = element.offsetTop + element.offsetHeight,
-                        isHalfShown = slideInAt > element.offsetTop,
-                        isNotScrolledPast = window.scrollY < slideBottom;
-
-                    if (isHalfShown && isNotScrolledPast) {
-                        element.classList.add('active');
-                    } else {
-                        element.classList.remove('active');
-                    }
-                })
-            }
-
-            if (slideInElem) {
-                inView(slideInElem);
-
-                window.addEventListener('scroll', function() {
-                    inView(slideInElem);
-                });
-            }
-
-        </script>
-    <script>
         var Clock = (function() {
 
             var exports = function(element) {
@@ -392,6 +345,53 @@
         }
 
     </script>
+    <script>
+            let slideAllCont = document.querySelectorAll('.js-slide-all');
+
+            slideAllCont.forEach(slideAll => {
+                let allElements = slideAll.querySelectorAll('*');
+                allElements.forEach(element => {
+                    element.classList.add('js-slide-in');
+                    element.classList.add('slideInSingle');
+                })
+            });
+
+            let slideInElem = document.querySelectorAll('.js-slide-in');
+
+            function addAnimationClass() {
+                slideInElem.forEach(container => {
+                    let children = container.children.length;
+                    container.classList.add('slideIn-' + children);
+                });
+            }
+
+            addAnimationClass();
+
+            function inView(elements) {
+                elements.forEach(element => {
+
+                    const slideInAt = window.scrollY + window.innerHeight - element.offsetHeight / 2,
+                        slideBottom = element.offsetTop + element.offsetHeight,
+                        isHalfShown = slideInAt > element.offsetTop,
+                        isNotScrolledPast = window.scrollY < slideBottom;
+
+                    if (isHalfShown && isNotScrolledPast) {
+                        element.classList.add('active');
+                    } else {
+                        element.classList.remove('active');
+                    }
+                })
+            }
+
+            if (slideInElem) {
+                inView(slideInElem);
+
+                window.addEventListener('scroll', function() {
+                    inView(slideInElem);
+                });
+            }
+
+        </script>
 
 </body>
 
