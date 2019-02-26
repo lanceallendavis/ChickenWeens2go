@@ -43,6 +43,20 @@ nav a {
     text-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
     font-size: 15px;
 }
+a {
+	color: #000;
+	text-decoration: none;
+
+	-webkit-transition: color .2s linear;
+	-moz-transition: color .2s linear;
+	-ms-transition: color .2s linear;
+	-o-transition: color .2s linear;
+	transition: color .2s linear;
+}
+
+a:hover {
+	color: #f89d13;
+}
 
 /* Effect 4: bottom border enlarge */
 .cl-effect-4 a {
@@ -55,7 +69,7 @@ nav a {
     left: 0;
     width: 100%;
     height: 1px;
-    background: #ce7807;
+    background: #ac3f21;
     content: '';
     opacity: 0;
     -webkit-transition: height 0.3s, opacity 0.3s, -webkit-transform 0.3s;
@@ -774,6 +788,7 @@ textarea {
 .white-heading span {
     color: #ffffff;
 }
+
 
 /*-----Testimonial-------*/
 /*Carousel*/
