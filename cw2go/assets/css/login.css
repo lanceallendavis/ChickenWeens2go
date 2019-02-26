@@ -1,0 +1,218 @@
+
+a#openlogin:hover{
+  cursor: pointer;
+}
+.login{
+  position: fixed;
+  top: -100vh;
+  left: 0;
+  z-index: 9999999;
+  background: rgba(0,0,0, 0.75);
+  width: 100vw;
+  height: 100vh;
+  opacity: 0;
+
+    -webkit-transition: opacity  0.35s ease;
+    -moz-transition: opacity 0.35s ease;
+    -o-transition: opacity 0.35s ease;
+    transition: opacity 0.35s ease;
+}
+.login .loginContainer{
+  width: 100%;
+  max-width: 500px;
+  position: fixed; /* To avoid scroll to target */
+  left: 50%;
+  margin-top: 120px;
+    -webkit-transition: top  0.35s ease;
+    -moz-transition: top 0.35s ease;
+    -o-transition: top 0.35s ease;
+    transition: top 0.35s ease;
+
+  /* Trick to properly center the element by using negative
+  1/2 length of element as margin left and top */
+  margin-left: -250px;
+  background-color: #ffffff;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  border-radius: 2px;
+  z-index: 9999999;
+}
+.login h2{
+  padding: 0.5em;
+  text-align: center;
+  color: #444444;
+  margin: 0;
+}
+.login img{
+  width: 100%;
+  display: block;
+}
+.login article{
+	height: 500px;
+  background-color: #1b120f;
+}
+/* The cancel button on login dialog */
+.login a.closelogin{
+  font-family: verdana;
+  color: #e74c3c;
+  position: absolute;
+  top: 0.2em;
+  right: 0.375em;
+  margin: 0;
+  padding: 5px;
+  font-weight: bold;
+  font-size: 1.5em;
+  text-decoration: none;
+}
+/* The cancel button on login dialog */
+.login a:hover{
+  color: #c0392b;
+}
+/* When login is targeted, by clicking on link with #login in HTML */
+.login:target{
+  opacity: 1;
+  top: 0;
+}
+.login .closeloginOutSide{
+  position: absolute;
+  left:0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999991;
+}
+.login:target .loginContainer{
+  top: 50px;
+    -webkit-transition: top  0.35s ease;
+    -moz-transition: top 0.35s ease;
+    -o-transition: top 0.35s ease;
+    transition: top 0.35s ease;
+}
+
+@media  (max-width: 796px) {
+  .login .loginContainer{
+    width: 90%;
+    max-width: none;
+    left: 5%;
+    margin-left: 0;
+  }
+  .login ul{
+    padding: 0 1em 0 1em;
+  }
+  .login:target .loginContainer{
+    top: 25px;
+    -webkit-transition: top  0.35s ease;
+    -moz-transition: top 0.35s ease;
+    -o-transition: top 0.35s ease;
+    transition: top 0.35s ease;
+  }
+}
+/*Register*/
+a#openregister:hover{
+  cursor: pointer;
+}
+.register{
+  position: fixed;
+  top: -100vh;
+  left: 0;
+  z-index: 9999999;
+  background: rgba(0,0,0, 0.75);
+  width: 100vw;
+  height: 100vh;
+  opacity: 0;
+
+    -webkit-transition: opacity  0.35s ease;
+    -moz-transition: opacity 0.35s ease;
+    -o-transition: opacity 0.35s ease;
+    transition: opacity 0.35s ease;
+}
+.register .registerContainer{
+  width: 100%;
+  max-width: 500px;
+  position: fixed; /* To avoid scroll to target */
+  left: 50%;
+  margin-top: 90px;
+    -webkit-transition: top  0.35s ease;
+    -moz-transition: top 0.35s ease;
+    -o-transition: top 0.35s ease;
+    transition: top 0.35s ease;
+
+  /* Trick to properly center the element by using negative
+  1/2 length of element as margin left and top */
+  margin-left: -250px;
+  background-color: #ffffff;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  border-radius: 2px;
+  z-index: 9999999;
+}
+.register h2{
+  padding: 0.5em;
+  text-align: center;
+  color: #444444;
+  margin: 0;
+}
+.register img{
+  width: 100%;
+  display: block;
+}
+.register article{
+	height: 560px;
+  background-color: #1b120f;
+}
+/* The cancel button on login dialog */
+.register a.closeregister{
+  font-family: verdana;
+  color: #e74c3c;
+  position: absolute;
+  top: 0.2em;
+  right: 0.375em;
+  margin: 0;
+  padding: 5px;
+  font-weight: bold;
+  font-size: 1.5em;
+  text-decoration: none;
+}
+/* The cancel button on login dialog */
+.register a:hover{
+  color: #c0392b;
+}
+/* When login is targeted, by clicking on link with #login in HTML */
+.register:target{
+  opacity: 1;
+  top: 0;
+}
+.register .closeregisterOutSide{
+  position: absolute;
+  left:0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999991;
+}
+.register:target .registerContainer{
+  top: 50px;
+    -webkit-transition: top  0.35s ease;
+    -moz-transition: top 0.35s ease;
+    -o-transition: top 0.35s ease;
+    transition: top 0.35s ease;
+}
+
+@media  (max-width: 796px) {
+  .register .registerContainer{
+    width: 90%;
+    max-width: none;
+    left: 5%;
+    margin-left: 0;
+  }
+  .register ul{
+    padding: 0 1em 0 1em;
+  }
+  .register:target .registerContainer{
+    top: 25px;
+    -webkit-transition: top  0.35s ease;
+    -moz-transition: top 0.35s ease;
+    -o-transition: top 0.35s ease;
+    transition: top 0.35s ease;
+  }
+}

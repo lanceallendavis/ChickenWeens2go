@@ -1,0 +1,405 @@
+<?php
+session_start();
+if(!isset($_SESSION['role']) or ($_SESSION['role'] !== 'user')){
+  header('location: index.php');
+}
+?>
+<!doctype html>
+<html>
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="assets/css/user.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/slider.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/responsive.css">
+    <link href="https://fonts.googleapis.com/css?family=Staatliches" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Anonymous+Pro" rel="stylesheet">
+    <title>Thesis Trial</title>
+</head>
+
+<body>
+    <div id="container">
+        <header>
+            <div class="container">
+                <!-- Top Navigation -->
+                <section class="color-7">
+                    <nav class="cl-effect-4" style="height: 1px; ">
+                        <img class="logo-img" src="images/sojubtry.png" style="margin-left: 90px; margin-top: -5px;" width="210" height="80" ALT="align box" ALIGN=CENTER>
+                        <a href="#" style="margin-left: 300px;">HOME</a>
+                        <a href="orders.html">ORDERED</a>
+                        <a href="delivereduser.html">DELIVERED ORDER</a>
+                        <a href="#">WELCOME, <?php echo $_SESSION['first_name']; ?></a>
+                        <a href="logout.php">LOGOUT</a>
+                    </nav>
+                </section>
+            </div>
+        </header>
+        <!--top-->
+        <div style="height: 531px;background-color:#ac3f21;font-size:36px">
+            <div class="wrapper">
+                <div class="box1">
+                    <div class="video-section">
+                        <video id="video-elem" preload="auto" autoplay="true" loop="loop" muted="muted">
+                            <br>
+                            <source src="images/video/chickenvid.mp4" type="video/mp4" style="height: 100%;">
+                            Video not supported
+                        </video>
+                    </div>
+                </div>
+
+                <div class="box2">
+                    <div id="slider">
+                        <figure>
+                            <img src="images/tryq1.png">
+                            <img src="images/tryq2.png">
+                            <img src="images/tryq3.png">
+                            <img src="images/tryq1.png">
+                            <img src="images/tryq2.png">
+                        </figure>
+                    </div>
+                </div>
+                <div class="box3" style="background: #f89d13; height: 126px;">
+                    <div style="padding-top: 15px;">
+                        <h1 style="font-size: 16px; text-align: center; color: #e6dedd">WE START SERVING AT 9AM</h1>
+                        <span class="clock"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="height: 520px; background-color: #fff4e3">
+            <h3 l style="font-family: 'Staatliches', cursive; color: #ac3f21; font-size: 22px; text-align: center; padding-top: 60px;">Chicken Ween's 2go</h3>
+            <h2 style="font-family: 'Anonymous Pro', monospace; letter-spacing: 4px; color: #f89d13; margin-top: -10px; text-align: center;">New Menu</h2>
+            <center>
+                <figure class="snip1573">
+                    <img src="images/Classic%20Honey%20Patis.jpg" alt="honey" />
+                    <figcaption>
+                        <h3>Buy Now</h3>
+                    </figcaption>
+                    <a href="#"></a>
+                </figure>
+                <figure class="snip1573">
+                    <img src="images/Buffalo%20(IG%20Post).jpg" alt="buffalo" />
+                    <figcaption>
+                        <h3>Buy Now</h3>
+                    </figcaption>
+                    <a href="#"></a>
+                </figure>
+                <figure class="snip1573"><img src="images/Korean%20(IG%20Post).jpg" alt="korean" />
+                    <figcaption>
+                        <h3>Buy Now</h3>
+                    </figcaption>
+                    <a href="#"></a>
+                </figure>
+
+            </center>
+        </div>
+        <div class="parallax">
+            <h3 l style="font-family: 'Staatliches', cursive; color: #ac3f21; font-size: 22px; text-align: center; padding-top: 60px;">Chicken Ween's 2go</h3>
+            <h2 style="font-family: 'Anonymous Pro', monospace; letter-spacing: 4px; color: #f89d13; margin-top: -10px; text-align: center;">ORDER NOW</h2>
+
+
+            <section id="weens-menu">
+
+                <ul id="gallery">
+                    <li class="card">
+                        <div class="dollar-amount">P9</div>
+                        <img src="images/tryq1.png" style="width: 150px; height: 150px;">
+                        <h3 class="card-header">Bufallo Wings</h3>
+                        <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        </p>
+                        <a href="#popUp" id="openPopUp" style="text-decoration: none">
+                            <button class="btn-overlay" style="margin-left: 23px; margin-top: 20px; border-radius: 20px;">
+                                <span>Order Now</span>
+                            </button>
+                        </a>
+                    </li>
+                    <li class="card">
+                        <div class="dollar-amount">P9</div>
+                        <img src="images/tryq2.png" style="width: 150px; height: 150px;">
+                        <h3 class="card-header">Korean Bbq Wings</h3>
+                        <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        </p>
+                        <a href="#popUp" id="openPopUp" style="text-decoration: none">
+                            <button class="btn-overlay" style="margin-left: 23px; margin-top: 20px; border-radius: 20px;">
+                                <span>Order Now</span>
+                            </button>
+                        </a>
+                    </li>
+                    <li class="card">
+                        <div class="dollar-amount">P9</div>
+                        <img src="images/tryq3.png" style="width: 150px; height: 150px;">
+                        <h3 class="card-header">Bufallo Wings</h3>
+                        <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        </p>
+                        <a href="#popUp" id="openPopUp" style="text-decoration: none">
+                            <button class="btn-overlay" style="margin-left: 23px; margin-top: 20px; border-radius: 20px;">
+                                <span>Order Now</span>
+                            </button>
+                        </a>
+                    </li>
+                    <li class="card">
+                        <div class="dollar-amount">P9</div>
+                        <img src="images/tryq3.png" style="width: 150px; height: 150px;">
+                        <h3 class="card-header">Buttered Wings</h3>
+                        <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        </p>
+                        <button class="btn-overlay" style="margin-left: 23px; margin-top: 20px; border-radius: 20px;">
+                            <span>Order Now</span>
+                        </button>
+                    </li>
+                    <li class="card">
+                        <div class="dollar-amount">P9</div>
+                        <img src="images/tryq2.png" style="width: 150px; height: 150px;">
+                        <h3 class="card-header">Bufallo Wings</h3>
+                        <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        </p>
+                        <a href="#popUp" id="openPopUp" style="text-decoration: none">
+                            <button class="btn-overlay" style="margin-left: 23px; margin-top: 20px; border-radius: 20px;">
+                                <span>Order Now</span>
+                            </button>
+                        </a>
+                    </li>
+                    <li class="card">
+                        <div class="dollar-amount">P9</div>
+                        <img src="images/tryq1.png" style="width: 150px; height: 150px;">
+                        <h3 class="card-header">Korean Bbq Wings</h3>
+                        <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        </p>
+                        <a href="#popUp" id="openPopUp" style="text-decoration: none">
+                            <button class="btn-overlay" style="margin-left: 23px; margin-top: 20px; border-radius: 20px;">
+                                <span>Order Now</span>
+                            </button>
+                        </a>
+                    </li>
+                </ul><br>
+            </section>
+        </div>
+        <!--Modal For Order-->
+        <aside id="popUp" class="popup">
+            <div class="popUpContainer">
+                <header>
+                    <a href="#!" class="closePopUp" style="margin-top: -65px;">X</a>
+                </header>
+                <article><br>
+                    <div class="gridcol">
+                        <div>
+                            <img src="images/Buffalo%20(IG%20Post).jpg" style="width: 280px; height: 390px;">
+                        </div>
+                        <div>
+                            <div style="font-family: 'Staatliches', cursive; color: #ac3f21; font-size: 32px; margin-top: 20px;">Buffalo Wings</div>
+                            <div style="font-family: 'Anonymous Pro', monospace; color: #f89d13; margin-top: 20px; font-size: 18px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam at egestas felis.</div><br>
+                            <div class="select">
+                                <select name="slct" id="slct">
+                                    <option style="font-family: 'Staatliches', cursive; color: #ac3f21; font-size: 16px;">Choose an option</option>
+                                    <option value="1" style="font-family: 'Staatliches', cursive; color: #ac3f21; font-size: 19px;">6pcs</option>
+                                    <option value="2" style="font-family: 'Staatliches', cursive; color: #ac3f21; font-size: 19px;">10pcs</option>
+                                    <option value="3" style="font-family: 'Staatliches', cursive; color: #ac3f21; font-size: 19px;">12pcs</option>
+                                </select>
+                            </div>
+                            <div class="gridcols">
+                                <div style="font-family: 'Lato', sans-serif; color: #f89d13; margin-top: 20px; font-size: 18px;">PRICE: </div>
+                                <div style="font-family: 'Lato', sans-serif; color: #e6dedd; margin-top: 20px; font-size: 18px;">P 0.00 </div>
+                            </div>
+                            <div class="gridcols">
+                                <div style="font-family: 'Lato', sans-serif; color: #f89d13; margin-top: 20px; font-size: 18px;">TOTAL: </div>
+                                <div style="font-family: 'Lato', sans-serif; color: #e6dedd; margin-top: 20px; font-size: 18px;">P 0.00 </div>
+                            </div>
+                            <button class="btn-overlay" style="margin-top: 30px; border-radius: 20px;">
+                                <span>Order Now</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <a href="#!" class="closePopUpOutSide"></a>
+        </aside>
+    </div>
+    <section class="opening">
+        <h2 style="font-family: 'Anonymous Pro', monospace; letter-spacing: 2px; color: #f89d13; margin-top: -5px; text-align: center">Send us a Suggestion</h2>
+        <div class="row input-container" style="margin-left: 55px; margin-top: 30px;">
+            <div class="col-xs-12">
+                <div class="styled-input wide">
+                    <input type="text" required style=" border-radius: 50px; margin-left: 360px; width: 500px; height: 70px; margin-top: -20px;" />
+                </div>
+            </div>
+            <br>
+            <button class="btn-overlay" style="border-radius: 20px; margin-left: 520px; width: 200px; height: 60px; ">
+                <span>SEND MESSAGE</span>
+            </button>
+        </div>
+    </section>
+    <!-- Footer -->
+    <div class="tracks">
+        <div></div>
+        <div class="js-slide-in strip strip--blue" style="background-color: #1b120f">
+            <p style="font-family: 'Staatliches', cursive; color: #ac3f21; font-size: 22px; text-align: center;"> REACH US </p>
+            <h2 style="font-family: 'Anonymous Pro', monospace; letter-spacing: 4px; color: #f89d13; margin-top: -2px; text-align: center;">CONTACTS</h2>
+            <hr style="margin-top: 10px;">
+        </div>
+    </div>
+    <div class="ulit">
+        <div></div>
+
+        <div>
+            <div style="font-family: 'Yanone Kaffeesatz', sans-serif; color: #c2b396; font-size: 25px; padding-top: 35px; padding-left: 95px;">
+                <img src="images/Wings%20only%20logo%20.png" style="margin-left: 70px; width: 50%;">
+                <br>
+            </div>
+        </div>
+          <div>
+               <div class="lalagyan" style="font-family: 'Staatliches', cursive; color: #f89d13; font-size: 22px;letter-spacing: 2px; padding-top: 55px;">
+                    Chicken Ween's 2go</div>
+            <div class="lalagyan" style="font-family: 'Staatliches', cursive;color: #ac3f21; font-size: 22px;">
+                For event sponsorships: </div>
+            <div class="lalagyan" style="font-family: 'Lato', sans-serif; color: #e6dedd; font-size: 19px;">
+                11th Flr. Common Goal Tower Bldg.
+                Madrigal Business Park
+                Alabang, Muntinlupa City, Philippines
+                Email us: info@bootleg-radio.com</div>
+        </div>
+        <div>
+            <div class="lalagyan" style="font-family: 'Staatliches', cursive;color: #ac3f21; font-size: 22px; padding-top: 55px; padding-left: 35px;">
+                For event sponsorships: </div>
+            <div class="lalagyan" style="font-family: 'Lato', sans-serif; color: #e6dedd; font-size: 19px; padding-left: 35px;">
+                <i class="fas fa-phone-volume"></i> +63 (2) 772-3152 / 5859670
+                <br> <i class="fas fa-mobile-alt"></i> +63 (2) 771-0143
+                <br><i class="far fa-envelope"></i> sales@bootleg-radio.com</div>
+
+        </div>
+
+    </div>
+    <script>
+        var Clock = (function() {
+
+            var exports = function(element) {
+                this._element = element;
+                var html = '';
+                for (var i = 0; i < 6; i++) {
+                    html += '<span>&nbsp;</span>';
+                }
+                this._element.innerHTML = html;
+                this._slots = this._element.getElementsByTagName('span');
+                this._tick();
+            };
+
+            exports.prototype = {
+
+                _tick: function() {
+                    var time = new Date();
+                    this._update(this._pad(time.getHours()) + this._pad(time.getMinutes()) + this._pad(time.getSeconds()));
+                    var self = this;
+                    setTimeout(function() {
+                        self._tick();
+                    }, 1000);
+                },
+
+                _pad: function(value) {
+                    return ('0' + value).slice(-2);
+                },
+
+                _update: function(timeString) {
+
+                    var i = 0,
+                        l = this._slots.length,
+                        value, slot, now;
+                    for (; i < l; i++) {
+
+                        value = timeString.charAt(i);
+                        slot = this._slots[i];
+                        now = slot.dataset.now;
+
+                        if (!now) {
+                            slot.dataset.now = value;
+                            slot.dataset.old = value;
+                            continue;
+                        }
+
+                        if (now !== value) {
+                            this._flip(slot, value);
+                        }
+                    }
+                },
+
+                _flip: function(slot, value) {
+
+                    // setup new state
+                    slot.classList.remove('flip');
+                    slot.dataset.old = slot.dataset.now;
+                    slot.dataset.now = value;
+
+                    // force dom reflow
+                    slot.offsetLeft;
+
+                    // start flippin
+                    slot.classList.add('flip');
+
+                }
+
+            };
+
+            return exports;
+        }());
+
+        var i = 0,
+            clocks = document.querySelectorAll('.clock'),
+            l = clocks.length;
+        for (; i < l; i++) {
+            new Clock(clocks[i]);
+        }
+
+    </script>
+    <script>
+            let slideAllCont = document.querySelectorAll('.js-slide-all');
+
+            slideAllCont.forEach(slideAll => {
+                let allElements = slideAll.querySelectorAll('*');
+                allElements.forEach(element => {
+                    element.classList.add('js-slide-in');
+                    element.classList.add('slideInSingle');
+                })
+            });
+
+            let slideInElem = document.querySelectorAll('.js-slide-in');
+
+            function addAnimationClass() {
+                slideInElem.forEach(container => {
+                    let children = container.children.length;
+                    container.classList.add('slideIn-' + children);
+                });
+            }
+
+            addAnimationClass();
+
+            function inView(elements) {
+                elements.forEach(element => {
+
+                    const slideInAt = window.scrollY + window.innerHeight - element.offsetHeight / 2,
+                        slideBottom = element.offsetTop + element.offsetHeight,
+                        isHalfShown = slideInAt > element.offsetTop,
+                        isNotScrolledPast = window.scrollY < slideBottom;
+
+                    if (isHalfShown && isNotScrolledPast) {
+                        element.classList.add('active');
+                    } else {
+                        element.classList.remove('active');
+                    }
+                })
+            }
+
+            if (slideInElem) {
+                inView(slideInElem);
+
+                window.addEventListener('scroll', function() {
+                    inView(slideInElem);
+                });
+            }
+
+        </script>
+
+</body>
+
+</html>

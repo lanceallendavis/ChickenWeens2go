@@ -1,0 +1,32 @@
+#customers {
+    margin-top: -12px;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#customers td,
+#customers th {
+    border: 1px solid #e6dedd;
+    padding: 8px;
+}
+
+#customers tr:nth-child(even) {
+    background-color: #fff;
+}
+
+#customers tr:hover {
+    background-color: #ac3f21;
+}
+
+#customers th {
+    padding-top: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding-bottom: 12px;
+    border-radius: 3px;
+    padding: 25px 30px;
+    text-align: left;
+    font-size: 14px;
+    background-color: #f89d13;
+    color: white;
+}
