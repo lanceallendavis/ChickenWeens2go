@@ -26,7 +26,7 @@ if (@mysqli_num_rows($result) == 1) {//if one database row (record) matches the 
 session_start();
 $_SESSION = mysqli_fetch_array($result, MYSQLI_ASSOC);
 // Use a ternary operation to set the URL #4
-$url = ($_SESSION['role'] === 'admin') ? 'admin-page.php' : 'customer-page.php';
+$url = ($_SESSION['role'] === 'admin') ? 'admin-page.php' : 'user-page.php';
 header('Location: ' . $url); // Make the browser load either the members’ or the admin page
 exit(); // Cancel the rest of the script
  mysqli_free_result($result);

@@ -29,11 +29,16 @@ if(!isset($_SESSION['role']) or ($_SESSION['role'] !== 'user')){
                 <section class="color-7">
                     <nav class="cl-effect-4" style="height: 1px; ">
                         <img class="logo-img" src="images/sojubtry.png" style="margin-left: 90px; margin-top: -5px;" width="210" height="80" ALT="align box" ALIGN=CENTER>
-                        <a href="#" style="margin-left: 300px;">HOME</a>
-                        <a href="orders.html">ORDERED</a>
-                        <a href="delivereduser.html">DELIVERED ORDER</a>
-                        <a href="#">WELCOME, <?php echo $_SESSION['first_name']; ?></a>
+                        <a href="user-page.php" style="margin-left: 370px;">HOME</a>
+                        <a href="orders.php">ORDERED</a>
+                        <div class="dropdown">
+                        <a href=#>WELCOME, <?php echo $_SESSION['first_name']; ?></a>
+                        <div class="dropdown-content">
+                        <a href="user-profile.php">Profile</a>
+                        <a href="delivereduser.php">HISTORY</a>
                         <a href="logout.php">LOGOUT</a>
+                      </div>
+                    </div>
                     </nav>
                 </section>
             </div>

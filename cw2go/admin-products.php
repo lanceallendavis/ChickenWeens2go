@@ -22,8 +22,7 @@ $products_result = mysqli_query($db_connect, $list_products);
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="admin.html"><img src="images/sojubtry.png" alt="Logo" style="margin-top: 10px;"></a>
-            </div>
+                <a class="navbar-brand" href="admin-page.php"><img src="images/sojubtry.png" alt="Logo" style="margin-top: 10px;"></a>
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
@@ -34,12 +33,8 @@ $products_result = mysqli_query($db_connect, $list_products);
                     <li class="menu-item-has-children dropdown">
                         <a href="admin-userslist.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Regular Users</a>
                     </li>
-                    <h3 class="menu-title"></h3>
                     <li class="menu-item-has-children dropdown">
-                        <a href="admin-products.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Regular Users</a>
-                    </li>
-                    <li class="menu-item-has-children dropdown">
-                        <a href="forms-advanced.html" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Accepted Order</a>
+                        <a href="admin-products.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Edit Products</a>
                     </li>
                     <h3 class="menu-title">Orders</h3>
                     <li class="menu-item-has-children dropdown">
@@ -145,7 +140,7 @@ $products_result = mysqli_query($db_connect, $list_products);
                 </div>
         </div>
         </header>
-        <table>
+        <table id="customers" >
         <tr>
           <form action="./includes/products.inc.php" method="post">
             <input type='hidden' name='action' value='addProduct'>
@@ -158,15 +153,15 @@ $products_result = mysqli_query($db_connect, $list_products);
           </form>
         </tr>
         <tr>
-          <td><b>Product ID</b></td>
-          <td><b>Product Name</b></td>
-          <td><b>Type</b></td>
-          <td><b>Description</b></td>
-          <td><b>Price</b></td>
-          <td><b>Availability</b></td>
-          <td><b>Date Added</b></td>
-          <td><b>DELETE</b></td>
-          <td><b>EDIT</b></td>
+          <th><b>Product ID</b></th>
+          <th style="width: 10%;"><b>Product Name</b></th>
+          <th><b>Type</b></th>
+          <th><b>Description</b></th>
+          <th><b>Price</b></th>
+          <th><b>Availability</b></th>
+          <th><b>Date Added</b></th>
+          <th><b>DELETE</b></th>
+          <th><b>EDIT</b></th>
         </tr>
       <?php
         if($products_result){

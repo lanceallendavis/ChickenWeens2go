@@ -1,458 +1,245 @@
-<?php
-  require('./includes/mysqli_connect.php');
-  require('./includes/register.php');
-  require('./includes/login.php');
-?>
-<!doctype html>
+<!DOCTYPE html>
 <html>
+
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<?php include('./includes/styles.html'); ?>
-    <title>Chicken Ween's 2Go - Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Home - Brand</title>
+    <link rel="stylesheet" href="userasset/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic">
+    <link rel="stylesheet" href="userasset/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Black+Han+Sans">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="userasset/css/Carousel-Hero.css">
+    <link rel="stylesheet" href="userasset/css/Header-Blue.css">
+    <link rel="stylesheet" href="userasset/css/Highlight-Blue.css">
+    <link rel="stylesheet" href="userasset/css/Highlight-Phone.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+    <link rel="stylesheet" href="userasset/css/Dynamically-Queue-Videos.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="userasset/css/MUSA_carousel-product-cart-slider-1.css">
+    <link rel="stylesheet" href="userasset/css/Pretty-Footer.css">
+    <link rel="stylesheet" href="userasset/css/NMDIG-Testimonials.css">
 </head>
-<body>
-    <div id="container">
-        <header>
-            <div class="container">
-                <!-- Top Navigation -->
-                <section class="color-7">
-                    <nav class="cl-effect-4">
-                        <img class="logo-img" src="images/sojubtry.png" style="margin-left: 90px; margin-top: -5px;" width="210" height="80" ALT="align box" ALIGN=CENTER>
-                        <a href="#login" id="openlogin" style="margin-right: 100px;">Login</a>
-                        <a href="#register">Register</a>
-                        <a href="#">Contact</a>
-                        <a href="#">Menu</a>
-                        <a href="#">About</a>
-                    </nav>
-                </section>
-            </div>
-        </header>
-        <form action='index.php' method='post'>
-        <input type='hidden' name='action' value='login'>
-        <aside id="login" class="login">
-            <div class="loginContainer">
-                <header>
-                    <a href="#!" class="closelogin" style="margin-top: -65px;">X</a>
-                </header>
-                <article><br>
-                    <center><img src="images/Wings%20only%20logo%20.png" style="height: 120px; width: 120px;"></center>
-                    <h3 data-scroll-reveal style="font-family: 'Staatliches', cursive; color: #ac3f21; font-size: 22px; text-align: center;">Wanna order?</h3>
-                    <h2 data-scroll-reveal style="font-family: 'Anonymous Pro', monospace; letter-spacing: 4px; color: #f89d13; margin-top: -20px; text-align: center;">Login Now!</h2>
-                    <?php if($login_errors) foreach($login_errors as $login_errorlist){ echo '<h3>'. $login_errorlist . '</h3>';} ?>
-                    <div class="col-xs-12">
-                        <div class="styled-input wide" style="width: 300px; margin-left: 110px; ">
-                            <input type="text" name='username' required />
-                            <label>Username</label>
-                        </div>
-                    </div>
-                    <div class="col-xs-12">
-                        <div class="styled-input wide" style="width: 300px;margin-left: 110px; ">
-                            <input type="password" name='password' required />
-                            <label>Password</label>
-                        </div>
-                    </div>
-                    <div class="button-group" style="margin-top: 190px; margin-left: 260px;">
-                        <a href="#register" id="openregister" style="text-decoration:none; ">
-                            <h3 data-scroll-reveal style="font-family: 'Lato', sans-serif;  color: #ac3f21; font-size: 12px;margin-left: -150px">Don't have an account?</h3>
-                        </a>
-                        <button class="btn-overlay" type='submit'>
-                            <span>LOGIN</span>
-                        </button>
-                    </div>
-                </article>
-            </div>
-            <a href="#!" class="closeloginOutSide"></a>
-        </aside>
-      </form>
-<!-- REGISTER -->
-  <form action="index.php" method="post">
-  <input type='hidden' name='action' value='register'>
-        <aside id="register" class="register">
-            <div class="registerContainer">
-                <header>
-                    <a href="#!" class="closeregister" style="margin-top: -65px;">X</a>
-                </header>
-                <article><br>
-                    <center><img src="images/Wings%20only%20logo%20.png" style="height: 120px; width: 120px; margin-top: -15px;"></center>
-                    <h3 data-scroll-reveal style="font-family: 'Staatliches', cursive; color: #ac3f21; font-size: 22px; text-align: center;">Wanna order?</h3>
-                    <h2 data-scroll-reveal style="font-family: 'Anonymous Pro', monospace; letter-spacing: 4px; color: #f89d13; margin-top: -20px; text-align: center;">REGISTER NOW</h2>
-                   <?php if($errors) foreach($errors as $errorlist){ echo '<h3>'. $errorlist . '</h3>';} ?>
-                    <div class="col-xs-12">
-                        <div class="styled-input wide" style="width: 350px;margin-left: 80px;">
-                          <input id="username" type="text" name="username" size="32" maxlength="32" value="<?php if (isset($_POST['username'])) echo $_POST['username']; ?>"  required ></p>
-                            <label>Username</label>
-                        </div>
-                    </div>
 
-                    <div class="col-xs-12">
-                        <div class="styled-input wide" style="width: 350px; margin-left: 80px;">
-                          <input id="firstName" type="text" name="firstName" size="32" maxlength="32" value="<?php if (isset($_POST['firstName'])) echo $_POST['firstName']; ?>"  required ></p>
-                            <label>First Name</label>
-                        </div>
-                    </div>
-                    <div class="col-xs-12">
-                        <div class="styled-input wide" style="width: 350px; margin-left: 80px;">
-                          <input id="lastName" type="text" name="lastName" size="32" maxlength="32" value="<?php if (isset($_POST['lastName'])) echo $_POST['lastName']; ?>"  required ></p>
-                            <label>Last Name</label>
-                        </div>
-                    </div>
-                    <div class="col-xs-12">
-                        <div class="styled-input wide" style="width: 350px; margin-left: 80px;">
-                          <input id="email" type="text" name="email" size="32" maxlength="64" value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>"  required > </p>
-                            <label>E-Mail</label>
-                        </div>
-                    </div>
-                    <div class="col-xs-12">
-                        <div class="styled-input wide" style="width: 350px; margin-left: 80px;">
-                          <input id="address" type="text" name="address" size="32" maxlength="254" value="<?php if (isset($_POST['address'])) echo $_POST['address']; ?>"  required > </p>
-                            <label>Address</label>
-                        </div>
-                    </div>
-                    <div class="col-xs-12">
-                        <div class="styled-input wide" style="width: 350px; margin-left: 80px;">
-                          <input id="password" type="password" name="password" size="32" maxlength="32" value="<?php if (isset($_POST['password'])) echo $_POST['password']; ?>"  required ></p>
-                            <label>Password</label>
-                        </div>
-                    </div>
-                    <div class="col-xs-12">
-                        <div class="styled-input wide" style="width: 350px; margin-left: 80px;">
-                          <input id="repeatPass" type="password" name="repeatPass" size="32" maxlength="32" value="<?php if (isset($_POST['password'])) echo $_POST['password']; ?>"  required ></p>
-                            <label>Confirm Password</label>
-                        </div>
-                    </div>
-                    <div class="button-group" style="margin-top: 190px; margin-left: 260px;"><br><br>
-                        <a href="#login" id="openlogin" style="text-decoration:none; ">
-                            <h3 data-scroll-reveal style="font-family: 'Lato', sans-serif;  color: #ac3f21; font-size: 12px;margin-left: -150px">Already have an account?</h3>
-                        </a>
-                        <button class="btn-overlay" type="submit">
-                          <span>Register</span>
-
-                        </button>
-                        </form>
-                    </div>
-
-                </article>
-            </div>
-            <a href="#!" class="closewoopOutSide"></a>
-        </aside>
-        <!-- Slider -->
-
-        <section class="hero image-as-background" style="background-image: url('images/chickenhero.jpg');">
-            <div class="hero-container">
-                <div style="height: 110px;"></div><br>
-                <p class="animate fadeInLeft delay-400" style="font-family: 'Staatliches', cursive;font-size: 19px; margin-left: 20px; ">Welcome to Chicken Ween's 2go</p>
-                <h1 class="hero-title animate fadeInLeft delay-600" style=" font-family: 'Lato', sans-serif; margin-left: 20px; font-size: 16px; text-align: left;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere lacinia nulla in pulvinar. Vivamus in volutpat justo. Suspendisse potenti. Mauris quis justo non ex dictum porta et sit amet massa. Vestibulum mauris tortor</h1><br><br>
-                <a href="#" class="hero-button animate fadeInLeft delay-800" title="Click to see more" style="margin-left: 20px; ">See more</a>
-            </div>
-        </section>
-        <!-- About Us -->
-        <div style="height: 600px; background-color: #fff4e3">
-            <section class="about" id="about">
-                <div class="container-fluid wrapper" data-scroll-reveal>
-                    <img class="about__image" style="margin-left: 90px;" src="http://www.jamesarc.com/work/steakville/assets/img/about-1.jpg">
-                    <img class="about__image" src="http://www.jamesarc.com/work/steakville/assets/img/about-2.jpg">
-                    <div class="about__box"></div>
-                    <div class="about__wrapper">
-                        <h3 data-scroll-reveal style="font-family: 'Staatliches', cursive; color: #ac3f21; font-size: 22px;">Know more</h3>
-                        <h2 data-scroll-reveal style="font-family: 'Anonymous Pro', monospace; letter-spacing: 4px; color: #f89d13; margin-top:-10px; ">About us</h2>
-                        <p style="margin-top:10px;">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere lacinia nulla in pulvinar. Vivamus in volutpat justo. Suspendisse potenti. Mauris quis justo non ex dictum porta et sit amet massa. Vestibulum mauris.
-                        </p>
-                    </div>
-                </div>
-            </section>
-        </div>
-        <!--Menu-->
-        <div class="parallax">
-            <section class="menu parallax" id="menu">
-                <div class="container-fluid wrapper">
-                    <h3 data-scroll-reveal style="font-family: 'Staatliches', cursive; color: #ac3f21; font-size: 22px;">Chicken Ween's 2go</h3>
-                    <h2 data-scroll-reveal style="font-family: 'Anonymous Pro', monospace; letter-spacing: 4px; color: #f89d13; margin-top: -10px;">Chicken Menu</h2>
-                    <p data-scroll-reveal style="margin-top:20px; color: #e6dedd">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea .
-                    </p><br>
-                    <figure class="snip1573">
-                        <img src="images/Classic%20Honey%20Patis.jpg" alt="honey" />
-                        <figcaption>
-                            <h3>Buy Now</h3>
-                        </figcaption>
-                        <a href="#"></a>
-                    </figure>
-                    <figure class="snip1573">
-                        <img src="images/Buffalo%20(IG%20Post).jpg" alt="buffalo" />
-                        <figcaption>
-                            <h3>Buy Now</h3>
-                        </figcaption>
-                        <a href="#"></a>
-                    </figure>
-                    <figure class="snip1573"><img src="images/Korean%20(IG%20Post).jpg" alt="korean" />
-                        <figcaption>
-                            <h3>Buy Now</h3>
-                        </figcaption>
-                        <a href="#"></a>
-                    </figure>
-                </div>
-            </section>
-        </div>
-
-        <!-- Opening Hours -->
-        <section class="opening">
-            <div class="container-fluid wrapper">
-                <h2 data-scroll-reveal style="font-family: 'Anonymous Pro', monospace; letter-spacing: 4px; color: #f89d13; margin-top: -5px;">Opening Hours</h2>
-                <div class="opening__wrapper" data-scroll-reveal style=" margin-top: 20px;">
-                    <div class="opening__image" style="background-image: url('http://www.jamesarc.com/work/steakville/assets/img/opening.jpg');"></div>
-                    <div class="opening__hours">
-                        <span style="font-family: 'Staatliches', cursive; color: #ac3f21; font-size: 18px; letter-spacing: 3px;">Dinner:</span>
-                        <p style="color: #1b120f">
-                            Tuesday to Saturday <br class="d-none d-md-block d-xl-none">5.30 pm til 9.00 pm<br>
-                            Bank Holiday Sundays <br class="d-none d-md-block d-xl-none">6pm til 9pm
-                        </p>
-                        <span style="font-family: 'Staatliches', cursive; color: #ac3f21; font-size: 18px; letter-spacing: 3px; margin-top: 5px;">Lunch:</span>
-                        <p style="color: #1b120f">
-                            Friday 12.30 til 2.30 pm<br>
-                            Sunday 12.30 til 4 pm
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!--Order Now-->
-        <section class="menu" id="menu">
-            <div class="container-fluid wrapper">
-                <h3 data-scroll-reveal style="font-family: 'Staatliches', cursive; color: #ac3f21; font-size: 22px; margin-top: -10px;">Place your</h3>
-                <h2 data-scroll-reveal style="font-family: 'Anonymous Pro', monospace; letter-spacing: 4px; color: #f89d13; margin-top: -10px;">Order Now</h2>
-                <p data-scroll-reveal style="margin-top:10px; color: #e6dedd">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea .
-                </p><br><br>
-                <a href="#" class="hero-button animate fadeInLeft delay-800" title="Click to see more" style="margin-left: 20px; ">Place Order</a><br>
-            </div>
-        </section>
-        <!--Testimonial-->
-        <div style="background-color: #e6dedd; height: 350px;"><br>
-            <div class="carrousel">
-                <h3 data-scroll-reveal style="font-family: 'Staatliches', cursive; color: #ac3f21; font-size: 22px;">Chicken Ween's 2go</h3>
-                <h2 data-scroll-reveal style="font-family: 'Anonymous Pro', monospace; letter-spacing: 4px; color: #f89d13; margin-top: -5px;">What people says about us?</h2>
-                <input type="radio" name="slides" id="radio-1" checked>
-                <input type="radio" name="slides" id="radio-2">
-                <input type="radio" name="slides" id="radio-3">
-                <input type="radio" name="slides" id="radio-4">
-                <ul class="slides">
-                    <li class="slide">
-                        <p>
-                            <q>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc fringilla, velit laoreet tempor convallis, metus tortor porta justo, et consectetur lacus sapien eu arcu. </q>
-                            <span class="author">
-                                <img src="images/aboutus.jpg">
-                                JR Tolkien
-                            </span>
-                        </p>
-                    </li>
-                    <li class="slide">
-                        <p>
-                            <q>He Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc fringilla, velit laoreet tempor convallis, metus tortor porta justo, et consectetur lacus sapien eu arcu. </q>
-                            <span class="author">
-                                <img src="images/aboutus.jpg">
-                                Sinatra
-                            </span>
-                        </p>
-                    </li>
-                    <li class="slide">
-                        <p>
-                            <q>This consectetur adipiscing elit. Nunc fringilla, velit laoreet tempor convallis, metus tortor porta justo, et consectetur lacus sapien eu arcu. </q>
-                            <span class="author">
-                                <img src="images/aboutus.jpg">
-                                Alf
-                            </span>
-                        </p>
-                    </li>
-                    <li class="slide">
-                        <p>
-                            <q>This is awesome.Nunc fringilla, velit laoreet tempor convallis, metus tortor porta justo, et consectetur lacus sapien eu arcu.</q>
-                            <span class="author">
-                                <img src="images/aboutus.jpg">
-                                The octocat
-                            </span>
-                        </p>
-                    </li>
+<body id="page-top">
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top text-center" id="mainNav" style="height: 98px;background-color: #1b120f;">
+        <div class="container"><a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="userasset/img/sojubtry.png" style="height: 81px;width: 217px;margin-left: 28px;"></a><button class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target="#navbarResponsive"
+                type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" style="background-color: rgba(78,69,18,0);color: rgba(255,255,255,0.5);"><i class="fa fa-align-justify"></i></button>
+            <div class="collapse navbar-collapse"
+                id="navbarResponsive" style="color: rgb(230,222,221);">
+                <ul class="nav navbar-nav ml-auto" style="background-color: rgba(27,18,15,0.85);">
+                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="#services" style="color: rgb(230,222,221);">About</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="#portfolio" style="color: rgb(230,222,221);">PORTFOLIO</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="#contact" style="color: rgb(230,222,221);">Contact</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="login.php" style="color: rgb(230,222,221);">LOGIN</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="register.php" style="color: rgb(230,222,221);">REGISTER</a></li>
                 </ul>
-                <div class="slidesNavigation">
-                    <label for="radio-1" id="dotForRadio-1"></label>
-                    <label for="radio-2" id="dotForRadio-2"></label>
-                    <label for="radio-3" id="dotForRadio-3"></label>
-                    <label for="radio-4" id="dotForRadio-4"></label>
+            </div>
+        </div>
+    </nav>
+    <div class="carousel slide" data-ride="carousel" id="carousel-1">
+        <div class="carousel-inner" role="listbox">
+            <div class="carousel-item active">
+                <div class="jumbotron hero-nature carousel-hero" style="height: 646px;background-image: url(&quot;userasset/img/chickenhero.jpg&quot;);filter: brightness(95%) contrast(92%);">
+                    <h1 class="hero-title" style="margin-top: 203px;font-family: 'Black Han Sans', sans-serif;color: rgb(230,222,221);">Are you hungry?</h1>
+                    <p class="hero-subtitle" style="font-family: Lato, sans-serif;font-size: 20px;margin-top: -23px;"><br>This above all: to thine own self be true, &nbsp;And it must follow, as the night the day, &nbsp;Thou canst not then be false to any man.<br><br></p>
+                    <p><a class="btn btn-primary btn-lg hero-button" role="button" href="#" data-bs-hover-animate="tada" style="font-size: 18px;">Learn more</a></p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="jumbotron hero-photography carousel-hero" style="height: 646px;background-image: url(&quot;userasset/img/herocover2.jpg&quot;);">
+                    <h1 class="hero-title" style="margin-top: 203px;font-family: 'Black Han Sans', sans-serif;color: rgb(230,222,221);">Are you hungry?</h1>
+                    <p class="hero-subtitle" style="font-family: Lato, sans-serif;font-size: 20px;margin-top: -23px;"><br>This above all: to thine own self be true, &nbsp;And it must follow, as the night the day, &nbsp;Thou canst not then be false to any man.<br><br></p>
+                    <p><a class="btn btn-primary btn-lg hero-button" role="button" href="#">Learn more</a></p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="jumbotron hero-technology carousel-hero" style="height: 646px;background-image: url(&quot;userasset/img/herocover3.jpg&quot;);">
+                    <h1 class="hero-title" style="margin-top: 203px;font-family: 'Black Han Sans', sans-serif;color: rgb(230,222,221);">Are you hungry?</h1>
+                    <p class="hero-subtitle" style="font-family: Lato, sans-serif;font-size: 20px;margin-top: -23px;"><br>This above all: to thine own self be true, &nbsp;And it must follow, as the night the day, &nbsp;Thou canst not then be false to any man.<br><br></p>
+                    <p><a class="btn btn-primary btn-lg hero-button" role="button" href="#">Learn more</a></p>
                 </div>
             </div>
         </div>
-        <!-- Footer -->
-        <div class="tracks">
-            <div></div>
-            <div class="js-slide-in strip strip--blue" style="background-color: #1b120f">
-                <p style="font-family: 'Staatliches', cursive; color: #ac3f21; font-size: 22px; text-align: center;"> REACH US </p>
-                <h2 style="font-family: 'Anonymous Pro', monospace; letter-spacing: 4px; color: #f89d13; margin-top: -2px; text-align: center;">CONTACTS</h2>
-                <hr style="margin-top: 10px;">
-            </div>
-        </div>
-        <div class="ulit">
-            <div></div>
-            <div>
-                <div class="row input-container" style="margin-left: 55px; margin-top: 30px;">
-                    <div class="col-xs-12">
-                        <div class="styled-input wide">
-                            <input type="text" required />
-                            <label>Name</label>
-                        </div>
-                    </div>
-                    <div class="col-xs-12">
-                        <div class="styled-input wide">
-                            <input type="text" required />
-                            <label>Email</label>
-                        </div>
-                    </div>
-
-                    <div class="col-xs-12">
-                        <div class="styled-input wide">
-                            <textarea required></textarea>
-                            <label>Message</label>
-                        </div>
-                    </div>
-                    <div class="button-group" style="margin-left: 255px;">
-                        <button class="btn-overlay">
-                            <span>Send Message</span>
-                        </button>
-                    </div>
-
-                </div>
-            </div>
-            <div>
-                <div style="font-family: 'Yanone Kaffeesatz', sans-serif; color: #c2b396; font-size: 25px; padding-top: 35px; padding-left: 95px;">
-                    <img src="images/Wings%20only%20logo%20.png" style="margin-left: 70px; width: 50%;">
-                    <div class="lalagyan" style="font-family: 'Staatliches', cursive; color: #f89d13; font-size: 22px; text-align: center; letter-spacing: 2px;">
-                        Chicken Ween's 2go</div>
-                    <br>
-
-                    <div class="lalagyan" style="font-family: 'Lato', sans-serif; color: #e6dedd; font-size: 19px; text-align: center;">
-                        11th Flr. Common Goal Tower Bldg.
-                        Madrigal Business Park
-                        Alabang, Muntinlupa City, Philippines
-                        Email us: info@bootleg-radio.com</div>
-                </div>
-            </div>
-            <div>
-                <div class="lalagyan" style="font-family: 'Staatliches', cursive;color: #ac3f21; font-size: 22px; padding-top: 95px; padding-left: 35px;">
-                    For event sponsorships: </div>
-                <div class="lalagyan" style="font-family: 'Lato', sans-serif; color: #e6dedd; font-size: 19px; padding-left: 35px;">
-                    Please send proposals to sales<br>
-                    <i class="far fa-envelope"></i> bootleg-radio.com</div>
-                <div class="lalagyan" style="font-family: 'Staatliches', cursive; color: #ac3f21; font-size: 22px; padding-top: 35px; padding-left: 35px;">
-                    To promote your products in Bootleg-Radio.com's site, please contact our sales group: </div>
-                <div class="lalagyan" style="font-family: 'Lato', sans-serif; color: #e6dedd; font-size: 19px; padding-left: 35px;">
-                    <i class="fas fa-phone-volume"></i> +63 (2) 772-3152 / 5859670
-                    <br> <i class="fas fa-mobile-alt"></i> +63 (2) 771-0143
-                    <br><i class="far fa-envelope"></i> sales@bootleg-radio.com</div>
-
-            </div>
-            <div></div>
-        </div>
-
-        <!--JAVASCRIPT-->
-        <script>
-            let slideAllCont = document.querySelectorAll('.js-slide-all');
-
-            slideAllCont.forEach(slideAll => {
-                let allElements = slideAll.querySelectorAll('*');
-                allElements.forEach(element => {
-                    element.classList.add('js-slide-in');
-                    element.classList.add('slideInSingle');
-                })
-            });
-
-            let slideInElem = document.querySelectorAll('.js-slide-in');
-
-            function addAnimationClass() {
-                slideInElem.forEach(container => {
-                    let children = container.children.length;
-                    container.classList.add('slideIn-' + children);
-                });
-            }
-
-            addAnimationClass();
-
-            function inView(elements) {
-                elements.forEach(element => {
-
-                    const slideInAt = window.scrollY + window.innerHeight - element.offsetHeight / 2,
-                        slideBottom = element.offsetTop + element.offsetHeight,
-                        isHalfShown = slideInAt > element.offsetTop,
-                        isNotScrolledPast = window.scrollY < slideBottom;
-
-                    if (isHalfShown && isNotScrolledPast) {
-                        element.classList.add('active');
-                    } else {
-                        element.classList.remove('active');
-                    }
-                })
-            }
-
-            if (slideInElem) {
-                inView(slideInElem);
-
-                window.addEventListener('scroll', function() {
-                    inView(slideInElem);
-                });
-            }
-
-        </script>
-
-        <script>
-            /**
-             * Hero fade transition
-             */
-            window.HeroFade_Object = {};
-            (function(window, $, that) {
-
-                // Constructor.
-                that.init = function() {
-                    that.cache();
-
-                    if (that.meetsRequirements) {
-                        that.bindEvents();
-                    }
-                };
-
-                // Cache all the things.
-                that.cache = function() {
-                    that.$c = {
-                        window: $(window),
-                        heroSelector: $('.hero'),
-                    };
-                };
-
-                // Combine all events.
-                that.bindEvents = function() {
-                    that.$c.window.on('load', that.doHero);
-                };
-
-                // Do we meet the requirements?
-                that.meetsRequirements = function() {
-                    return that.$c.heroSelector.length;
-                };
-
-                // Watch the user scroll position and fade the hero
-                that.doHero = function() {
-                    $(window).scroll(function() {
-                        // transition the fade by dividing div height & opacity
-                        $(".hero").css("opacity", 1 - $(window).scrollTop() / $('.hero').height());
-                    });
-                };
-
-                // Engage!
-                $(that.init);
-
-            })(window, jQuery, window.HeroFade_Object);
-
-        </script>
+        <div><a class="carousel-control-prev" href="#carousel-1" role="button" data-slide="prev"><i class="fa fa-chevron-left"></i><span class="sr-only">Previous</span></a><a class="carousel-control-next" href="#carousel-1" role="button" data-slide="next"><i class="fa fa-chevron-right"></i><span class="sr-only">Next</span></a></div>
+        <ol
+            class="carousel-indicators">
+            <li data-target="#carousel-1" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-1" data-slide-to="1"></li>
+            <li data-target="#carousel-1" data-slide-to="2"></li>
+            </ol>
     </div>
+    <section id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 data-aos="fade-up" data-aos-duration="350" data-aos-delay="150" class="section-heading" style="font-family: 'Black Han Sans', sans-serif;color: rgb(248,157,19);filter: brightness(81%);opacity: 0.98;font-weight: normal;letter-spacing: 6px;">About Us</h2>
+                    <hr class="my-4" style="margin-left: 531px;">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-lg-3 text-center" data-bs-hover-animate="pulse">
+                    <div class="mx-auto service-box mt-5"><i class="fa fa-lightbulb-o fa-4x text-primary mb-3 sr-icons" data-aos="zoom-in" data-aos-duration="200" data-aos-once="true"></i>
+                        <h3 class="mb-3" style="font-family: Roboto, sans-serif;color: rgb(248,157,19);">Know more</h3>
+                        <p class="text-muted mb-0" style="font-family: Lato, sans-serif;font-size: 17px;color: rgb(27,18,15);filter: brightness(45%);">Chicken Ween's 2go makes a chicken flavored wings in different classes</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 text-center" data-bs-hover-animate="pulse">
+                    <div class="mx-auto service-box mt-5"><i class="fa fa-mouse-pointer fa-4x text-primary mb-3 sr-icons" data-aos="zoom-in" data-aos-duration="200" data-aos-delay="200" data-aos-once="true"></i>
+                        <h3 class="mb-3" style="color: rgb(248,157,19);">Order Online</h3>
+                        <p class="text-muted mb-0" style="filter: brightness(45%);color: rgb(27,18,15);font-family: Lato, sans-serif;font-size: 17px;">Chicken Ween's 2 go are taking it to the next step order online now easily.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 text-center" data-bs-hover-animate="pulse">
+                    <div class="mx-auto service-box mt-5"><i class="fa fa-paper-plane-o fa-4x text-primary mb-3 sr-icons" data-aos="zoom-in" data-aos-duration="200" data-aos-delay="400" data-aos-once="true"></i>
+                        <h3 class="mb-3" style="color: rgb(248,157,19);">Ready to Ship</h3>
+                        <p class="text-muted mb-0" style="color: rgb(27,18,15);filter: brightness(45%);font-family: Lato, sans-serif;font-size: 17px;">We want to serve you with our classic food in front of your door in no time</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 text-center" data-bs-hover-animate="pulse">
+                    <div class="mx-auto service-box mt-5"><i class="fa fa-heart fa-4x text-primary mb-3 sr-icons" data-aos="fade" data-aos-duration="200" data-aos-delay="600" data-aos-once="true"></i>
+                        <h3 class="mb-3" style="color: rgb(248,157,19);">Made with Love</h3>
+                        <p class="text-muted mb-0" style="filter: brightness(45%);color: rgb(27,18,15);font-size: 17px;font-family: Lato, sans-serif;">We serve every chicken with love. A gurantee taste that you won't regret.&nbsp;</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="portfolio" class="p-0">
+        <div class="container-fluid p-0">
+            <div class="row no-gutters popup-gallery">
+                <div class="col-sm-6 col-lg-4"><a href="userasset/img/fullsize/1.jpg" class="portfolio-box"><img class="img-fluid" src="userasset/img/ck1.jpg"><div class="portfolio-box-caption"><div class="portfolio-box-caption-content"><div class="project-category text-faded"><span>Category</span></div><div class="project-name"><span>Project Name</span></div></div></div></a></div>
+                <div
+                    class="col-sm-6 col-lg-4"><a href="userasset/img/fullsize/2.jpg" class="portfolio-box"><img class="img-fluid" src="userasset/img/ck2.jpg"><div class="portfolio-box-caption"><div class="portfolio-box-caption-content"><div class="project-category text-faded"><span>Category</span></div><div class="project-name"><span>Project Name</span></div></div></div></a></div>
+            <div
+                class="col-sm-6 col-lg-4"><a href="userasset/img/fullsize/3.jpg" class="portfolio-box"><img class="img-fluid" src="userasset/img/ck3.jpg"><div class="portfolio-box-caption"><div class="portfolio-box-caption-content"><div class="project-category text-faded"><span>Category</span></div><div class="project-name"><span>Project Name</span></div></div></div></a></div>
+        <div
+            class="col-sm-6 col-lg-4"><a href="userasset/img/fullsize/4.jpg" class="portfolio-box"><img class="img-fluid" src="userasset/img/ck4.jpg"><div class="portfolio-box-caption"><div class="portfolio-box-caption-content"><div class="project-category text-faded"><span>Category</span></div><div class="project-name"><span>Project Name</span></div></div></div></a></div>
+            <div
+                class="col-sm-6 col-lg-4"><a href="userasset/img/fullsize/5.jpg" class="portfolio-box"><img class="img-fluid" src="userasset/img/ck5.jpg"><div class="portfolio-box-caption"><div class="portfolio-box-caption-content"><div class="project-category text-faded"><span>Category</span></div><div class="project-name"><span>Project Name</span></div></div></div></a></div>
+                <div
+                    class="col-sm-6 col-lg-4"><a href="userasset/img/fullsize/6.jpg" class="portfolio-box"><img class="img-fluid" src="userasset/img/ck6.jpg"><div class="portfolio-box-caption"><div class="portfolio-box-caption-content"><div class="project-category text-faded"><span>Category</span></div><div class="project-name"><span>Project Name</span></div></div></div></a></div>
+                    </div>
+                    </div>
+    </section>
+    <div class="testimonials-clean" style="padding-top: 32px;background-color: rgb(230,222,221);height: 601px;">
+        <div class="container">
+            <div class="intro">
+                <h2 class="text-center" data-aos="fade-up" data-aos-duration="350" data-aos-delay="150" style="font-family: 'Black Han Sans', sans-serif;letter-spacing: 6px;color: rgb(248,157,19);">Testimonials </h2>
+                <p class="text-center" style="padding-top: -36px;margin-bottom: 14px;">Our customers love us! Read what they have to say below. Aliquam sed justo ligula. Vestibulum nibh erat, pellentesque ut&nbsp;</p>
+            </div>
+            <div class="row people" style="background-color: #f89d13;">
+                <div class="col-md-6 col-lg-4 item" data-bs-hover-animate="swing" style="background-color: #f89d13;">
+                    <div class="box">
+                        <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est.</p>
+                    </div>
+                    <div class="author"><img class="rounded-circle" src="userasset/img/1.jpg">
+                        <h5 class="name">Ben Johnson</h5>
+                        <p class="title">CEO of Company Inc.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 item" data-bs-hover-animate="swing">
+                    <div class="box">
+                        <p class="description">Praesent aliquam in tellus eu gravida. Aliquam varius finibus est, et interdum justo suscipit id.</p>
+                    </div>
+                    <div class="author"><img class="rounded-circle" src="userasset/img/3.jpg">
+                        <h5 class="name">Carl Kent</h5>
+                        <p class="title">Founder of Style Co.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 item" data-bs-hover-animate="swing">
+                    <div class="box">
+                        <p class="description">Aliquam varius finibus est, et interdum justo suscipit. Vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu.</p>
+                    </div>
+                    <div class="author"><img class="rounded-circle" src="userasset/img/2.jpg">
+                        <h5 class="name">Emily Clark</h5>
+                        <p class="title">Owner of Creative Ltd.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="highlight-blue" style="background-color: rgb(27,18,15);">
+        <div class="container">
+            <div class="intro">
+                <h2 class="text-center" data-aos="fade-up" data-aos-duration="350" data-aos-delay="150" style="font-family: 'Black Han Sans', sans-serif;color: rgb(248,157,19);letter-spacing: 6px;">Order Now!</h2>
+                <p class="text-center" style="font-family: Lato, sans-serif;font-size: 19px;">Make an order now and have your own choice of different kind of flavored chicken in Chicken Ween's 2go.</p>
+            </div>
+            <div class="buttons"><a class="btn btn-primary" role="button" href="#" data-bs-hover-animate="tada">REGISTER</a></div>
+        </div>
+    </div>
+    <section id="contact" style="background-color: #e6dedd;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 data-aos="fade-up" data-aos-duration="350" data-aos-delay="150" class="section-heading" style="font-family: 'Black Han Sans', sans-serif;color: rgb(248,157,19);">Let's Get In Touch!</h2>
+                    <hr class="d-xl-flex justify-content-xl-center my-4" style="margin-left: 342px;">
+                    <p class="mb-5" style="font-family: Lato, sans-serif;font-size: 19px;">Do you have any question? Give us a call or send us an email and we will get back to you as soon as possible!</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 ml-auto text-center" data-bs-hover-animate="tada"><i class="fa fa-phone fa-3x mb-3 sr-contact" data-aos="zoom-in" data-aos-duration="300" data-aos-once="true"></i>
+                    <p style="font-family: Lato, sans-serif;">123-456-6789</p>
+                </div>
+                <div class="col-lg-4 mr-auto text-center" data-bs-hover-animate="tada"><i class="fa fa-envelope-o fa-3x mb-3 sr-contact" data-aos="zoom-in" data-aos-duration="300" data-aos-delay="300" data-aos-once="true"></i>
+                    <p><a href="mailto:your-email@your-domain.com" style="font-family: Lato, sans-serif;">email@example.com</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer style="margin-top: 3px;background-color: rgb(27,18,15);">
+        <div class="row">
+            <div class="col-sm-6 col-md-4 footer-navigation">
+                <h3><a href="#"><img src="userasset/img/sojubtry.png" style="width: 226px;height: 87px;"></a></h3>
+                <p class="links" style="font-family: Roboto, sans-serif;"><a href="#">Home</a><strong> · </strong><a href="#">Blog</a><strong> · </strong><a href="#">Pricing</a><strong> · </strong><a href="#">About</a><strong> · </strong><a href="#">Faq</a><strong> · </strong><a href="#">Contact</a></p>
+                <p class="company-name"
+                    style="font-family: Lato, sans-serif;">Company Name © 2015 </p>
+            </div>
+            <div class="col-sm-6 col-md-4 footer-contacts">
+                <div><span class="fa fa-map-marker footer-contacts-icon"> </span>
+                    <p style="font-family: Lato, sans-serif;"><span class="new-line-span" style="font-family: Roboto, sans-serif;">21 Revolution Street</span> Paris, France</p>
+                </div>
+                <div><i class="fa fa-phone footer-contacts-icon"></i>
+                    <p class="footer-center-info email text-left" style="font-family: Lato, sans-serif;"> +1 555 123456</p>
+                </div>
+                <div><i class="fa fa-envelope footer-contacts-icon"></i>
+                    <p> <a href="#" target="_blank" style="font-family: Roboto, sans-serif;">support@company.com</a></p>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="col-md-4 footer-about">
+                <h4 style="font-family: Roboto, sans-serif;">About the company</h4>
+                <p style="font-family: Lato, sans-serif;"> Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet. </p>
+                <div class="social-links social-icons"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a><a href="#"><i class="fa fa-github"></i></a></div>
+            </div>
+        </div>
+    </footer>
+    <script src="userasset/js/jquery.min.js"></script>
+    <script src="userasset/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+    <script src="userasset/js/creative.js"></script>
+    <script src="userasset/js/--mp---Testimonials-Slider.js"></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="userasset/js/Dynamically-Queue-Videos.js"></script>
+    <script src="userasset/js/Animated-Pretty-Product-List-v12.js"></script>
+    <script src="userasset/js/bs-animation.js"></script>
+    <script src="userasset/js/Card-hover-affect-1.js"></script>
+    <script src="userasset/js/Grid-and-List-view-V10.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
+    <script src="https://use.fontawesome.com/1744f3f671.js"></script>
+    <script src="userasset/js/Profile-Edit-Form.js"></script>
+    <script src="userasset/js/Subscribe-window.js"></script>
+    <script src="userasset/js/Testimonial-Slider-9.js"></script>
+    <script src="userasset/js/Video-Parallax-Background-v2.js"></script>
+    <script src="userasset/js/Video-Parallax-Background.js"></script>
 </body>
 
 </html>

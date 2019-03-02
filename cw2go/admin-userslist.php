@@ -19,8 +19,7 @@ require('./includes/users-list.inc.php');
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="admin.html"><img src="images/sojubtry.png" alt="Logo" style="margin-top: 10px;"></a>
-            </div>
+                <a class="navbar-brand" href="admin-page.php"><img src="images/sojubtry.png" alt="Logo" style="margin-top: 10px;"></a>
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
@@ -31,12 +30,8 @@ require('./includes/users-list.inc.php');
                     <li class="menu-item-has-children dropdown">
                         <a href="admin-userslist.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Regular Users</a>
                     </li>
-                    <h3 class="menu-title"></h3>
                     <li class="menu-item-has-children dropdown">
-                        <a href="admin-products.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Regular Users</a>
-                    </li>
-                    <li class="menu-item-has-children dropdown">
-                        <a href="forms-advanced.html" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Accepted Order</a>
+                        <a href="admin-products.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Edit Products</a>
                     </li>
                     <h3 class="menu-title">Orders</h3>
                     <li class="menu-item-has-children dropdown">
@@ -142,14 +137,14 @@ require('./includes/users-list.inc.php');
                 </div>
         </div>
         </header>
-        <table>
+        <table id="customers">
         <tr>
-          <td><b>ID</b></td>
-          <td><b>Username</b></td>
-          <td><b>Role</b></td>
-          <td><b>Registered At</b></td>
-          <td><b>Delete</b></td>
-          <td><b>Edit</b></td>
+          <th style="color: #1b120f;"><b>ID</b></th>
+          <th style="color: #1b120f;"><b>Username</b></th>
+          <th style="color: #1b120f;"><b>Role</b></th>
+          <th style="color: #1b120f;"><b>Registered At</b></th>
+          <th style="color: #1b120f;"><b>Delete</b></th>
+          <th style="color: #1b120f;"><b>Edit</b></th>
         </tr>
       <?php  while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
         echo '<tr><td>' . $row['ID'] . '</td><td>' . $row['username'] . '</td><td>' . $row['role'] . '</td><td>' . $row['registered_at'] . '</td>';

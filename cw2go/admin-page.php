@@ -8,6 +8,11 @@ require('./includes/session-admin.php');
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <?php include('./includes/admin-styles.html'); ?>
   <title>Chicken Ween's 2Go - Admin Page</title>
+    <style>
+        canvas {
+        width: 550px;
+        height: 100px;
+        }</style>
 </head>
 <body>
 <!-- SIDE MENU -->
@@ -16,27 +21,31 @@ require('./includes/session-admin.php');
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
         <i class="fa fa-bars"></i>
       </button>
-      <a class="navbar-brand" href="admin.html"><img src="images/sojubtry.png" alt="Logo" style="margin-top: 10px;"></a>
+      <a class="navbar-brand" href="admin-page.php"><img src="images/sojubtry.png" alt="Logo" style="margin-top: 10px;"></a>
       <div id="main-menu" class="main-menu collapse navbar-collapse">
         <ul class="nav navbar-nav">
           <li class="active">
-            <a href="admin-page.php"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
+          <a href="admin-page.php"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
+          </li>
+          <h3 class="menu-title">Users</h3>
+          <li class="menu-item-has-children dropdown">
+          <a href="admin-userslist.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Regular Users</a>
           </li>
           <li class="menu-item-has-children dropdown">
-            <a href="admin-userslist.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Users</a>
-          </li>
+          <a href="admin-products.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Edit Products</a>
+          </li>           
           <h3 class="menu-title">Orders</h3>
           <li class="menu-item-has-children dropdown">
-            <a href="tables-basic.html" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Pending Order</a>
+          <a href="tables-basic.html" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Pending Order</a>
           </li>
           <li class="menu-item-has-children dropdown">
-            <a href="forms-advanced.html" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Accepted Order</a>
+          <a href="forms-advanced.html" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Accepted Order</a>
           </li>
           <li class="menu-item-has-children dropdown">
-            <a href="forms-basic.html" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Declined Order</a>
+          <a href="forms-basic.html" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Declined Order</a>
           </li>
           <li class="menu-item-has-children dropdown">
-            <a href="tables-data.html" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Delivered Order</a>
+          <a href="tables-data.html" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Delivered Order</a>
           </li>
         </ul>
       </div>
@@ -98,15 +107,10 @@ require('./includes/session-admin.php');
             </div>
         </header>
         <div class="breadcrumbs">
-            <div class="col-sm-4">
-                <div class="page-header float-left">
                     <div class="page-title">
                         <h1>Dashboard</h1>
                     </div>
-                         <div id="chartContainer" style="height: 350px; width: 1100%;"></div>
-
-                </div>
-            </div>
+                       <center><canvas id="bar-chart" width="400" height="150"></canvas></center>
 
         </div>
 
@@ -190,45 +194,39 @@ require('./includes/session-admin.php');
         })(jQuery);
 
     </script>
-    <script>
-        window.onload = function() {
-            //Better to construct options first and then pass it as a parameter
-            var options = {
-                title: {
-                    text: "Sales of Chicken Ween's 2go"
-                },
-                data: [{
-                    // Change type to "doughnut", "line", "splineArea", etc.
-                    type: "column",
-                    dataPoints: [{
-                            label: "Classic Honey",
-                            y: 10
-                        },
-                        {
-                            label: "Chicken Honey",
-                            y: 15
-                        },
-                        {
-                            label: "Korean Honey Butter",
-                            y: 25
-                        },
-                        {
-                            label: "Barbeque Honey",
-                            y: 30
-                        },
-                        {
-                            label: "Parmesan Glazed",
-                            y: 28
-                        }
+      <script>
+      // Chart.defaults.global.elements.rectangle.backgroundColor = '#FF0000';
 
-                    ]
-                }]
-            };
+    var bar_ctx = document.getElementById('bar-chart').getContext('2d');
 
-            $("#chartContainer").CanvasJSChart(options);
+    var purple_orange_gradient = bar_ctx.createLinearGradient(0, 0, 0, 600);
+    purple_orange_gradient.addColorStop(0, '#f89d13');
+    purple_orange_gradient.addColorStop(1, '#ac3f21');
+
+    var bar_chart = new Chart(bar_ctx, {
+        type: 'bar',
+        data: {
+        labels: ["January", "Febuary", "March", "April", "May", "June", "July", "August"],
+        datasets: [{
+        label: '# of Sales',
+        data: [12, 19, 3, 8, 14, 5, 10, 11],
+        backgroundColor: purple_orange_gradient,
+        hoverBackgroundColor: purple_orange_gradient,
+        hoverBorderWidth: 2,
+        hoverBorderColor: '#1b120f'
+        }]
+        },
+        options: {
+        scales: {
+        yAxes: [{
+        ticks: {
+        beginAtZero:true
         }
-
-    </script>
+        }]
+        }
+        }
+        });  
+      </script>
     </div>
 </body>
 

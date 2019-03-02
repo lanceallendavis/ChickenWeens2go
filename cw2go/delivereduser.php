@@ -1,0 +1,130 @@
+<?php
+session_start();
+if(!isset($_SESSION['role']) or ($_SESSION['role'] !== 'user')){
+  header('location: index.php');
+}
+?>
+<!doctype html>
+<html>
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="assets/css/delivereduser.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/user.css">
+    <link href="https://fonts.googleapis.com/css?family=Staatliches" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Anonymous+Pro" rel="stylesheet">
+    <title>Thesis Trial</title>
+</head>
+
+<body style="background-color: #f89d13; opacity: 20%;">
+       <header>
+            <div class="container">
+                <!-- Top Navigation -->
+                <section class="color-7">
+                    <nav class="cl-effect-4" style="height: 1px; ">
+                        <img class="logo-img" src="images/sojubtry.png" style="margin-left: 90px; margin-top: -5px;" width="210" height="80" ALT="align box" ALIGN=CENTER>
+                        <a href="user-page.php" style="margin-left: 370px;">HOME</a>
+                        <a href="orders.php">ORDERED</a>
+                        <div class="dropdown">
+                        <a href=#>WELCOME, <?php echo $_SESSION['first_name']; ?></a>
+                        <div class="dropdown-content">
+                        <a href="#">Profile</a>
+                        <a href="delivereduser.php">HISTORY</a>
+                        <a href="logout.php">LOGOUT</a>
+                      </div>
+                    </div>
+                    </nav>
+                </section>
+            </div>
+        </header><br><br>
+               <h2 style="font-family: 'Anonymous Pro', monospace; letter-spacing: 4px; color: #1b120f; text-align: center; font-size: 30px;">DELIEVERED WEEN's</h2>
+  <section class="containers">
+        <input type="search" class="light-table-filter" data-table="order-table" placeholder=" Search Order" style="margin-left: 790px; width: 180px; height: 40px; border-radius: 15px; font-family: 'Staatliches', cursive; font-size: 19px; text-decoration: none " />
+
+        <table class="order-table" style="margin-top: 20px;">
+            <thead style="background: #ac3f21">
+                <tr>
+                    <th>ORDER ID</th>
+                    <th>ORDER</th>
+                    <th>TOTAL</th>
+                    <th>Order Time</th>
+                    <th>Completed Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>0123456789</td>
+                    <td>Korean Honey</td>
+                    <td>P 240</td>
+                    <td>10:30 AM</td>
+                    <td>12:00 PM</td>
+                </tr>
+                <tr>
+                    <td>9876543210</td>
+                    <td>Honey Butter</td>
+                    <td>P 450</td>
+                    <td>11:00 AM</td>
+                    <td>1:30 PM</td>
+                </tr>
+                <tr>
+                    <td>9876543210</td>
+                    <td>Buffalo Wings</td>
+                    <td>P 650</td>
+                    <td>12:00 AM</td>
+                    <td>3:30 PM</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </section>
+    <!--Script-->
+
+    <script>
+        (function(document) {
+            'use strict';
+
+            var LightTableFilter = (function(Arr) {
+
+                var _input;
+
+                function _onInputEvent(e) {
+                    _input = e.target;
+                    var tables = document.getElementsByClassName(_input.getAttribute('data-table'));
+                    Arr.forEach.call(tables, function(table) {
+                        Arr.forEach.call(table.tBodies, function(tbody) {
+                            Arr.forEach.call(tbody.rows, _filter);
+                        });
+                    });
+                }
+
+                function _filter(row) {
+                    var text = row.textContent.toLowerCase(),
+                        val = _input.value.toLowerCase();
+                    row.style.display = text.indexOf(val) === -1 ? 'none' : 'table-row';
+                }
+
+                return {
+                    init: function() {
+                        var inputs = document.getElementsByClassName('light-table-filter');
+                        Arr.forEach.call(inputs, function(input) {
+                            input.oninput = _onInputEvent;
+                        });
+                    }
+                };
+            })(Array.prototype);
+
+            document.addEventListener('readystatechange', function() {
+                if (document.readyState === 'complete') {
+                    LightTableFilter.init();
+                }
+            });
+
+        })(document);
+
+    </script>
+</body>
+
+</html>
