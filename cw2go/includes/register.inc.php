@@ -1,6 +1,12 @@
 <?php // Connect to the database
 // Execute an insert query with checking
+require_once('mysqli_connect.php');
 $errors = array();
+
+$name = $_FILES['profileImage']['name'];
+$path = "../images/user-images/" . $name;
+move_uploaded_file($_FILES['profileImage']['tmp_name'], $path);
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') { #1
 // Initialize an error array.
   // Check if username is entered
@@ -51,15 +57,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { #1
    }
   //Check if all fields are filled out correctly
   if (empty($errors)) {
-  $register_query = "INSERT INTO users (username, first_name, last_name, email, address, password, registered_at)
-  VALUES ('$username', '$first_name', '$last_name', '$email', '$address', SHA1('$password'), NOW() )"; #6
+  $register_query = "INSERT INTO users (username, first_name, last_name, email, address, password, profile_photo, registered_at)
+  VALUES ('$username', '$first_name', '$last_name', '$email', '$address', SHA1('$password'), '$name',  NOW() )"; #6
   $result = mysqli_query($db_connect, $register_query);
 
    // Run the query. #7
-  if ($result) { // Check if connection and query is successful
+  if ($result) {
+  // Check if connection and query is successful
     if ($email && $password){//if no problems #2
     //CHECK LOGIN CREDENTIALS
-    $login_query = "SELECT ID, first_name, role FROM users WHERE (email='$email' AND password=SHA1('$password'))";
+    $login_query = "SELECT ID, first_name, profile_photo, role FROM users WHERE (email='$email' AND password=SHA1('$password'))";
     $result = mysqli_query($db_connect, $login_query);
 
       if (@mysqli_num_rows($result) == 1) {//if one database row (record) matches the input:-
@@ -68,7 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { #1
         $_SESSION = mysqli_fetch_array($result, MYSQLI_ASSOC);
         // Use a ternary operation to set the URL #4
         $url = ($_SESSION['role'] === 'admin') ? 'admin-page.php' : 'user-page.php';
-        header('Location: ' . $url); // Make the browser load either the members’ or the admin page
+        header('Location: ../' . $url); // Make the browser load either the members’ or the admin page
         exit(); // Cancel the rest of the script
         mysqli_free_result($result);
         mysqli_close($db_connect);

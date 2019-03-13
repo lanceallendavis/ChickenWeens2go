@@ -1,4 +1,5 @@
 <?php
+require_once('mysqli_connect.php');
 $login_errors = array();
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   if($_POST['action'] == 'login'){
@@ -18,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
  }
  if ($username && $password){//if no problems #2
 //CHECK LOGIN CREDENTIALS
-$login_query = "SELECT ID, first_name, role FROM users WHERE (username='$username' AND password=SHA1('$password'))";
+$login_query = "SELECT ID, first_name, role, profile_photo FROM users WHERE (username='$username' AND password=SHA1('$password'))";
 // Run the query and assign it to the variable $result
 $result = mysqli_query($db_connect, $login_query);
 if (@mysqli_num_rows($result) == 1) {//if one database row (record) matches the input:-
@@ -27,18 +28,18 @@ session_start();
 $_SESSION = mysqli_fetch_array($result, MYSQLI_ASSOC);
 // Use a ternary operation to set the URL #4
 $url = ($_SESSION['role'] === 'admin') ? 'admin-page.php' : 'user-page.php';
-header('Location: ' . $url); // Make the browser load either the members’ or the admin page
+header('Location: ../' . $url); // Make the browser load either the members’ or the admin page
 exit(); // Cancel the rest of the script
  mysqli_free_result($result);
  mysqli_close($db_connect);
  }
  else {
+   session_start();
    $login_errors[] = 'Invalid username or password';
+   $_SESSION['invalid'] = 'Invalid username or password';
+   header('location: ../login.php');
  }
- }
- else{
-   $login_errors[] = 'Please try again';
- }
+}
 }
 mysqli_close($db_connect);
 } // End of SUBMIT conditional.

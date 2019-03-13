@@ -4,407 +4,256 @@ if(!isset($_SESSION['role']) or ($_SESSION['role'] !== 'user')){
   header('location: index.php');
 }
 ?>
-<!doctype html>
+<!DOCTYPE html>
 <html>
 
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" type="text/css" href="assets/css/user.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/animate.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/slider.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/responsive.css">
-    <link href="https://fonts.googleapis.com/css?family=Staatliches" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Lato:700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Anonymous+Pro" rel="stylesheet">
-    <title>Thesis Trial</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Untitled</title>
+    <link rel="stylesheet" href="userasset/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="userasset/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Black+Han+Sans">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="userasset/css/Card-hover-affect-1.css">
+    <link rel="stylesheet" href="userasset/css/Header-Blue.css">
+    <link rel="stylesheet" href="userasset/css/Highlight-Blue.css">
+    <link rel="stylesheet" href="userasset/css/Highlight-Phone.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.css">
+    <link rel="stylesheet" href="userasset/css/Pretty-Footer.css">
+    <link rel="stylesheet" href="userasset/css/MUSA_carousel-product-cart-slider.css">
+    <link rel="stylesheet" href="userasset/css/News-Cards.css">
+    <link rel="stylesheet" href="userasset/css/NMDIG-Testimonials.css">
+    <link rel="stylesheet" href="userasset/css/Team-Boxed.css">
+    <link rel="stylesheet" href="userasset/css/Team-Grid.css">
+    <link rel="stylesheet" href="userasset/css/Team-with-rotating-cards.css">
 </head>
 
 <body>
-    <div id="container">
-        <header>
-            <div class="container">
-                <!-- Top Navigation -->
-                <section class="color-7">
-                    <nav class="cl-effect-4" style="height: 1px; ">
-                        <img class="logo-img" src="images/sojubtry.png" style="margin-left: 90px; margin-top: -5px;" width="210" height="80" ALT="align box" ALIGN=CENTER>
-                        <a href="user-page.php" style="margin-left: 370px;">HOME</a>
-                        <a href="orders.php">ORDERED</a>
-                        <div class="dropdown">
-                        <a href=#>WELCOME, <?php echo $_SESSION['first_name']; ?></a>
-                        <div class="dropdown-content">
-                        <a href="user-profile.php">Profile</a>
-                        <a href="delivereduser.php">HISTORY</a>
-                        <a href="logout.php">LOGOUT</a>
-                      </div>
-                    </div>
-                    </nav>
-                </section>
-            </div>
-        </header>
-        <!--top-->
-        <div style="height: 531px;background-color:#ac3f21;font-size:36px">
-            <div class="wrapper">
-                <div class="box1">
-                    <div class="video-section">
-                        <video id="video-elem" preload="auto" autoplay="true" loop="loop" muted="muted">
-                            <br>
-                            <source src="images/video/chickenvid.mp4" type="video/mp4" style="height: 100%;">
-                            Video not supported
-                        </video>
-                    </div>
-                </div>
-
-                <div class="box2">
-                    <div id="slider">
-                        <figure>
-                            <img src="images/tryq1.png">
-                            <img src="images/tryq2.png">
-                            <img src="images/tryq3.png">
-                            <img src="images/tryq1.png">
-                            <img src="images/tryq2.png">
-                        </figure>
-                    </div>
-                </div>
-                <div class="box3" style="background: #f89d13; height: 126px;">
-                    <div style="padding-top: 15px;">
-                        <h1 style="font-size: 16px; text-align: center; color: #e6dedd">WE START SERVING AT 9AM</h1>
-                        <span class="clock"></span>
-                    </div>
-                </div>
-            </div>
+  <?php include('./includes/header-user.html'); ?>
+  <div class="highlight-phone" style="padding-top: 136px;background-color: rgb(230,222,221);height: 543px;">
+    <div class="container">
+      <div class="row" style="height: 342px;">
+        <div class="col-sm-5"><img style="background-image: url(&quot;userasset/img/loop.gif&quot;);width: 436px;height: 316px;margin-top: 16px;"></div>
+        <div class="col-md-7">
+          <div class="intro" style="margin-top: 24px;padding-top: 1px;">
+            <h2 data-aos="fade-up" data-aos-duration="250" data-aos-delay="150" style="font-family: 'Black Han Sans', sans-serif;color: rgb(237,90,58);letter-spacing: 7px;margin-top: 26px;">Highlights</h2>
+            <p data-aos="fade-up" data-aos-duration="250" data-aos-delay="150" style="font-family: Lato, sans-serif;font-size: 19px;margin-top: -8px;">Nunc luctus in metus eget fringilla. Aliquam sed justo ligula. Vestibulum nibh erat, pellentesque ut laoreet vitae. Aliqua sed justo ligula.</p><a class="btn btn-primary" role="button" href="#" data-bs-hover-animate="tada" style="background-color: rgb(248,157,19);font-family: Lato, sans-serif;">START ORDERING</a>
+          </div>
         </div>
-        <div style="height: 520px; background-color: #fff4e3">
-            <h3 l style="font-family: 'Staatliches', cursive; color: #ac3f21; font-size: 22px; text-align: center; padding-top: 60px;">Chicken Ween's 2go</h3>
-            <h2 style="font-family: 'Anonymous Pro', monospace; letter-spacing: 4px; color: #f89d13; margin-top: -10px; text-align: center;">New Menu</h2>
-            <center>
-                <figure class="snip1573">
-                    <img src="images/Classic%20Honey%20Patis.jpg" alt="honey" />
-                    <figcaption>
-                        <h3>Buy Now</h3>
-                    </figcaption>
-                    <a href="#"></a>
-                </figure>
-                <figure class="snip1573">
-                    <img src="images/Buffalo%20(IG%20Post).jpg" alt="buffalo" />
-                    <figcaption>
-                        <h3>Buy Now</h3>
-                    </figcaption>
-                    <a href="#"></a>
-                </figure>
-                <figure class="snip1573"><img src="images/Korean%20(IG%20Post).jpg" alt="korean" />
-                    <figcaption>
-                        <h3>Buy Now</h3>
-                    </figcaption>
-                    <a href="#"></a>
-                </figure>
-
-            </center>
-        </div>
-        <div class="parallax">
-            <h3 l style="font-family: 'Staatliches', cursive; color: #ac3f21; font-size: 22px; text-align: center; padding-top: 60px;">Chicken Ween's 2go</h3>
-            <h2 style="font-family: 'Anonymous Pro', monospace; letter-spacing: 4px; color: #f89d13; margin-top: -10px; text-align: center;">ORDER NOW</h2>
-
-
-            <section id="weens-menu">
-
-                <ul id="gallery">
-                    <li class="card">
-                        <div class="dollar-amount">P9</div>
-                        <img src="images/tryq1.png" style="width: 150px; height: 150px;">
-                        <h3 class="card-header">Bufallo Wings</h3>
-                        <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        </p>
-                        <a href="#popUp" id="openPopUp" style="text-decoration: none">
-                            <button class="btn-overlay" style="margin-left: 23px; margin-top: 20px; border-radius: 20px;">
-                                <span>Order Now</span>
-                            </button>
-                        </a>
-                    </li>
-                    <li class="card">
-                        <div class="dollar-amount">P9</div>
-                        <img src="images/tryq2.png" style="width: 150px; height: 150px;">
-                        <h3 class="card-header">Korean Bbq Wings</h3>
-                        <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        </p>
-                        <a href="#popUp" id="openPopUp" style="text-decoration: none">
-                            <button class="btn-overlay" style="margin-left: 23px; margin-top: 20px; border-radius: 20px;">
-                                <span>Order Now</span>
-                            </button>
-                        </a>
-                    </li>
-                    <li class="card">
-                        <div class="dollar-amount">P9</div>
-                        <img src="images/tryq3.png" style="width: 150px; height: 150px;">
-                        <h3 class="card-header">Bufallo Wings</h3>
-                        <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        </p>
-                        <a href="#popUp" id="openPopUp" style="text-decoration: none">
-                            <button class="btn-overlay" style="margin-left: 23px; margin-top: 20px; border-radius: 20px;">
-                                <span>Order Now</span>
-                            </button>
-                        </a>
-                    </li>
-                    <li class="card">
-                        <div class="dollar-amount">P9</div>
-                        <img src="images/tryq3.png" style="width: 150px; height: 150px;">
-                        <h3 class="card-header">Buttered Wings</h3>
-                        <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        </p>
-                        <button class="btn-overlay" style="margin-left: 23px; margin-top: 20px; border-radius: 20px;">
-                            <span>Order Now</span>
-                        </button>
-                    </li>
-                    <li class="card">
-                        <div class="dollar-amount">P9</div>
-                        <img src="images/tryq2.png" style="width: 150px; height: 150px;">
-                        <h3 class="card-header">Bufallo Wings</h3>
-                        <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        </p>
-                        <a href="#popUp" id="openPopUp" style="text-decoration: none">
-                            <button class="btn-overlay" style="margin-left: 23px; margin-top: 20px; border-radius: 20px;">
-                                <span>Order Now</span>
-                            </button>
-                        </a>
-                    </li>
-                    <li class="card">
-                        <div class="dollar-amount">P9</div>
-                        <img src="images/tryq1.png" style="width: 150px; height: 150px;">
-                        <h3 class="card-header">Korean Bbq Wings</h3>
-                        <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        </p>
-                        <a href="#popUp" id="openPopUp" style="text-decoration: none">
-                            <button class="btn-overlay" style="margin-left: 23px; margin-top: 20px; border-radius: 20px;">
-                                <span>Order Now</span>
-                            </button>
-                        </a>
-                    </li>
-                </ul><br>
-            </section>
-        </div>
-        <!--Modal For Order-->
-        <aside id="popUp" class="popup">
-            <div class="popUpContainer">
-                <header>
-                    <a href="#!" class="closePopUp" style="margin-top: -65px;">X</a>
-                </header>
-                <article><br>
-                    <div class="gridcol">
-                        <div>
-                            <img src="images/Buffalo%20(IG%20Post).jpg" style="width: 280px; height: 390px;">
-                        </div>
-                        <div>
-                            <div style="font-family: 'Staatliches', cursive; color: #ac3f21; font-size: 32px; margin-top: 20px;">Buffalo Wings</div>
-                            <div style="font-family: 'Anonymous Pro', monospace; color: #f89d13; margin-top: 20px; font-size: 18px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam at egestas felis.</div><br>
-                            <div class="select">
-                                <select name="slct" id="slct">
-                                    <option style="font-family: 'Staatliches', cursive; color: #ac3f21; font-size: 16px;">Choose an option</option>
-                                    <option value="1" style="font-family: 'Staatliches', cursive; color: #ac3f21; font-size: 19px;">6pcs</option>
-                                    <option value="2" style="font-family: 'Staatliches', cursive; color: #ac3f21; font-size: 19px;">10pcs</option>
-                                    <option value="3" style="font-family: 'Staatliches', cursive; color: #ac3f21; font-size: 19px;">12pcs</option>
-                                </select>
-                            </div>
-                            <div class="gridcols">
-                                <div style="font-family: 'Lato', sans-serif; color: #f89d13; margin-top: 20px; font-size: 18px;">PRICE: </div>
-                                <div style="font-family: 'Lato', sans-serif; color: #e6dedd; margin-top: 20px; font-size: 18px;">P 0.00 </div>
-                            </div>
-                            <div class="gridcols">
-                                <div style="font-family: 'Lato', sans-serif; color: #f89d13; margin-top: 20px; font-size: 18px;">TOTAL: </div>
-                                <div style="font-family: 'Lato', sans-serif; color: #e6dedd; margin-top: 20px; font-size: 18px;">P 0.00 </div>
-                            </div>
-                            <button class="btn-overlay" style="margin-top: 30px; border-radius: 20px;">
-                                <span>Order Now</span>
-                            </button>
-                        </div>
-                    </div>
-                </article>
-            </div>
-            <a href="#!" class="closePopUpOutSide"></a>
-        </aside>
+      </div>
     </div>
-    <section class="opening">
-        <h2 style="font-family: 'Anonymous Pro', monospace; letter-spacing: 2px; color: #f89d13; margin-top: -5px; text-align: center">Send us a Suggestion</h2>
-        <div class="row input-container" style="margin-left: 55px; margin-top: 30px;">
-            <div class="col-xs-12">
-                <div class="styled-input wide">
-                    <input type="text" required style=" border-radius: 50px; margin-left: 360px; width: 500px; height: 70px; margin-top: -20px;" />
-                </div>
-            </div>
-            <br>
-            <button class="btn-overlay" style="border-radius: 20px; margin-left: 520px; width: 200px; height: 60px; ">
-                <span>SEND MESSAGE</span>
-            </button>
+  </div>
+    <section style="height: 377px;background-color: #e6dedd;">
+        <div class="container" style="height: 362px; padding-bottom: 90px">
+            <div class="row" style="margin-top: -121px;padding-left: 62px;padding-top: 36px;"><div class="col"><figure class="snip1573">
+  <img src="userasset/img/ck1.jpg" alt="sample89" />
+  <figcaption>
+    <h3>Buy Now</h3>
+  </figcaption>
+  <a href="#"></a>
+</figure>
+<figure class="snip1573 hover"><img src="userasset/img/ck3.jpg" alt="sample94" />
+  <figcaption>
+    <h3>Buy Now</h3>
+  </figcaption>
+  <a href="#"></a>
+</figure>
+<figure class="snip1573"><img src="userasset/img/ck2.jpg" alt="sample92" />
+  <figcaption>
+    <h3>Buy Now</h3>
+  </figcaption>
+  <a href="#"></a>
+</figure></div></div>
         </div>
     </section>
-    <!-- Footer -->
-    <div class="tracks">
-        <div></div>
-        <div class="js-slide-in strip strip--blue" style="background-color: #1b120f">
-            <p style="font-family: 'Staatliches', cursive; color: #ac3f21; font-size: 22px; text-align: center;"> REACH US </p>
-            <h2 style="font-family: 'Anonymous Pro', monospace; letter-spacing: 4px; color: #f89d13; margin-top: -2px; text-align: center;">CONTACTS</h2>
-            <hr style="margin-top: 10px;">
-        </div>
-    </div>
-    <div class="ulit">
-        <div></div>
-
-        <div>
-            <div style="font-family: 'Yanone Kaffeesatz', sans-serif; color: #c2b396; font-size: 25px; padding-top: 35px; padding-left: 95px;">
-                <img src="images/Wings%20only%20logo%20.png" style="margin-left: 70px; width: 50%;">
-                <br>
+    <div style="height: 80px; background-color: transparent;"></div>
+    <div class="team-grid" style="background-color: rgb(27,18,15);">
+        <div class="container">
+            <div class="intro">
+                <h2 class="text-center" style="font-family: 'Black Han Sans', sans-serif;color: rgb(246,164,40);letter-spacing: 7px;">New Arrivals</h2>
+                <p class="text-center">Nunc luctus in metus eget fringilla. Aliquam sed justo ligula. Vestibulum nibh erat, pellentesque ut laoreet.&nbsp; </p>
+            </div>
+            <div class="row people">
+                <div class="col-md-4 col-lg-3 item">
+                    <div class="box" style="background-image:url(userasset/img/1.jpg)">
+                        <div class="cover">
+                            <h3 class="name">Ben Johnson</h3>
+                            <p class="title">Musician</p>
+                            <div class="social"><a href="#"><i class="fa fa-facebook-official"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3 item">
+                    <div class="box" style="background-image:url(userasset/img/2.jpg)">
+                        <div class="cover">
+                            <h3 class="name">Emily Clark</h3>
+                            <p class="title">Artist </p>
+                            <div class="social"><a href="#"><i class="fa fa-facebook-official"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3 item">
+                    <div class="box" style="background-image:url(userasset/img/3.jpg)">
+                        <div class="cover">
+                            <h3 class="name">Carl Kent</h3>
+                            <p class="title">Stylist </p>
+                            <div class="social"><a href="#"><i class="fa fa-facebook-official"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3 item">
+                    <div class="box" style="background-image:url(userasset/img/4.jpg)">
+                        <div class="cover">
+                            <h3 class="name">Felicia Adams</h3>
+                            <p class="title">Model </p>
+                            <div class="social"><a href="#"><i class="fa fa-facebook-official"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-          <div>
-               <div class="lalagyan" style="font-family: 'Staatliches', cursive; color: #f89d13; font-size: 22px;letter-spacing: 2px; padding-top: 55px;">
-                    Chicken Ween's 2go</div>
-            <div class="lalagyan" style="font-family: 'Staatliches', cursive;color: #ac3f21; font-size: 22px;">
-                For event sponsorships: </div>
-            <div class="lalagyan" style="font-family: 'Lato', sans-serif; color: #e6dedd; font-size: 19px;">
-                11th Flr. Common Goal Tower Bldg.
-                Madrigal Business Park
-                Alabang, Muntinlupa City, Philippines
-                Email us: info@bootleg-radio.com</div>
-        </div>
-        <div>
-            <div class="lalagyan" style="font-family: 'Staatliches', cursive;color: #ac3f21; font-size: 22px; padding-top: 55px; padding-left: 35px;">
-                For event sponsorships: </div>
-            <div class="lalagyan" style="font-family: 'Lato', sans-serif; color: #e6dedd; font-size: 19px; padding-left: 35px;">
-                <i class="fas fa-phone-volume"></i> +63 (2) 772-3152 / 5859670
-                <br> <i class="fas fa-mobile-alt"></i> +63 (2) 771-0143
-                <br><i class="far fa-envelope"></i> sales@bootleg-radio.com</div>
-
-        </div>
-
     </div>
-    <script>
-        var Clock = (function() {
-
-            var exports = function(element) {
-                this._element = element;
-                var html = '';
-                for (var i = 0; i < 6; i++) {
-                    html += '<span>&nbsp;</span>';
-                }
-                this._element.innerHTML = html;
-                this._slots = this._element.getElementsByTagName('span');
-                this._tick();
-            };
-
-            exports.prototype = {
-
-                _tick: function() {
-                    var time = new Date();
-                    this._update(this._pad(time.getHours()) + this._pad(time.getMinutes()) + this._pad(time.getSeconds()));
-                    var self = this;
-                    setTimeout(function() {
-                        self._tick();
-                    }, 1000);
-                },
-
-                _pad: function(value) {
-                    return ('0' + value).slice(-2);
-                },
-
-                _update: function(timeString) {
-
-                    var i = 0,
-                        l = this._slots.length,
-                        value, slot, now;
-                    for (; i < l; i++) {
-
-                        value = timeString.charAt(i);
-                        slot = this._slots[i];
-                        now = slot.dataset.now;
-
-                        if (!now) {
-                            slot.dataset.now = value;
-                            slot.dataset.old = value;
-                            continue;
-                        }
-
-                        if (now !== value) {
-                            this._flip(slot, value);
-                        }
-                    }
-                },
-
-                _flip: function(slot, value) {
-
-                    // setup new state
-                    slot.classList.remove('flip');
-                    slot.dataset.old = slot.dataset.now;
-                    slot.dataset.now = value;
-
-                    // force dom reflow
-                    slot.offsetLeft;
-
-                    // start flippin
-                    slot.classList.add('flip');
-
-                }
-
-            };
-
-            return exports;
-        }());
-
-        var i = 0,
-            clocks = document.querySelectorAll('.clock'),
-            l = clocks.length;
-        for (; i < l; i++) {
-            new Clock(clocks[i]);
-        }
-
-    </script>
-    <script>
-            let slideAllCont = document.querySelectorAll('.js-slide-all');
-
-            slideAllCont.forEach(slideAll => {
-                let allElements = slideAll.querySelectorAll('*');
-                allElements.forEach(element => {
-                    element.classList.add('js-slide-in');
-                    element.classList.add('slideInSingle');
-                })
-            });
-
-            let slideInElem = document.querySelectorAll('.js-slide-in');
-
-            function addAnimationClass() {
-                slideInElem.forEach(container => {
-                    let children = container.children.length;
-                    container.classList.add('slideIn-' + children);
-                });
-            }
-
-            addAnimationClass();
-
-            function inView(elements) {
-                elements.forEach(element => {
-
-                    const slideInAt = window.scrollY + window.innerHeight - element.offsetHeight / 2,
-                        slideBottom = element.offsetTop + element.offsetHeight,
-                        isHalfShown = slideInAt > element.offsetTop,
-                        isNotScrolledPast = window.scrollY < slideBottom;
-
-                    if (isHalfShown && isNotScrolledPast) {
-                        element.classList.add('active');
-                    } else {
-                        element.classList.remove('active');
-                    }
-                })
-            }
-
-            if (slideInElem) {
-                inView(slideInElem);
-
-                window.addEventListener('scroll', function() {
-                    inView(slideInElem);
-                });
-            }
-
-        </script>
-
+    <section class="card-section-imagia" style="padding-top: -53px;background-color: rgb(230,222,221);">
+        <h1 style="color: rgb(248,157,19);font-family: 'Black Han Sans', sans-serif;letter-spacing: 6px;">Holiday Discount</h1>
+        <h2 style="font-family: Lato, sans-serif;">Posset maiora firmatum nunc cuniculis</h2>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-md-4">
+                    <div class="card-container-imagia">
+                        <div class="card-imagia">
+                            <div class="front-imagia">
+                                <div class="cover-imagia"><img src="https://unsplash.it/720/500?image=1067" alt=""></div>
+                                <div class="user-imagia"><img src="https://unsplash.it/120/120?image=64" class="img-circle" alt=""></div>
+                                <div class="content-imagia">
+                                    <h3 class="name-imagia">John Doe</h3>
+                                    <p class="subtitle-imagia">Subtitle </p>
+                                    <p class="text-center"><em>Tantum autem cuique tribuendum, primum quantum ipse efficere possis, deinde etiam quantum ille quem diligas atque adiuves.</em></p>
+                                </div>
+                                <div class="footer-imagia"><span><i class="fa fa-plus"></i> More info</span></div>
+                            </div>
+                            <div class="back-imagia">
+                                <div class="content-imagia content-back-imagia">
+                                    <div>
+                                        <h3 class="text-center" style="font-family: 'Black Han Sans', sans-serif;color: rgb(248,157,19);">Lorem Ipsum</h3>
+                                        <p class="text-center" style="font-family: Lato, sans-serif;">Et hanc quidem praeter oppida multa duae civitates exornant Seleucia opus Seleuci regis, et Claudiopolis quam deduxit coloniam Claudius Caesar. Isaura enim antehac nimium potens, olim subversa ut rebellatrix interneciva
+                                            aegre vestigia claritudinis pristinae monstrat admodum pauca. </p>
+                                    </div>
+                                </div>
+                                <div class="footer-imagia">
+                                    <div class="social-imagia text-center"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-linkedin"></i></a><a href="#"><i class="fa fa-twitter"></i></a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <div class="card-container-imagia">
+                        <div class="card-imagia">
+                            <div class="front-imagia">
+                                <div class="cover-imagia cover-gradient"></div>
+                                <div class="user-imagia"><img src="https://unsplash.it/120/120?image=64" class="img-circle" alt=""></div>
+                                <div class="content-imagia">
+                                    <h3 class="name-imagia">John Doe</h3>
+                                    <p class="subtitle-imagia">Subtitle </p>
+                                    <p class="text-center"><em>Tantum autem cuique tribuendum, primum quantum ipse efficere possis, deinde etiam quantum ille quem diligas atque adiuves. </em></p>
+                                </div>
+                                <div class="footer-imagia"><span><i class="fa fa-plus"></i> More info</span></div>
+                            </div>
+                            <div class="back-imagia">
+                                <div class="content-imagia content-back-imagia">
+                                    <div>
+                                        <h3 class="text-center" style="font-family: 'Black Han Sans', sans-serif;">Lorem Ipsum</h3>
+                                        <p class="text-center" style="font-family: Lato, sans-serif;">Et hanc quidem praeter oppida multa duae civitates exornant Seleucia opus Seleuci regis, et Claudiopolis quam deduxit coloniam Claudius Caesar. Isaura enim antehac nimium potens, olim subversa ut rebellatrix interneciva
+                                            aegre vestigia claritudinis pristinae monstrat admodum pauca. </p>
+                                    </div>
+                                </div>
+                                <div class="footer-imagia">
+                                    <div class="social-imagia text-center"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-linkedin"></i></a><a href="#"><i class="fa fa-twitter"></i></a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <div class="card-container-imagia">
+                        <div class="card-imagia">
+                            <div class="front-imagia">
+                                <div class="cover-imagia"><img src="https://unsplash.it/720/500?image=1067" alt=""></div>
+                                <div class="user-imagia"><img src="https://unsplash.it/120/120?image=64" class="img-circle" alt=""></div>
+                                <div class="content-imagia">
+                                    <h3 class="name-imagia">John Doe</h3>
+                                    <p class="subtitle-imagia">Subtitle </p>
+                                    <p class="text-center"><em>Tantum autem cuique tribuendum, primum quantum ipse efficere possis, deinde etiam quantum ille quem diligas atque adiuves. </em></p>
+                                </div>
+                                <div class="footer-imagia"><span><i class="fa fa-plus"></i> More info</span></div>
+                            </div>
+                            <div class="back-imagia">
+                                <div class="content-imagia content-back-imagia">
+                                    <div>
+                                        <h3 class="text-center" style="color: rgb(248,157,19);font-family: 'Black Han Sans', sans-serif;">Lorem Ipsum</h3>
+                                        <p class="text-center" style="font-family: Lato, sans-serif;">Et hanc quidem praeter oppida multa duae civitates exornant Seleucia opus Seleuci regis, et Claudiopolis quam deduxit coloniam Claudius Caesar. Isaura enim antehac nimium potens, olim subversa ut rebellatrix interneciva
+                                            aegre vestigia claritudinis pristinae monstrat admodum pauca. </p>
+                                    </div>
+                                </div>
+                                <div class="footer-imagia">
+                                    <div class="social-imagia text-center"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-linkedin"></i></a><a href="#"><i class="fa fa-twitter"></i></a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer style="margin-top: 3px;background-color: rgb(27,18,15);">
+        <div class="row">
+            <div class="col-sm-6 col-md-4 footer-navigation">
+                <h3><a href="#"><img src="userasset/img/sojubtry.png" style="width: 226px;height: 87px;"></a></h3>
+                <p class="links" style="font-family: Roboto, sans-serif;"><a href="#">Home</a><strong> · </strong><a href="#">Blog</a><strong> · </strong><a href="#">Pricing</a><strong> · </strong><a href="#">About</a><strong> · </strong><a href="#">Faq</a><strong> · </strong><a href="#">Contact</a></p>
+                <p class="company-name"
+                    style="font-family: Lato, sans-serif;">Company Name © 2015 </p>
+            </div>
+            <div class="col-sm-6 col-md-4 footer-contacts">
+                <div><span class="fa fa-map-marker footer-contacts-icon"> </span>
+                    <p style="font-family: Lato, sans-serif;"><span class="new-line-span" style="font-family: Roboto, sans-serif;">21 Revolution Street</span> Paris, France</p>
+                </div>
+                <div><i class="fa fa-phone footer-contacts-icon"></i>
+                    <p class="footer-center-info email text-left" style="font-family: Lato, sans-serif;"> +1 555 123456</p>
+                </div>
+                <div><i class="fa fa-envelope footer-contacts-icon"></i>
+                    <p> <a href="#" target="_blank" style="font-family: Roboto, sans-serif;">support@company.com</a></p>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="col-md-4 footer-about">
+                <h4 style="font-family: Roboto, sans-serif;">About the company</h4>
+                <p style="font-family: Lato, sans-serif;"> Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet. </p>
+                <div class="social-links social-icons"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a><a href="#"><i class="fa fa-github"></i></a></div>
+            </div>
+        </div>
+    </footer>
+    <script src="userasset/js/jquery.min.js"></script>
+    <script src="userasset/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+    <script src="userasset/js/creative.js"></script>
+    <script src="userasset/js/--mp---Testimonials-Slider.js"></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="userasset/js/Dynamically-Queue-Videos.js"></script>
+    <script src="userasset/js/Animated-Pretty-Product-List-v12.js"></script>
+    <script src="userasset/js/bs-animation.js"></script>
+    <script src="userasset/js/Card-hover-affect-1.js"></script>
+    <script src="userasset/js/Grid-and-List-view-V10.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
+    <script src="https://use.fontawesome.com/1744f3f671.js"></script>
+    <script src="userasset/js/Profile-Edit-Form.js"></script>
+    <script src="userasset/js/Subscribe-window.js"></script>
+    <script src="userasset/js/Testimonial-Slider-9.js"></script>
+    <script src="userasset/js/Video-Parallax-Background-v2.js"></script>
+    <script src="userasset/js/Video-Parallax-Background.js"></script>
 </body>
 
 </html>
