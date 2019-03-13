@@ -10,6 +10,7 @@ include('./includes/session-user.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Cart - Chicken Ween's 2Go</title>
     <link rel="stylesheet" href="userasset/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="userasset/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="userasset/fonts/simple-line-icons.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Black+Han+Sans">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
@@ -62,34 +63,27 @@ include('./includes/session-user.php');
       </div>
 
   </div>
-  <footer style="margin-top: 3px;background-color: rgb(27,18,15);">
-    <div class="row">
-      <div class="col-sm-6 col-md-4 footer-navigation">
-        <h3><a href="#"><img src="userasset/img/sojubtry.png" style="width: 226px;height: 87px;"></a></h3>
-        <p class="links" style="font-family: Roboto, sans-serif;"><a href="#">Home</a><strong> · </strong><a href="#">Blog</a><strong> · </strong><a href="#">Pricing</a><strong> · </strong><a href="#">About</a><strong> · </strong><a href="#">Faq</a><strong> · </strong><a href="#">Contact</a></p>
-        <p class="company-name" style="font-family: Lato, sans-serif;">Company Name © 2015 </p>
-      </div>
-      <div class="col-sm-6 col-md-4 footer-contacts">
-        <div><span class="fa fa-map-marker footer-contacts-icon"> </span>
-          <p style="font-family: Lato, sans-serif;"><span class="new-line-span" style="font-family: Roboto, sans-serif;">21 Revolution Street</span> Paris, France</p>
+     <footer style="margin-top: 3px;background-color: rgb(27,18,15);">
+        <div class="row">
+            <div class="col-sm-6 col-md-4 footer-navigation">
+                <h3><a href="#"><img src="userasset/img/sojubtry.png" style="width: 226px;height: 87px;"></a></h3>
+               
+                <p class="company-name"
+                    style="font-family: Lato, sans-serif;">Chicken Ween's 2go © 2019 </p>
+            </div> <div class="col-md-4 footer-about">
+                <h4 style="font-family: Roboto, sans-serif;">About the company</h4>
+                <p style="font-family: Lato, sans-serif;"> Chicken Ween's 2go was establish last March 2017, that specialize in flavored chicken wings. </p>
+                <div class="social-links social-icons"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/chickenweens2go/?hl=en"><i class="fa fa-instagram" ></i></a></div>
+            </div>
+            <div class="col-sm-6 col-md-4 footer-contacts">
+                <div><span class="fa fa-map-marker footer-contacts-icon"> </span>
+                    <p style="font-family: Lato, sans-serif;"><span class="new-line-span" style="font-family: Roboto, sans-serif;">Califonia Garden Square</span> Mandaluyong City</p>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+           
         </div>
-        <div><i class="fa fa-phone footer-contacts-icon"></i>
-          <p class="footer-center-info email text-left" style="font-family: Lato, sans-serif;"> +1 555 123456</p>
-        </div>
-        <div><i class="fa fa-envelope footer-contacts-icon"></i>
-          <p> <a href="#" target="_blank" style="font-family: Roboto, sans-serif;">support@company.com</a></p>
-        </div>
-      </div>
-      <div class="clearfix"></div>
-      <div class="col-md-4 footer-about">
-        <h4 style="font-family: Roboto, sans-serif;">About the company</h4>
-        <p style="font-family: Lato, sans-serif;"> Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet. </p>
-        <div class="social-links social-icons">
-          <a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a><a href="#"><i class="fa fa-github"></i></a>
-        </div>
-      </div>
-    </div>
-  </footer>
+    </footer>
     <script src="userasset/js/jquery.min.js"></script>
     <script src="userasset/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>

@@ -17,23 +17,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-light navbar-expand-lg fixed-top text-center" id="mainNav" style="height: 98px;background-color: #1b120f;font-family: Lato, sans-serif;">
-        <div class="container"><a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="userasset/img/sojubtry.png" style="height: 81px;width: 217px;margin-left: 28px;"></a><button class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target="#navbarResponsive"
-                type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" style="background-color: rgba(78,69,18,0);color: rgba(255,255,255,0.5);"><i class="fa fa-align-justify"></i></button>
-            <div class="collapse navbar-collapse"
-                id="navbarResponsive" style="color: rgb(230,222,221);padding-right: 27px;">
-                <ul class="nav navbar-nav ml-auto" style="background-color: rgba(27,18,15,0.85);">
-                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="user-page.html" style="color: rgb(230,222,221);">Home</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="menu.html" style="color: rgb(230,222,221);">MENU</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="bag.html" style="color: rgb(230,222,221);font-family: Lato, sans-serif;">BAG</a></li>
-                    <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="true" href="#" style="color: rgb(230,222,221);">PROFILE</a>
-                        <div class="dropdown-menu" role="menu" style="font-family: Lato, sans-serif;color: rgb(230,222,221);background-color: rgb(27,18,15);"><a class="dropdown-item" role="presentation" href="edit-profile.html" style="font-family: Lato, sans-serif;font-weight: bold;color: rgb(230,222,221);">EDIT PROFILE</a><a class="dropdown-item" role="presentation" href="delivered-items.html"
-                                style="font-weight: bold;color: rgb(230,222,221);">TRANSACTION</a><a class="dropdown-item" role="presentation" href="#" style="font-weight: bold;color: rgb(230,222,221);">LOGOUT</a></div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+ <?php include('./includes/header-user.html'); ?>
     <div class="container profile profile-view" id="profile" style="padding-top: 117px;padding-bottom: 67px;">
         <div class="row">
             <div class="col-md-12 alert-col relative">
@@ -75,31 +59,25 @@
             </div>
         </form>
     </div>
-    <footer style="margin-top: 3px;background-color: rgb(27,18,15);">
+  <footer style="margin-top: 3px;background-color: rgb(27,18,15);">
         <div class="row">
             <div class="col-sm-6 col-md-4 footer-navigation">
                 <h3><a href="#"><img src="userasset/img/sojubtry.png" style="width: 226px;height: 87px;"></a></h3>
-                <p class="links" style="font-family: Roboto, sans-serif;"><a href="#">Home</a><strong> · </strong><a href="#">Blog</a><strong> · </strong><a href="#">Pricing</a><strong> · </strong><a href="#">About</a><strong> · </strong><a href="#">Faq</a><strong> · </strong><a href="#">Contact</a></p>
+               
                 <p class="company-name"
-                    style="font-family: Lato, sans-serif;">Company Name © 2015 </p>
+                    style="font-family: Lato, sans-serif;">Chicken Ween's 2go © 2019 </p>
+            </div> <div class="col-md-4 footer-about">
+                <h4 style="font-family: Roboto, sans-serif;">About the company</h4>
+                <p style="font-family: Lato, sans-serif;"> Chicken Ween's 2go was establish last March 2017, that specialize in flavored chicken wings. </p>
+                <div class="social-links social-icons"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/chickenweens2go/?hl=en"><i class="fa fa-instagram" ></i></a></div>
             </div>
             <div class="col-sm-6 col-md-4 footer-contacts">
                 <div><span class="fa fa-map-marker footer-contacts-icon"> </span>
-                    <p style="font-family: Lato, sans-serif;"><span class="new-line-span" style="font-family: Roboto, sans-serif;">21 Revolution Street</span> Paris, France</p>
-                </div>
-                <div><i class="fa fa-phone footer-contacts-icon"></i>
-                    <p class="footer-center-info email text-left" style="font-family: Lato, sans-serif;"> +1 555 123456</p>
-                </div>
-                <div><i class="fa fa-envelope footer-contacts-icon"></i>
-                    <p> <a href="#" target="_blank" style="font-family: Roboto, sans-serif;">support@company.com</a></p>
+                    <p style="font-family: Lato, sans-serif;"><span class="new-line-span" style="font-family: Roboto, sans-serif;">Califonia Garden Square</span> Mandaluyong City</p>
                 </div>
             </div>
             <div class="clearfix"></div>
-            <div class="col-md-4 footer-about">
-                <h4 style="font-family: Roboto, sans-serif;">About the company</h4>
-                <p style="font-family: Lato, sans-serif;"> Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet. </p>
-                <div class="social-links social-icons"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a><a href="#"><i class="fa fa-github"></i></a></div>
-            </div>
+           
         </div>
     </footer>
     <script src="userasset/js/jquery.min.js"></script>
