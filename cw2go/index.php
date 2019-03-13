@@ -43,24 +43,18 @@
     <div class="carousel slide" data-ride="carousel" id="carousel-1">
         <div class="carousel-inner" role="listbox">
             <div class="carousel-item active">
-                <div class="jumbotron hero-nature carousel-hero" style="height: 646px;background-image: url(&quot;userasset/img/chickenhero.jpg&quot;);filter: brightness(95%) contrast(92%);">
-                    <h1 class="hero-title" style="margin-top: 203px;font-family: 'Black Han Sans', sans-serif;color: rgb(230,222,221);">WE SERVE </h1>
-                    <p class="hero-subtitle" style="font-family: Lato, sans-serif;font-size: 20px;margin-top: -23px;"><br>A delicay that you can never resist &nbsp;with every bite of every chicken &nbsp;you can never stop eating.<br><br></p>
-                    <p><a class="btn btn-primary btn-lg hero-button" role="button" href="login.php" data-bs-hover-animate="tada" style="font-size: 18px;">Order Now</a></p>
+                <div class="jumbotron hero-nature carousel-hero" style="height: 646px;background-image: url(&quot;userasset/img/hero2.jpg&quot;);filter: brightness(100%) contrast(98%);">
                 </div>
             </div>
             <div class="carousel-item">
-                <div class="jumbotron hero-photography carousel-hero" style="height: 646px;background-image: url(&quot;userasset/img/herocover2.jpg&quot;);">
-                    <h1 class="hero-title" style="margin-top: 203px;font-family: 'Black Han Sans', sans-serif;color: rgb(230,222,221);">We DELIVER</h1>
-                    <p class="hero-subtitle" style="font-family: Lato, sans-serif;font-size: 20px;margin-top: -23px;"><br>We deliver in front of you door &nbsp;in which you can gurantee &nbsp; a hot and tasty chicken wings.<br><br></p>
-                    <p><a class="btn btn-primary btn-lg hero-button" role="button" href="login.php">Order Now</a></p>
+                <div class="jumbotron hero-photography carousel-hero" style="height: 646px;background-image: url(&quot;userasset/img/hero1.jpg&quot;);">
                 </div>
             </div>
             <div class="carousel-item">
-                <div class="jumbotron hero-technology carousel-hero" style="height: 646px;background-image: url(&quot;userasset/img/herocover3.jpg&quot;);">
-                    <h1 class="hero-title" style="margin-top: 203px;font-family: 'Black Han Sans', sans-serif;color: rgb(230,222,221);">We are Chicken Weens's 2go</h1>
-                    <p class="hero-subtitle" style="font-family: Lato, sans-serif;font-size: 20px;margin-top: -23px;"><br>We treasuere the wing with love. We serve flavored Chicken in a different way wherein you can enjoy it.<br><br></p>
-                    <p><a class="btn btn-primary btn-lg hero-button" role="button" href="login.php">Order Now</a></p>
+                <div class="jumbotron hero-technology carousel-hero" style="height: 646px;background-image: url(&quot;userasset/img/hero3.jpg&quot;);">
+                    <h1  style="margin-top: 203px;font-family: 'Black Han Sans', sans-serif;color: rgb(230,222,221); float:left; margin-left: 100px;">We are Chicken Weens's 2go</h1>
+                    <p class="hero-subtitle" style="font-family: Lato, sans-serif;font-size: 20px;margin-top: -23px; margin-left: 80px;"><br>We treasuere the wing with love. We serve flavored Chicken in a different way wherein you can enjoy it.<br><br></p>
+                    <p><a style="margin-left: -680px;"class="btn btn-primary btn-lg hero-button" role="button" href="login.php">Order Now</a></p>
                 </div>
             </div>
         </div>
