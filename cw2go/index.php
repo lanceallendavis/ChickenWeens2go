@@ -43,24 +43,18 @@
     <div class="carousel slide" data-ride="carousel" id="carousel-1">
         <div class="carousel-inner" role="listbox">
             <div class="carousel-item active">
-                <div class="jumbotron hero-nature carousel-hero" style="height: 646px;background-image: url(&quot;userasset/img/chickenhero.jpg&quot;);filter: brightness(95%) contrast(92%);">
-                    <h1 class="hero-title" style="margin-top: 203px;font-family: 'Black Han Sans', sans-serif;color: rgb(230,222,221);">WE SERVE </h1>
-                    <p class="hero-subtitle" style="font-family: Lato, sans-serif;font-size: 20px;margin-top: -23px;"><br>A delicay that you can never resist &nbsp;with every bite of every chicken &nbsp;you can never stop eating.<br><br></p>
-                    <p><a class="btn btn-primary btn-lg hero-button" role="button" href="login.php" data-bs-hover-animate="tada" style="font-size: 18px;">Order Now</a></p>
+                <div class="jumbotron hero-nature carousel-hero" style="height: 646px;background-image: url(&quot;userasset/img/hero2.jpg&quot;);filter: brightness(100%) contrast(98%);">
                 </div>
             </div>
             <div class="carousel-item">
-                <div class="jumbotron hero-photography carousel-hero" style="height: 646px;background-image: url(&quot;userasset/img/herocover2.jpg&quot;);">
-                    <h1 class="hero-title" style="margin-top: 203px;font-family: 'Black Han Sans', sans-serif;color: rgb(230,222,221);">We DELIVER</h1>
-                    <p class="hero-subtitle" style="font-family: Lato, sans-serif;font-size: 20px;margin-top: -23px;"><br>We deliver in front of you door &nbsp;in which you can gurantee &nbsp; a hot and tasty chicken wings.<br><br></p>
-                    <p><a class="btn btn-primary btn-lg hero-button" role="button" href="login.php">Order Now</a></p>
+                <div class="jumbotron hero-photography carousel-hero" style="height: 646px;background-image: url(&quot;userasset/img/hero1.jpg&quot;);">
                 </div>
             </div>
             <div class="carousel-item">
-                <div class="jumbotron hero-technology carousel-hero" style="height: 646px;background-image: url(&quot;userasset/img/herocover3.jpg&quot;);">
-                    <h1 class="hero-title" style="margin-top: 203px;font-family: 'Black Han Sans', sans-serif;color: rgb(230,222,221);">We are Chicken Weens's 2go</h1>
-                    <p class="hero-subtitle" style="font-family: Lato, sans-serif;font-size: 20px;margin-top: -23px;"><br>We treasuere the wing with love. We serve flavored Chicken in a different way wherein you can enjoy it.<br><br></p>
-                    <p><a class="btn btn-primary btn-lg hero-button" role="button" href="login.php">Order Now</a></p>
+                <div class="jumbotron hero-technology carousel-hero" style="height: 646px;background-image: url(&quot;userasset/img/hero3.jpg&quot;);">
+                    <h1  style="margin-top: 203px;font-family: 'Black Han Sans', sans-serif;color: rgb(230,222,221); float:left; margin-left: 100px;">We are Chicken Weens's 2go</h1>
+                    <p class="hero-subtitle" style="font-family: Lato, sans-serif;font-size: 20px;margin-top: -23px; margin-left: 80px;"><br>We treasuere the wing with love. We serve flavored Chicken in a different way wherein you can enjoy it.<br><br></p>
+                    <p><a style="margin-left: -680px;"class="btn btn-primary btn-lg hero-button" role="button" href="login.php">Order Now</a></p>
                 </div>
             </div>
         </div>
@@ -196,13 +190,12 @@
         <div class="row">
             <div class="col-sm-6 col-md-4 footer-navigation">
                 <h3><a href="#"><img src="userasset/img/sojubtry.png" style="width: 226px;height: 87px;"></a></h3>
-               
                 <p class="company-name"
                     style="font-family: Lato, sans-serif;">Chicken Ween's 2go © 2019 </p>
             </div> <div class="col-md-4 footer-about">
                 <h4 style="font-family: Roboto, sans-serif;">About the company</h4>
                 <p style="font-family: Lato, sans-serif;"> Chicken Ween's 2go was establish last March 2017, that specialize in flavored chicken wings. </p>
-                <div class="social-links social-icons"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/chickenweens2go/?hl=en"><i class="fa fa-instagram" ></i></a></div>
+                <div class="social-links social-icons"><a href="#" title="Facebook"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/chickenweens2go/?hl=en" title="Instagram"><i class="fa fa-instagram" ></i></a><a target="_blank" rel="noopener noreferrer" href="User%20Manual.pdf" title="User Manual"><i class="fa fa-book"></i></a></div>
             </div>
             <div class="col-sm-6 col-md-4 footer-contacts">
                 <div><span class="fa fa-map-marker footer-contacts-icon"> </span>
@@ -228,6 +221,7 @@
     <script src="userasset/js/Subscribe-window.js"></script>
     <!-- Go to www.addthis.com/dashboard to customize your tools -->
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5c63d0112981ca8c"></script>
+
 
 </body>
 
