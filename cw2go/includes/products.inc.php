@@ -33,6 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { #1
   }
 
    }
+    var_dump($_POST);
   //Check if all fields are filled out correctly
   if (empty($errors)) {
   $add_query = "INSERT INTO products (name, type, description, price, product_image, added_at)

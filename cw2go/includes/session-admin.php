@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(!isset($_SESSION['role']) or ($_SESSION['role'] !== 'admin')){
+if(!isset($_SESSION['user']['role']) or ($_SESSION['user']['role'] !== 'admin')){
 header('location: index.php');
 }
 ?>

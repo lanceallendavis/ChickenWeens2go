@@ -55,6 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { #1
      $errors[] = 'username already exists.';
      ;
    }
+      var_dump($_POST);
   //Check if all fields are filled out correctly
   if (empty($errors)) {
   $register_query = "INSERT INTO users (username, first_name, last_name, email, address, password, profile_photo, registered_at)
@@ -72,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { #1
       if (@mysqli_num_rows($result) == 1) {//if one database row (record) matches the input:-
         // Start the session, fetch the record and insert the three values in an array
         session_start();
-        $_SESSION = mysqli_fetch_array($result, MYSQLI_ASSOC);
+        $_SESSION['user'] = mysqli_fetch_array($result, MYSQLI_ASSOC);
         // Use a ternary operation to set the URL #4
         $url = ($_SESSION['role'] === 'admin') ? 'admin-page.php' : 'user-page.php';
         header('Location: ../' . $url); // Make the browser load either the members’ or the admin page

@@ -1,5 +1,4 @@
 <?php
-require('./includes/session-admin.php');
 require('./includes/users-list.inc.php');
 ?>
 <!doctype html>
@@ -22,12 +21,10 @@ require('./includes/users-list.inc.php');
           <th style="color: #1b120f;"><b>Username</b></th>
           <th style="color: #1b120f;"><b>Role</b></th>
           <th style="color: #1b120f;"><b>Registered At</b></th>
-          <th style="color: #1b120f;"><b>Edit</b></th>
           <th style="color: #1b120f;"><b>Delete</b></th>
         </tr>
       <?php  while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
         echo '<tr><td>' . $row['ID'] . '</td><td>' . $row['username'] . '</td><td>' . $row['role'] . '</td><td>' . $row['registered_at'] . '</td>';
-        echo "<td><a href='edit-user-page.php?id=".$row['ID']."'class='btn btn-danger' style='background-color: #f89d13; margin-left: 25px;  border-radius: 16px;'>EDIT</a></td>";
         echo "<td><a href='delete-user.php?id=".$row['ID']."' class='btn btn-danger' style='background-color: #f86a4e; margin-left: 25px;  border-radius: 16px;'>DELETE</a></td></tr>";
       }
 

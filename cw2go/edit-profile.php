@@ -1,10 +1,15 @@
+<?php 
+session_start();
+//echo '<pre>'; die(var_dump($_SESSION)); echo '</pre>';
+?>
+
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Untitled</title>
+    <title>Edit Profile</title>
     <link rel="stylesheet" href="userasset/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="userasset/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Black+Han+Sans">
@@ -12,6 +17,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     <link rel="stylesheet" href="userasset/css/Bold-BS4-CSS-Image-Slider.css">
     <link rel="stylesheet" href="userasset/css/Pretty-Footer.css">
+    <link rel="shortcut icon" href="userasset/img/icon.png" type="image/x-icon" />
     <link rel="stylesheet" href="userasset/css/Profile-Edit-Form-1.css">
     <link rel="stylesheet" href="userasset/css/Profile-Edit-Form.css">
 </head>
@@ -43,6 +49,9 @@
                     </div>
                     <div class="form-group"><label>Email</label><input class="form-control" type="email" autocomplete="off" required="" name="email"></div>
                     <div class="form-group"><label style="font-family: Lato, sans-serif;">Address</label><input class="form-control" type="email" autocomplete="off" required="" name="email"></div>
+                     <hr>
+                     <div class="form-group"><label>Old-Password</label><input class="form-control" type="password" name="password" required=""  autocomplete="off"></div>
+                     <hr>
                     <div class="form-row">
                         <div class="col-sm-12 col-md-6">
                             <div class="form-group"><label>Password </label><input class="form-control" type="password" name="password" autocomplete="off" required=""></div>

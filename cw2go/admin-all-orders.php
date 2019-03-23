@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="vendors/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="vendors/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css">
     <link href="https://fonts.googleapis.com/css?family=Staatliches" rel="stylesheet">
+    <link rel="shortcut icon" href="userasset/img/icon.png" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Lato:700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Anonymous+Pro" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/adminstyle.css">

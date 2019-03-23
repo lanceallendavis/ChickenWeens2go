@@ -1,9 +1,8 @@
 <?php
-  session_start();
+  include('./includes/session-user.php');
   include('./includes/menu.inc.php');
-  if(!isset($_SESSION['role']) or ($_SESSION['role'] !== 'user')){
-    header('location: index.php');
-  }
+  
+  
  ?>
 <!DOCTYPE html>
 <html>
@@ -17,6 +16,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
   <link rel="stylesheet" href="userasset/css/Animated-Pretty-Product-List-v12.css">
+  <link rel="shortcut icon" href="userasset/img/icon.png" type="image/x-icon" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="userasset/css/MUSA_carousel-product-cart-slider-1.css">
   <link rel="stylesheet" href="userasset/css/Pretty-Footer.css">
@@ -24,7 +24,23 @@
 </head>
 <body>
 
-  <?php include('./includes/header-user.html'); ?>
+  <nav class="navbar navbar-light navbar-expand-lg fixed-top text-center" id="mainNav" style="height: 98px;background-color: #1b120f;font-family: Lato, sans-serif;">
+  <div class="container"><a class="navbar-brand js-scroll-trigger" href="user-page.php"><img src="userasset/img/sojubtry.png" style="height: 81px;width: 217px;margin-left: 28px;"></a><button class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target="#navbarResponsive"
+  type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" style="background-color: rgba(78,69,18,0);color: rgba(255,255,255,0.5);"><i class="fa fa-align-justify"></i></button>
+    <div class="collapse navbar-collapse" id="navbarResponsive" style="color: rgb(230,222,221);padding-right: 27px;">
+      <ul class="nav navbar-nav ml-auto" style="background-color: rgba(27,18,15,0.85);">
+        <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="user-page.php" style="color: rgb(230,222,221);">Home</a></li>
+        <li class="nav-item" role="presentation"><a class="nav-link active" href="menu.php" style="color: #f05f40 ;">MENU</a></li>
+        <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="cart.php" style="color: rgb(230,222,221);font-family: Lato, sans-serif;">Cart</a></li>
+        <li class="nav-item" role="presentation"><img src="./images/user-images/<?php echo $_SESSION['user']['profile_photo']; ?>" alt="HTML5 Icon" style="width:40px;height:40px; border-radius: 20px;"></li>
+        <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#" style="color: rgb(230,222,221);">PROFILE</a>
+        <div class="dropdown-menu" role="menu" style="font-family: Lato, sans-serif;color: rgb(230,222,221);background-color: rgb(27,18,15);"><a class="dropdown-item" role="presentation" href="edit-profile.php" style="font-family: Lato, sans-serif;font-weight: bold;color: rgb(230,222,221);">EDIT PROFILE</a><a class="dropdown-item" role="presentation" href="transactions.php"
+        style="font-weight: bold;color: rgb(230,222,221);">TRANSACTIONS</a><a class="dropdown-item" role="presentation" href="logout.php" style="font-weight: bold;color: rgb(230,222,221);">LOGOUT</a></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
   <div class="container" style="padding-top: 112px;padding-bottom: 58px;">
   <div class="row product-list dev">
   <?php
@@ -78,21 +94,20 @@
 </div>
 </div>
   <!-- FOOTER -->
-     <footer style="margin-top: 3px;background-color: rgb(27,18,15);">
+      <footer style="margin-top: 3px;background-color: rgb(27,18,15);">
         <div class="row">
             <div class="col-sm-6 col-md-4 footer-navigation">
                 <h3><a href="#"><img src="userasset/img/sojubtry.png" style="width: 226px;height: 87px;"></a></h3>
-               
                 <p class="company-name"
                     style="font-family: Lato, sans-serif;">Chicken Ween's 2go © 2019 </p>
             </div> <div class="col-md-4 footer-about">
                 <h4 style="font-family: Roboto, sans-serif;">About the company</h4>
                 <p style="font-family: Lato, sans-serif;"> Chicken Ween's 2go was establish last March 2017, that specialize in flavored chicken wings. </p>
-                <div class="social-links social-icons"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/chickenweens2go/?hl=en"><i class="fa fa-instagram" ></i></a></div>
+                <div class="social-links social-icons"><a href="#" title="Facebook"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/chickenweens2go/?hl=en" title="Instagram"><i class="fa fa-instagram" ></i></a><a target="_blank" rel="noopener noreferrer" href="User%20Manual.pdf" title="User Manual"><i class="fa fa-book"></i></a></div>
             </div>
             <div class="col-sm-6 col-md-4 footer-contacts">
                 <div><span class="fa fa-map-marker footer-contacts-icon"> </span>
-                <p style="font-family: Lato, sans-serif;"><span class="new-line-span" style="font-family: Roboto, sans-serif;">Califonia Garden Square</span> Mandaluyong City</p>
+                    <p style="font-family: Lato, sans-serif;"><span class="new-line-span" style="font-family: Roboto, sans-serif;">Califonia Garden Square</span> Mandaluyong City</p>
                 </div>
             </div>
             <div class="clearfix"></div>
