@@ -1,5 +1,5 @@
 <?php
-include('./includes/session-admin.php');
+require('./includes/session-admin.php');
 include('./includes/pending-orders.inc.php');
  ?>
 <!doctype html>
@@ -33,8 +33,6 @@ include('./includes/pending-orders.inc.php');
 
         <!-- Header-->
         <?php include('./includes/header-admin2.html'); ?>
-
-        </header>
         <table id="customers">
             <tr>
                 <th style="color: #1b120f;">Order ID</th>
@@ -51,8 +49,8 @@ include('./includes/pending-orders.inc.php');
             echo '<td>' . $row['total'] . '</td>';
             echo '<td>' . $row['placed_at'] . '</td>';
             echo '<td>
-                    <a href="./includes/accept-order.php?id=' . $row['order_ID'] . '" class="btn btn-primary" type="button" style="margin-top: 6px;">Accept<br></a>
-                    <a href="./includes/decline-order.php?id=' . $row['order_ID'] . '" class="btn btn-primary" type="button" style="margin-top: 6px;">Decline<br>
+                    <a href="./includes/accept-order.php?id=' . $row['order_ID'] . '" class="btn btn-danger" type="button" style="background-color: #f89d13; margin-left: 20px;  border-radius: 16px;">Accept<br></a>
+                    <a href="./includes/decline-order.php?id=' . $row['order_ID'] . '" class="btn btn-danger" type="button" style="background-color: #f86a4e; margin-left: 20px;  border-radius: 16px;"">Decline<br>
                   </td>
             </tr>';
           }

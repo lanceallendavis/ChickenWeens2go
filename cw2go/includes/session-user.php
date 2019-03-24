@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(!isset($_SESSION['role']) or ($_SESSION['role'] !== 'user')){
+if(!isset($_SESSION['user']['role']) or ($_SESSION['user']['role'] !== 'user')){
   header('location: index.php');
 }
  ?>

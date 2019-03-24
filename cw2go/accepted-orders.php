@@ -43,8 +43,8 @@ require_once('./includes/accepted-orders.inc.php');
       echo '<td>'. $row['user_name'] . '</td>';
       echo '<td>'. $row['total'] . '</td>';
       echo '<td>'. $row['accepted_at'] . '</td>';
-      echo '<td style="text-align: center;"><a href="./includes/delivered-order.php?id=' . $row['ID'] . '" class="btn btn-primary" type="button" style="margin-top: 6px; margin-right: 6px; ">Delivered<br></a>';
-      echo '<a href="./includes/cancel-order.php?id=' . $row['ID'] . '" class="btn btn-primary" type="button" style="margin-top: 6px;">Cancel<br></td>';
+      echo '<td style="text-align: center;"><a href="./includes/delivered-order.php?id=' . $row['ID'] . '" class="btn btn-primary" type="button" style="margin-top: 6px; margin-right: 6px; background-color: #f89d13; border-radius: 16px; ">Delivered<br></a>';
+      echo '<a href="./includes/cancel-order.php?id=' . $row['ID'] . '" class="btn btn-primary" type="button" style="margin-top: 6px; background-color: #f86a4e; margin-left: 25px;  border-radius: 16px;">Cancel<br></td>';
     echo '</tr>';
     };
     ?>

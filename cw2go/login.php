@@ -1,6 +1,6 @@
 <?php
   session_start();
-  if(isset($_SESSION['ID'])){
+  if(isset($_SESSION['user']['ID'])){
   session_destroy();
 }
 
@@ -37,11 +37,14 @@
             <div class="form-group"><label class="text-secondary" style="font-family: Lato, sans-serif;">Username</label><input class="form-control" type="text" name="username" required></div>
             <div class="form-group"><label class="text-secondary" style="font-family: Lato, sans-serif;">Password</label><input class="form-control" type="password" name="password" required><button class="btn btn-info mt-2" type="submit" data-bs-hover-animate="tada" style="background-color: rgb(220,93,66);width: 126px;">LOGIN</button></div>
           </form>
-          <?php if(isset($_SESSION['invalid'])){
-            echo '<h1>' . $_SESSION['invalid'] . '</h1>';
-            session_destroy();
-          }
-
+          <?php 
+            if(isset($_SESSION['errors']) && count($_SESSION['errors']) > 0){
+                foreach($_SESSION['errors'] as $error) {
+                    echo '<h1>' . $error . '</h1>';
+                unset($_SESSION['errors']);
+                }
+                
+            }
           ?>
         </div>
       </div>

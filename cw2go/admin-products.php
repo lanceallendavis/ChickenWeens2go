@@ -1,5 +1,8 @@
 <?php
+<<<<<<< HEAD
 //require('./includes/session-admin.php');
+=======
+>>>>>>> b6e97f65239d4409054aeb3ddaa10132190124a9
 require('./includes/mysqli_connect.php');
 $list_products = "SELECT * FROM products";
 $products_result = mysqli_query($db_connect, $list_products);
@@ -20,7 +23,6 @@ $products_result = mysqli_query($db_connect, $list_products);
 
     <div id="right-panel" class="right-panel">
       <?php include('./includes/header-admin2.html'); ?>
-
         <table id="customers" >
         <tr>
           <form action="./includes/products.inc.php" method="post" enctype="multipart/form-data">
@@ -36,29 +38,53 @@ $products_result = mysqli_query($db_connect, $list_products);
           </form>
         </tr>
         <tr>
-          <th><b>Product ID</b></th>
           <th style="width: 10%;"><b>Product Name</b></th>
           <th><b>Type</b></th>
           <th><b>Description</b></th>
           <th><b>Price</b></th>
           <th><b>Availability</b></th>
           <th><b>Date Added</b></th>
-          <th><b>DELETE</b></th>
           <th><b>EDIT</b></th>
+          <th><b>DELETE</b></th>
         </tr>
       <?php
         if($products_result){
           while($row = mysqli_fetch_array($products_result, MYSQLI_ASSOC)){
-          echo '<tr><td>' . $row['ID'] . '</td><td>' . $row['name'] . '</td><td>' . $row['type'] . '</td><td>' . $row['description'] . '</td><td>' . $row['price'] . '</td><td>' . $row['availability'];
+          echo '<tr><td>' . $row['name'] . '</td><td>' . $row['type'] . '</td><td>' . $row['description'] . '</td><td>' . $row['price'] . '</td><td>' . $row['availability'];
           echo '</td><td>' . $row['added_at'] . '</td>';
-          echo "<td><a href='delete-product.php?id=".$row['ID']."'>DELETE</a></td>";
-          echo "<td><a href='edit-product-page.php?id=".$row['ID']."'>EDIT</a></td></tr>";
+          echo "<td><a href='edit-product-page.php?id=".$row['ID']."' class='btn btn-danger' style='background-color: #f89d13; margin-left: 15px;  border-radius: 16px;'>EDIT</a></td>";
+          echo "<td><a href='delete-product.php?id=".$row['ID']."' class='btn btn-danger' style='background-color: #f86a4e; margin-left: 15px;  border-radius: 16px;'>DELETE</a></td></tr>";
           }
           mysqli_free_result ($products_result);
         }
         ?>
-      </table>
+        </form>
+      </table><br>
+        <a href="#popUp" id="openPopUp" style="font-family: Lato, sans-serif;" > <i class="menu-icon fa fa-plus"> &nbsp; Add Products </i></a>
+        <aside id="popUp" class="popup">
+        <div class="popUpContainer">
+        <header>
+        <a href="#!" class="closePopUp">X</a>
+        <h2 style="font-family: 'Black Han Sans', sans-serif; font-size: 24px; padding: 25px;">ADD PRODUCTS</h2>
+        </header>
+        <article>
+      	<table id="customers" >
+          <form action="./includes/products.inc.php" method="post" enctype="multipart/form-data">
+         <center> <br>  <input type='hidden' name='action' value='addProduct'><input placeholder="Product Name" class="productinput" style="margin-left: 5px;" id="productName" type="text" name="productName" size="32" maxlength="32" value="<?php if (isset($_POST['productName'])) echo $_POST['productName']; ?>"> <br>
+            <input placeholder="Product Type" id="type" class="productinput"  type="text" name="type" size="32" maxlength="32" value="<?php if (isset($_POST['type'])) echo $_POST['type']; ?>"><br>
+            <input placeholder="Product Description" id="description" class="productinput" type="text" name="description" size="64" maxlength="32" value="<?php if (isset($_POST['description'])) echo $_POST['description']; ?>"><br>
+            <input placeholder="Product Price" id="price" class="productinput"  type="text" name="price" size="32" maxlength="64" value="<?php if (isset($_POST['price'])) echo $_POST['email']; ?>" ><br>
+            <input placeholder="Enter Product Image" type="file" style="width: 230px; margin-bottom: 10px;" class=btn btn-danger; name="productImage" id="productImage"><br>
+            <input id="submit" type="submit" name="submit" value="ADD" class="btn btn-danger" style="font-weight: bold; background-color: #f89d13; width: 100%; height: 50px; margin-top: 23px;">
+             </center>
+            </form>
+            </table>
+        </article>
+        </div>
+        <a href="#!" class="closePopUpOutSide"></a>
+        </aside>
     </div>
+
     <script src="vendors/jquery/dist/jquery.min.js"></script>
     <script src="vendors/popper.js/dist/umd/popper.min.js"></script>
     <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -69,23 +95,6 @@ $products_result = mysqli_query($db_connect, $list_products);
     <script src="vendors/jqvmap/dist/jquery.vmap.min.js"></script>
     <script src="vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
     <script src="vendors/jqvmap/dist/mapsS/jquery.vmap.world.js"></script>
-    <script>
-        (function($) {
-            "use strict";
-            jQuery('#vmap').vectorMap({
-                map: 'world_en',
-                backgroundColor: null,
-                color: '#ffffff',
-                hoverOpacity: 0.7,
-                selectedColor: '#1de9b6',
-                enableZoom: true,
-                showTooltip: true,
-                values: sample_data,
-                scaleColors: ['#1de9b6', '#03a9f5'],
-                normalizeFunction: 'polynomial'
-            });
-        })(jQuery);
-    </script>
 
 </body>
 

@@ -1,46 +1,36 @@
 <?php
-require_once('mysqli_connect.php');
-$login_errors = array();
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  if($_POST['action'] == 'login'){
-
- if (!empty($_POST['username'])) {
- $username = mysqli_real_escape_string($db_connect, $_POST['username']);
- } else {
- $username= FALSE;
- $login_errors[] = '<p class="error">You forgot to enter your username.</p>';
- }
- // Validate the password
- if (!empty($_POST['password'])) {
- $password= mysqli_real_escape_string($db_connect, $_POST['password']);
- } else {
- $password= FALSE;
- $login_errors[] = '<p class="error">You forgot to enter your password.</p>';
- }
- if ($username && $password){//if no problems #2
-//CHECK LOGIN CREDENTIALS
-$login_query = "SELECT ID, first_name, role, profile_photo FROM users WHERE (username='$username' AND password=SHA1('$password'))";
-// Run the query and assign it to the variable $result
-$result = mysqli_query($db_connect, $login_query);
-if (@mysqli_num_rows($result) == 1) {//if one database row (record) matches the input:-
-// Start the session, fetch the record and insert the three values in an array
 session_start();
-$_SESSION = mysqli_fetch_array($result, MYSQLI_ASSOC);
-// Use a ternary operation to set the URL #4
-$url = ($_SESSION['role'] === 'admin') ? 'admin-page.php' : 'user-page.php';
-header('Location: ../' . $url); // Make the browser load either the members’ or the admin page
-exit(); // Cancel the rest of the script
- mysqli_free_result($result);
- mysqli_close($db_connect);
- }
- else {
-   session_start();
-   $login_errors[] = 'Invalid username or password';
-   $_SESSION['invalid'] = 'Invalid username or password';
-   header('location: ../login.php');
- }
+require_once('mysqli_connect.php');
+
+if($_POST['action'] == 'login' && $_SERVER['REQUEST_METHOD'] === 'POST'){
+    
+    $login_errors = [];
+    if (empty($_POST['username'])) {
+       $login_errors[] = 'You forgot to enter your username.';
+    }
+
+     if (empty($_POST['password'])) { 
+        $login_errors[] = 'You forgot to enter your password.';
+     }
+      
+    $username = mysqli_real_escape_string($db_connect, $_POST['username']);
+    $password= mysqli_real_escape_string($db_connect, $_POST['password']);
+
+    $login_query = "SELECT * FROM users WHERE (username='$username' AND password=SHA1('$password'))";
+    $result = mysqli_query($db_connect, $login_query);
+
+    if (@mysqli_num_rows($result) <= 0) {
+       $login_errors[] = 'Invalid username or password';
+    }
+    
+    if (count($login_errors) > 0) {
+        $_SESSION['errors'] = $login_errors;
+        header('Location: ../login.php');
+        die();
+    }
+    
+    $_SESSION['user'] = mysqli_fetch_assoc($result);
+    $url = $_SESSION['user']['role'] === 'admin' ? 'admin-page.php' : 'user-page.php';
+    header('Location: ../' . $url);
+    die();
 }
-}
-mysqli_close($db_connect);
-} // End of SUBMIT conditional.
-?>

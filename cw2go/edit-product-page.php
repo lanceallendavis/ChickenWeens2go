@@ -165,15 +165,11 @@ if(!$row){
                   <td><input id="description" type="text" name="description" size="32" maxlength="32" value="<?php echo $row['description']; ?>"></td>
                   <td><input id="price" type="text" name="price" size="8" maxlength="64" value="<?php echo $row['price']; ?>" ></td>
                   <td><input id="availability" type="text" name="availability" size="1" maxlength="254" value="<?php echo $row['availability']; ?>" ></td>
-                  </table>
                   <button class="btn-overlay" type='submit'>
                       <span>EDIT</span>
                   </button>
                 </form>
 
-
-
-          </div>
           <script src="vendors/jquery/dist/jquery.min.js"></script>
           <script src="vendors/popper.js/dist/umd/popper.min.js"></script>
           <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
