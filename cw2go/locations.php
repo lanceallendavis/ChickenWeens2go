@@ -1,10 +1,10 @@
-<?php
-//require('./includes/session-admin.php');
+ <?php
+require('./includes/session-admin.php');
 require('./includes/mysqli_connect.php');
 $list_products = "SELECT * FROM products";
 $products_result = mysqli_query($db_connect, $list_products);
-
 ?>
+
 <!doctype html>
 <html class="no-js" lang="en">
 <head>
@@ -29,7 +29,7 @@ $products_result = mysqli_query($db_connect, $list_products);
             <td><input placeholder="Enter Product Name" id="productName" type="text" name="productName" size="32" maxlength="32" value="<?php if (isset($_POST['productName'])) echo $_POST['productName']; ?>"></td>
             <td><input placeholder="Enter Product Type" id="type" type="text" name="type" size="32" maxlength="32" value="<?php if (isset($_POST['type'])) echo $_POST['type']; ?>"></td>
             <td><input placeholder="Enter Product Description" id="description" type="text" name="description" size="32" maxlength="32" value="<?php if (isset($_POST['description'])) echo $_POST['description']; ?>"></td>
-            <td><input placeholder="Enter Product Price" id="price" type="text" name="price" size="32" maxlength="64" value="<?php if (isset($_POST['price'])) echo $_POST['price']; ?>" ></td>
+            <td><input placeholder="Enter Product Price" id="price" type="text" name="price" size="32" maxlength="64" value="<?php if (isset($_POST['price'])) echo $_POST['email']; ?>" ></td>
               <td><input placeholder="Enter Product Image" type="file" name="productImage" id="productImage"></div>
 
             <td><input id="submit" type="submit" name="submit" value="Add">

@@ -31,7 +31,8 @@ require_once('./includes/session-admin.php');
           <th style="color: #1b120f;">DATE</th>
           <th style="color: #1b120f">TOTAL</th>
           <th style="color: #1b120f">CUSTOMER COUNT</th>
-        
+          <th style="color: #1b120f">DATE ACCEPTED</th>
+          <th style="color: #1b120f">SET ACCEPTED STATUS</th>
         </tr>
     <?php
 require_once('./includes/daily-sales.inc.php');
