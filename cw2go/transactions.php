@@ -30,7 +30,7 @@ include('./includes/user-transactions.php');
     unset($_SESSION['checkout_msg']);
   }
   ?>
-  
+
   <h1 class="my-4" style="font-family: 'Black Han Sans', sans-serif;color: rgb(246,164,40);letter-spacing: 6px; margin-left: 90px;">Order Transaction</h1>
   <?php while($row = mysqli_fetch_array($display_result, MYSQLI_ASSOC))
    {
@@ -91,7 +91,7 @@ include('./includes/user-transactions.php');
                 </div>
             </div>
             <div class="clearfix"></div>
-           
+
         </div>
     </footer>
     <script src="userasset/js/jquery.min.js"></script>

@@ -1,6 +1,6 @@
 <?php
-include('./includes/display-cart.php');
 include('./includes/session-user.php');
+include('./includes/display-cart.php');
  ?>
 <!DOCTYPE html>
 <html>
@@ -42,7 +42,7 @@ include('./includes/session-user.php');
 </nav>
   <div class="container">
       <h1 class="my-4" style="font-family: 'Black Han Sans', sans-serif;color: rgb(246,164,40);letter-spacing: 6px;">Your Cart</h1>
-      
+
       <div>
         <div class="container">
             <div class="row">
@@ -60,7 +60,19 @@ include('./includes/session-user.php');
         </div>
     </div>
     <div>
-        <?php while($row = mysqli_fetch_array($display_result, MYSQLI_ASSOC)){
+        <?php
+        if($total_row['total'] == NULL){
+            $_SESSION['messages']['noAdded'] = 'You did not add any product';
+            echo $_SESSION['messages']['noAdded'];
+            unset($_SESSION['messages']['noAdded']);
+        }
+        else if(isset($_SESSION['message']['noAdded'])){
+          echo $_SESSION['messages']['noAdded'];
+          unset($_SESSION['messages']['noAdded']);
+        }
+        else
+        {
+        while($row = mysqli_fetch_array($display_result, MYSQLI_ASSOC)){
         echo '<div class="container">
             <div class="row">
                 <div class="col-md-3"><img src="userasset/img/ck1.jpg" style="width: 175px;height: 115px; margin-left: 60px;"></div>
@@ -79,22 +91,56 @@ include('./includes/session-user.php');
              </div>
             </div>
         </div>
-     </div>'; 
+     </div>';
     echo '<br>';
      }
+   }
       ?>
     <div class="row">
       <div class="col-md-7 mb-4"></div>
         <div class="col-md-5 mb-4">
           <div class="card h-100">
             <div class="card-body">
-              <h6 class="text-muted card-subtitle mb-2">Food Total</h6>
-              <h4 class="card-title"><?php $total_row = mysqli_fetch_array($display_total_result, MYSQLI_ASSOC); echo $total_row['total']; ?></h4>
+              <form action='./checkout.php' method='post'>
+              <input type="hidden" name="action" value="checkout">
+              <input type="hidden" name="user_ID" value="<?php echo $userID ?>">
+              <h4 class="text-muted card-subtitle mb-2">Food Total</h4>
+              <h4 class="card-title">₱<?php if($total_row['total'] == NULL) { echo '0';} else {echo $total_row['total'];} ?></h4>
               <input type="hidden" name="total" value=" <?php echo $total_row['total']; ?>">
-              <h6 class="text-muted card-subtitle mb-2">Delivery Charge</h6>
-              <h4 class="card-title">P60</h4>
-              <h6 class="text-muted card-subtitle mb-2">Grand Total</h6>
-              <h4 class="card-title"><?php echo $total_row['total']+60; ?></h4><a href="checkout.php"><button class="btn btn-primary" type="button" style="margin-top: 11px;background-color: rgb(246,164,40);">Proceed to Checkout<br></button></a>
+              <h4 class="text-muted card-subtitle mb-2">Mode of Payment</h4>
+              <select name="modeOfPayment">
+                <option value="Cash On Delivery">Cash On Delivery</option>
+                <option value="Cash On Pick-Up">Cash On Pick-Up</option>
+              </select>
+              <br>
+              <h4 class="text-muted card-subtitle mb-2" style="margin-top: 2px;">Delivery Address</h4>
+              <h6>User Your personal Address   <input type="radio" onclick="javascript:addressCheck();" name="address" value="personalAddress" id="personalCheck" checked></h6>
+              <h6>Use another Delivery Address <input type="radio" onclick="javascript:addressCheck();" name="address" value="anotherAddress" id="anotherCheck"></h6>
+              <div id="ifAnother" style="visibility:hidden">
+                <select name="city">
+                  <option value="Makati">Makati</option>
+                  <option value="Manila">Manila</option>
+                  <option value="Caloocan">Caloocan</option>
+                  <option value="LasPinas">LasPinas</option>
+                  <option value="Malabon">Malabon</option>
+                  <option value="Marikina">Marikina</option>
+                  <option value="Muntinlupa">Muntinlupa</option>
+                  <option value="Navotas">Navotas</option>
+                  <option value="Paranaque">Paranaque</option>
+                  <option value="Pasay">Pasay</option>
+                  <option value="Pasig">Pasig</option>
+                  <option value="Quezon">Quezon</option>
+                  <option value="San Juan">San</option>
+                  <option value="Taguig">Taguig</option>
+                  <option value="Valenzuela">Valenzuela</option>
+                  <option value="Cavite">Cavite</option>
+
+                </select>
+              <input type="text" placeholder="address" name="address">
+              </div>
+              <br>
+              <button class="btn btn-primary" type="submit" style="margin-top: 11px;background-color: rgb(246,164,40);">Proceed to Checkout<br></button></a>
+            </form>
             </div>
           </div>
         </div>
@@ -117,7 +163,7 @@ include('./includes/session-user.php');
                 </div>
             </div>
             <div class="clearfix"></div>
-           
+
         </div>
     </footer>
     <script src="userasset/js/jquery.min.js"></script>
@@ -130,6 +176,15 @@ include('./includes/session-user.php');
     <script src="userasset/js/Dynamically-Queue-Videos.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
     <script src="userasset/js/Review-rating-Star-Review-Button.js"></script>
+    <script>
+    function addressCheck() {
+  if (document.getElementById('anotherCheck').checked) {
+      document.getElementById('ifAnother').style.visibility = 'visible';
+  }
+  else document.getElementById('ifAnother').style.visibility = 'hidden';
+
+}
+</script>
     </div>
 </body>
 

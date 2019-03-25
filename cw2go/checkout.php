@@ -2,6 +2,8 @@
 <?php
   include('./includes/session-user.php');
   include('./includes/display-cart.php');
+  include('./includes/pre-checkout.inc.php');
+
 ?>
 <html>
 
@@ -36,6 +38,9 @@
             <input type="hidden" name="action" value="checkout">
             <input type="hidden" name="user_ID" value="<?php echo row['user_ID'] ?>">
             <?php
+
+            if(!is_null($total_row['total'])){
+
             while($row = mysqli_fetch_array($display_result, MYSQLI_ASSOC)){
 
       echo '<input type="hidden" name="user_ID" value="' . $row['user_ID'] . '">';
@@ -48,7 +53,13 @@
         echo '<td>'. $row['cart_quantity'] . '</td>';
         echo '<td>'. $row['subtotal'] . '</td>';
       echo '</tr>';
+
           }
+        }
+        else {
+          echo '<input type="hidden" name="noProduct" value="noProduct">';
+        }
+
           ?>
             </tbody>
           </table>
@@ -63,15 +74,31 @@
             <tbody>
               <tr>
                 <td></td>
+                <td class="text-right" style="width: 323px;">Food Total</td>
+                <td><input type="hidden" name="estimatedFee" value="<?php echo $total_row['total'];  ?>"><?php echo $total_row['total'];  ?></td>
+              </tr>
+
+              <tr>
+                <td></td>
+                <td class="text-right" style="width: 323px;">Mode of Payment</td>
+                <td><input type="hidden" name="modeOfPayment" value="<?php echo $mode_of_payment;  ?>"><?php echo $mode_of_payment;  ?></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td class="text-right" style="width: 323px;">Delivery Address</td>
+                <td><input type="hidden" name="deliveryAddress" value="<?php echo $address_row['city'];  ?>"><?php echo $address_row['city'];  ?></td>
+              </tr>
+              <tr>
+                <td></td>
                 <td class="text-right" style="width: 323px;">Delivery Fee</td>
-                <td>P60</td>
+                <td><input type="hidden" name="estimatedFee" value="<?php echo $address_row['estimated_fee'];  ?>"><?php echo $address_row['estimated_fee'];  ?></td>
               </tr>
               <tr></tr>
               <tr>
                 <td></td>
-                <td class="text-right" data-bs-hover-animate="shake" style="font-weight: bold;">GRAND TOTAL</td>
-                <td data-bs-hover-animate="tada"><?php $total_row = mysqli_fetch_array($display_total_result, MYSQLI_ASSOC); echo $total_row['total']+60; ?></td>
-                <input type="hidden" name="total" value="<?php echo $total_row['total']; ?>">
+                <td class="text-right" data-bs-hover-animate="shake" style="font-weight: bold;">TOTAL</td>
+                <td data-bs-hover-animate="tada"><?php echo $total_row['total'] + $address_row['estimated_fee']; ?></td>
+                <input type="hidden" name="total" value="<?php echo $total_row['total'] + $address_row['estimated_fee'];  ?>">
               </tr>
               <tr>
                 <td></td>
@@ -80,6 +107,7 @@
               </tr>
             </tbody>
           </table>
+        </form>
         </div>
       </div>
     </section>

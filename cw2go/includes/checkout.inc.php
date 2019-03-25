@@ -1,14 +1,14 @@
 <?php
-include('session-user.php');
 include('mysqli_connect.php');
 $userID = mysqli_real_escape_string($db_connect,trim($_POST['user_ID']));
 $total = mysqli_real_escape_string($db_connect,trim($_POST['total']));
-
+$mode_of_payment = mysqli_real_escape_string($db_connect,trim($_POST['modeOfPayment']));
+$delivery_address = mysqli_real_escape_string($db_connect,trim($_POST['deliveryAddress']));
 
 if($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['action'] == "checkout"){
-
-$order_query = "INSERT INTO orders (user_ID, total, status, placed_at)
-                VALUES ('$userID', '$total', 'pending', now())";
+if(!isset($_POST['noProduct'])){
+$order_query = "INSERT INTO orders (user_ID, total, status, mode_of_payment, delivery_address, placed_at)
+                VALUES ('$userID', '$total', 'pending', '$mode_of_payment', '$delivery_address',   now())";
 $order_result = mysqli_query($db_connect, $order_query);
 $order_ID = mysqli_insert_id($db_connect);
   if($order_result){
@@ -31,6 +31,7 @@ $order_ID = mysqli_insert_id($db_connect);
     }
   }
   }
+}
 else {
     die('No item data to process');
 }

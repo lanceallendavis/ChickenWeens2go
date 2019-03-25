@@ -1,3 +1,9 @@
+<?php
+require_once('./includes/session-admin.php');
+
+require_once('./includes/admin-all-orders.inc.php');
+
+ ?>
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -36,38 +42,62 @@
                         <thead style="background color: #f89d13;">
                             <tr>
                                 <th>ID</th>
-                                <th>COSTUMER NAME</th>
-                                <th>ORDER</th>
+                                <th>CUSTOMER NAME</th>
                                 <th>TOTAL</th>
+                                <th>CURRENT STATUS</th>
+                                <th>MODE OF PAYMENT</th>
+                                <th>DELIVERY ADDRESS</th>
+                                <th>DATE PLACED</th>
+                                <th>DATE ACCEPTED</th>
+                                <th>DATE DECLINED</th>
+                                <th>DATE DELIVERED</th>
+                                <th>DATE CANCELLED</th>
                             </tr>
                         </thead>
 
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Mark Santos</td>
-                                <td>Buffalo Wings</td>
-                                <td>P240</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Timothy Curtis</td>
-                                <td>Buttered Wings</td>
-                                <td>P520</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Lisa Mitchell</td>
-                                <td>Korean Bbq Wings</td>
-                                <td>P120</td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>Johnny Barrett</td>
-                                <td>Honey Butter Wings</td>
-                                <td>P360</td>
-                            </tr>
+                          <?php
 
+
+                          while($row = mysqli_fetch_array($all_orders_result, MYSQLI_ASSOC)){
+                            $placed_at = abs(strtotime($row['placed_at']));
+
+
+                            echo '<tr>';
+                              echo '<td>'. $row['ID'] . '</td>';
+                              echo '<td>'. $row['user_ID']. '</td>';
+                              echo '<td>'. $row['total'] . '</td>';
+                              echo '<td>'. $row['status'] . '</td>';
+                              echo '<td>'. $row['mode_of_payment']. '</td>';
+                              echo '<td>'. $row['delivery_address']. '</td>';
+                              echo '<td>'. date('l jS \of F Y h:i:s A',strtotime($row['placed_at'])). '</td>';
+                              if($row['accepted_at']){
+                                echo '<td>'.date('l jS \of F Y h:i:s A',strtotime($row['accepted_at'])). '</td>';
+                              }
+                              else {
+                                echo '<td>N/A</td>';
+                              }
+                              if($row['declined_at']){
+                                echo '<td>'. date('l jS \of F Y h:i:s A',strtotime($row['declined_at'])). '</td>';
+                              }
+                              else {
+                                echo '<td>N/A</td>';
+                              }
+                              if($row['delivered_at']){
+                                echo '<td>'. date('l jS \of F Y h:i:s A',strtotime($row['delivered_at'])). '</td>';
+                              }
+                              else {
+                                echo '<td>N/A</td>';
+                              }
+                              if($row['cancelled_at']){
+                                echo '<td>'. $row['cancelled_at']. '</td>';
+                              }
+                              else {
+                                echo '<td>N/A</td>';
+                              }
+                          echo '  </tr>';
+                        }
+                          ?>
                         </tbody>
                     </table>
                 </div>
