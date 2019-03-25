@@ -6,7 +6,7 @@ $select_edit_query = "SELECT * FROM products WHERE ID = $productID";
 $result = mysqli_query($db_connect, $select_edit_query);
 $row = mysqli_fetch_array($result);
 if(!$row){
-  echo 'nothing to do here';
+  echo 'nothing to do here.';
 }
 
 ?>
