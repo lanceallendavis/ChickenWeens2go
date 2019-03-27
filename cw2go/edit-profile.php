@@ -1,5 +1,10 @@
-<?php 
-session_start();
+<?php
+include('./includes/session-user.php');
+require_once('./includes/mysqli_connect.php');
+$userID = $_SESSION['user']['ID'];
+$select_edit_query = "SELECT * FROM users WHERE ID = $userID";
+$result = $db_connect ->query($select_edit_query);
+
 //echo '<pre>'; die(var_dump($_SESSION)); echo '</pre>';
 ?>
 
@@ -24,40 +29,42 @@ session_start();
 
 <body>
  <?php include('./includes/header-user.html'); ?>
-    <div class="container profile profile-view" id="profile" style="padding-top: 117px;padding-bottom: 67px;">
+    <div class="container profile profile-view" id="profile" style="padding-top: 90px;padding-bottom: 67px;">
         <div class="row">
             <div class="col-md-12 alert-col relative">
                 <div class="alert alert-info absolue center" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button><span>Profile save with success</span></div>
             </div>
         </div>
-        <form>
+        <form action='includes/edit-user.php' method='post'>
             <div class="form-row profile-row">
                 <div class="col-md-4 relative">
                     <div class="avatar">
-                        <div class="avatar-bg center"></div>
+                        <div class="avatar-bg center">
+                        <img src="./images/user-images/<?php echo $_SESSION['user']['profile_photo']; ?>"/> </div>
                     </div><input type="file" class="form-control" name="avatar-file" style="font-family: Lato, sans-serif;font-size: 18px;"></div>
                 <div class="col-md-8">
                     <h1 style="font-family: 'Black Han Sans', sans-serif;color: rgb(248,157,19);letter-spacing: 6px;">Edit Profile </h1>
                     <hr>
+                    <div class="form-group"><label>Username</label><input class="form-control" type="text" autocomplete="off" required="" value="<?php echo $_SESSION['user']['username']; ?>" name="email"></div>
                     <div class="form-row">
                         <div class="col-sm-12 col-md-6">
-                            <div class="form-group"><label style="font-family: Lato, sans-serif;">Firstname </label><input class="form-control" type="text" name="firstname"></div>
+                            <div class="form-group"><label style="font-family: Lato, sans-serif;">Firstname </label><input class="form-control" type="text" value="<?php echo $_SESSION['user']['first_name']; ?>"  name="firstname"></div>
                         </div>
                         <div class="col-sm-12 col-md-6">
-                            <div class="form-group"><label style="font-family: Lato, sans-serif;">Lastname </label><input class="form-control" type="text" name="lastname"></div>
+                            <div class="form-group"><label style="font-family: Lato, sans-serif;">Lastname </label><input class="form-control" type="text" value="<?php echo $_SESSION['user']['last_name']; ?>"  name="lastname"></div>
                         </div>
                     </div>
-                    <div class="form-group"><label>Email</label><input class="form-control" type="email" autocomplete="off" required="" name="email"></div>
-                    <div class="form-group"><label style="font-family: Lato, sans-serif;">Address</label><input class="form-control" type="email" autocomplete="off" required="" name="email"></div>
+                    <div class="form-group"><label>Email</label><input class="form-control" type="email" autocomplete="off" required="" value="<?php echo $_SESSION['user']['email']; ?>" name="email"></div>
+                    <div class="form-group"><label style="font-family: Lato, sans-serif;">Address</label><input class="form-control" autocomplete="off" required="" value="<?php echo $_SESSION['user']['address']; ?>" name="address"></div>
                      <hr>
                      <div class="form-group"><label>Old-Password</label><input class="form-control" type="password" name="password" required=""  autocomplete="off"></div>
                      <hr>
                     <div class="form-row">
                         <div class="col-sm-12 col-md-6">
-                            <div class="form-group"><label>Password </label><input class="form-control" type="password" name="password" autocomplete="off" required=""></div>
+                            <div class="form-group"><label>New Password </label><input class="form-control" type="password" name="password" autocomplete="off"></div>
                         </div>
                         <div class="col-sm-12 col-md-6">
-                            <div class="form-group"><label style="font-family: Lato, sans-serif;">Confirm Password</label><input class="form-control" type="password" name="confirmpass" autocomplete="off" required=""></div>
+                            <div class="form-group"><label style="font-family: Lato, sans-serif;">Confirm Password</label><input class="form-control" type="password" name="confirmpass" autocomplete="off" ></div>
                         </div>
                     </div>
                     <hr>

@@ -41,7 +41,7 @@ if(!isset($_SESSION['user']['role']) || ($_SESSION['user']['role'] !== 'user')){
         <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="user-page.php" style="color: #f05f40 ;">Home</a></li>
         <li class="nav-item" role="presentation"><a class="nav-link" href="menu.php" style="color: rgb(230,222,221) ;">MENU</a></li>
         <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="cart.php" style="color:rgb(230,222,221) ;font-family: Lato, sans-serif;">Cart</a></li>
-        <li class="nav-item" role="presentation"><img src="./images/user-images/<?php echo $_SESSION['user']['profile_photo']; ?>" alt="HTML5 Icon" style="width:40px;height:40px; border-radius: 20px;"></li>
+        <li class="nav-item" role="presentation"><img src="./images/user-images/<?php echo $_SESSION['user']['profile_photo']; ?>" alt="Profile Pic" style="width:40px;height:40px; border-radius: 20px;"></li>
         <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#" style="color: rgb(230,222,221);">PROFILE</a>
         <div class="dropdown-menu" role="menu" style="font-family: Lato, sans-serif;color: rgb(230,222,221);background-color: rgb(27,18,15);"><a class="dropdown-item" role="presentation" href="edit-profile.php" style="font-family: Lato, sans-serif;font-weight: bold;color: rgb(230,222,221);">EDIT PROFILE</a><a class="dropdown-item" role="presentation" href="transactions.php"
         style="font-weight: bold;color: rgb(230,222,221);">TRANSACTIONS</a><a class="dropdown-item" role="presentation" href="logout.php" style="font-weight: bold;color: rgb(230,222,221);">LOGOUT</a></div>
@@ -88,7 +88,7 @@ if(!isset($_SESSION['user']['role']) || ($_SESSION['user']['role'] !== 'user')){
 </figure></div></div>
         </div>
     </section>
-    <div style="height: 80px; background-color: transparent;"></div>
+    <div style="height: 80px; background-color: #e6dedd;"></div>
     <div class="team-grid" style="background-color: rgb(27,18,15);">
         <div class="container">
             <div class="intro">

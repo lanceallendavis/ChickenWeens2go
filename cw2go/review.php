@@ -15,11 +15,14 @@ require_once('./includes/session-admin.php');
     <link rel="stylesheet" href="vendors/themify-icons/css/themify-icons.css">
     <link rel="stylesheet" href="vendors/flag-icon-css/css/flag-icon.min.css">
     <link rel="stylesheet" href="vendors/selectFX/css/cs-skin-elastic.css">
-    <link rel="shortcut icon" href="userasset/img/icon.png" type="image/x-icon" />
     <link rel="stylesheet" href="vendors/selectFX/css/table.css">
+    <link rel="shortcut icon" href="userasset/img/icon.png" type="image/x-icon" />
     <link rel="stylesheet" href="vendors/jqvmap/dist/jqvmap.min.css">
     <link rel="stylesheet" href="assets/css/adminstyle.css">
     <link rel="stylesheet" href="assets/css/table.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Black+Han+Sans">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 </head>
 
@@ -53,40 +56,46 @@ require_once('./includes/session-admin.php');
         <li class="menu-item-has-children dropdown">
           <a href="delivered-orders.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-truck"></i>Delivered Orders</a>
         </li>
-        <li class="active">
+        <li class="menu-item-has-children dropdown">
           <a href="daily-sales.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa  fa-bar-chart-o"></i>Daily Sales</a>
         </li>
-        <li class="menu-item-has-children dropdown">
+        <li class="active">
           <a href="sales-by-product.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa  fa-bookmark-o"></i>Sales By Product</a>
         </li>
         <li class="menu-item-has-children dropdown">
           <a href="admin-all-orders.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa   fa-sort"></i>Orders Summary</a>
         </li>
         <li class="menu-item-has-children dropdown">
-          <a href="admin-locations.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa  fa-location-arrow"></i>Locations</a>
+          <a href="admin-locations.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa   fa-location-arrow"></i>Locations</a>
         </li>
       </ul>
   </nav>
 </aside>
     <div id="right-panel" class="right-panel">
     <?php include('./includes/header-admin2.html'); ?>
-      <table id="customers">
-        <tr>
-          <th style="color: #1b120f;">DATE</th>
-          <th style="color: #1b120f">TOTAL</th>
-          <th style="color: #1b120f">CUSTOMER COUNT</th>
-        </tr>
-    <?php
-require_once('./includes/daily-sales.inc.php');
-    while($row = mysqli_fetch_array($dailyresult, MYSQLI_ASSOC)){
-      echo '<tr>';
-        echo '<td>'. $row['date'] . '</td>';
-        echo '<td>'. $row['total'] . '</td>';
-        echo '<td>'. $row['customer_count'] . '</td>';
-        echo '</tr>';
-    };
-    ?>
-      </table>
+     <h1 data-aos="slide-up" style="padding-top: 30px;padding-left: 10px;font-family: 'Black Han Sans', sans-serif;letter-spacing: 6px;color: rgb(248,157,19);">Reviews</h1>
+    <div style="padding-top: 0px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <h1 style="font-size: 17px;padding-top: 15px;font-family: Lato, sans-serif;font-weight: bold;">Username</h1>
+                    <p style="font-family: Roboto, sans-serif;line-height: 15px;"><br>Lorem ipsum dolor am consectetur adipiscing elit. Nulla accumsan nunc eget orci posuere, id efficitur erat dignissim. Fusce sed ipsum felis. Etiam lobort<br></p>
+                </div>
+                <div class="col-md-3">
+                    <h1 style="font-size: 17px;padding-top: 15px;font-family: Lato, sans-serif;font-weight: bold;">Username</h1>
+                    <p style="font-family: Roboto, sans-serif;line-height: 15px;"><br>Lorem ipsum dolor am consectetur adipiscing elit. Nulla accumsan nunc eget orci posuere, id efficitur erat dignissim. Fusce sed ipsum felis. Etiam lobort<br></p>
+                </div>
+                <div class="col-md-3">
+                    <h1 style="font-size: 17px;padding-top: 15px;font-family: Lato, sans-serif;font-weight: bold;">Username</h1>
+                    <p style="font-family: Roboto, sans-serif;line-height: 15px;"><br>Lorem ipsum dolor am consectetur adipiscing elit. Nulla accumsan nunc eget orci posuere, id efficitur erat dignissim. Fusce sed ipsum felis. Etiam lobort<br></p>
+                </div>
+                <div class="col-md-3">
+                    <h1 style="font-size: 17px;padding-top: 15px;font-family: Lato, sans-serif;font-weight: bold;">Username</h1>
+                    <p style="font-family: Roboto, sans-serif;line-height: 15px;"><br>Lorem ipsum dolor am consectetur adipiscing elit. Nulla accumsan nunc eget orci posuere, id efficitur erat dignissim. Fusce sed ipsum felis. Etiam lobort<br></p>
+                </div>
+            </div>
+        </div>
+    </div>
     </div>
 
     <script src="vendors/jquery/dist/jquery.min.js"></script>
