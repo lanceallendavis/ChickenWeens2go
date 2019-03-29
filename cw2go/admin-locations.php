@@ -15,7 +15,50 @@ $products_result = mysqli_query($db_connect, $list_products);
 </head>
 
 <body>
-  <?php include('./includes/header-admin.html'); ?>
+  <aside id="left-panel" class="left-panel">
+  <nav class="navbar navbar-expand-sm navbar-default">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fa fa-bars"></i>
+    </button>
+    <a class="navbar-brand" href="admin-page.php"><img src="images/sojubtry.png" alt="Logo" style="margin-top: 10px;"></a>
+      <ul class="nav navbar-nav">
+        <li class="menu-item-has-children dropdown">
+          <a href="admin-page.php"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
+        </li>
+        <li class="menu-item-has-children dropdown">
+          <a href="admin-userslist.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-users"></i>Users</a>
+        </li>
+        <li class="menu-item-has-children dropdown">
+          <a href="admin-products.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-book"></i>Products</a>
+        </li>
+        <h3 class="menu-title">Orders</h3>
+        <li class="menu-item-has-children dropdown">
+          <a href="pending-orders.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-clock-o"></i>Pending Orders</a>
+        </li>
+        <li class="menu-item-has-children dropdown">
+          <a href="accepted-orders.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-check-circle"></i>Accepted Orders</a>
+        </li>
+        <li class="menu-item-has-children dropdown">
+          <a href="declined-orders.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-minus-square"></i>Declined Orders</a>
+        </li>
+        <li class="menu-item-has-children dropdown">
+          <a href="delivered-orders.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-truck"></i>Delivered Orders</a>
+        </li>
+        <li class="menu-item-has-children dropdown">
+          <a href="daily-sales.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa  fa-bar-chart-o"></i>Daily Sales</a>
+        </li>
+        <li class="menu-item-has-children dropdown">
+          <a href="sales-by-product.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa  fa-bookmark-o"></i>Sales By Product</a>
+        </li>
+        <li class="menu-item-has-children dropdown">
+          <a href="admin-all-orders.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa   fa-sort"></i>Orders Summary</a>
+        </li>
+        <li class="active">
+          <a href="admin-locations.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa   fa-location-arrow"></i>Locations</a>
+        </li>
+      </ul>
+  </nav>
+</aside>
 
     <div id="right-panel" class="right-panel">
       <?php include('./includes/header-admin2.html'); ?>
@@ -35,8 +78,8 @@ $products_result = mysqli_query($db_connect, $list_products);
           while($row = mysqli_fetch_array($products_result, MYSQLI_ASSOC)){
           echo '<tr><td>' . $row['city'] . '</td><td>' . $row['distance']  . 'KM' . '</td><td>₱' . $row['estimated_fee'];
           echo '</td><td>' . $row['added_at'] . '</td>';
-          echo "<td><a href='edit-product-page.php?id=".$row['ID']."' class='btn btn-danger' style='background-color: #f89d13; margin-left: 15px;  border-radius: 16px;'>EDIT</a></td>";
-          echo "<td><a href='delete-product.php?id=".$row['ID']."' class='btn btn-danger' style='background-color: #f86a4e; margin-left: 15px;  border-radius: 16px;'>DELETE</a></td></tr>";
+          echo "<td><a href='edit-product-page.php?id=".$row['ID']."' class='btn btn-danger' style='background-color: #f89d13; margin-left: 15px;'>EDIT</a></td>";
+          echo "<td><a href='delete-product.php?id=".$row['ID']."' class='btn btn-danger' style='background-color: #f86a4e; margin-left: 15px;'>DELETE</a></td></tr>";
           }
           mysqli_free_result ($products_result);
         }
@@ -53,11 +96,11 @@ $products_result = mysqli_query($db_connect, $list_products);
         <article>
       	<table id="customers" >
           <form action="./includes/add-location.php" method="post" enctype="multipart/form-data">
-         <center> <br>  <input type='hidden' name='action' value='addLocation'>
+         <center> <br><br><br>  <input type='hidden' name='action' value='addLocation'>
             <input placeholder="Location Name" class="productinput" style="margin-left: 5px;" id="productName" type="text" name="locationName" size="32" maxlength="32" value="<?php if (isset($_POST['locationName'])) echo $_POST['locationName']; ?>"> <br>
             <input placeholder="Location Distance(KM)" id="type" class="productinput"  type="text" name="distance" size="32" maxlength="32" value="<?php if (isset($_POST['distance'])) echo $_POST['distance']; ?>"><br>
             <input placeholder="Estimated Fee(PHP)" id="description" class="productinput" type="text" name="estimatedFee" size="64" maxlength="32" value="<?php if (isset($_POST['estimatedFee'])) echo $_POST['estimatedFee']; ?>"><br>
-            <input id="submit" type="submit" name="submit" value="ADD" class="btn btn-danger" style="font-weight: bold; background-color: #f89d13; width: 100%; height: 50px; margin-top: 23px;">
+            <input id="submit" type="submit" name="submit" value="ADD" class="btn btn-danger" style="font-weight: bold; background-color: #f89d13; width: 100%; height: 50px; margin-top: 80px;">
              </center>
             </form>
             </table>

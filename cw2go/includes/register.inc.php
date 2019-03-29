@@ -83,6 +83,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { #1
    }
  }
 }
+      else {
+          header('location: ../register.php');
+      }
 }
 } // End of the main Submit conditional
 ?>

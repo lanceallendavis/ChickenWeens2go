@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
   <link rel="stylesheet" href="userasset/css/-Login-form-Page-BS4-.css">
+ <link rel="shortcut icon" href="userasset/img/icon.png" type="image/x-icon" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
@@ -34,18 +35,18 @@
           <form action="./includes/login.inc.php" style="padding-top: 77px;" method="post">
             <input type="hidden" name="action" value="login">
             <h1 data-aos="fade-up" data-aos-duration="250" data-aos-delay="150" style="color: rgb(248,157,19);font-family: 'Black Han Sans', sans-serif;letter-spacing: 5px;">Login</h1>
-            <div class="form-group"><label class="text-secondary" style="font-family: Lato, sans-serif;">Username</label><input class="form-control" type="text" name="username" required></div>
-            <div class="form-group"><label class="text-secondary" style="font-family: Lato, sans-serif;">Password</label><input class="form-control" type="password" name="password" required><button class="btn btn-info mt-2" type="submit" data-bs-hover-animate="tada" style="background-color: rgb(220,93,66);width: 126px;">LOGIN</button></div>
-          </form>
-          <?php 
+            <div class="form-group"><label class="text-secondary" style="font-family: Lato, sans-serif;">Username</label><input class="form-control" type="text" name="username" style="font-family: Lato, sans-serif;" required></div>
+            <div class="form-group"><label class="text-secondary" style="font-family: Lato, sans-serif;">Password</label><input class="form-control" type="password" name="password" required>
+            <?php 
             if(isset($_SESSION['errors']) && count($_SESSION['errors']) > 0){
-                foreach($_SESSION['errors'] as $error) {
-                    echo '<h1>' . $error . '</h1>';
-                unset($_SESSION['errors']);
-                }
-                
+            foreach($_SESSION['errors'] as $error) {
+            echo '<p style="font-family: Lato, sans-serif; color: red; padding-top: 10px;">' . $error . '</p>';
+            unset($_SESSION['errors']);
+            }            
             }
-          ?>
+            ?>
+            <button class="btn btn-info mt-2" type="submit" data-bs-hover-animate="tada" style="background-color: rgb(220,93,66);width: 126px;">LOGIN</button></div>
+          </form>
         </div>
       </div>
     </div>

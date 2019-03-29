@@ -4,7 +4,7 @@ $login_errors = array();
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
   if(isset($_POST['id'])){
-  $id = $_POST['id'];
+  $id = mysqli_real_escape_string($db_connect,trim($_POST['id']));
   $username = mysqli_real_escape_string($db_connect,trim($_POST['username']));
   $firstName = mysqli_real_escape_string($db_connect,trim($_POST['firstName']));
   $lastName = mysqli_real_escape_string($db_connect,trim($_POST['lastName']));
@@ -15,7 +15,7 @@ $edit_query = "UPDATE users SET username='$username', first_name='$firstName', l
                WHERE id = '$id'";
 $result = mysqli_query($db_connect, $edit_query);
 if($result){
-  header('location: ../admin-userslist.php');
+  header('location: ../edit-profile.php');
   echo 'edit successful';
 }
 }

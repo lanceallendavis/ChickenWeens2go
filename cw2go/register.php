@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
   <link rel="stylesheet" href="userasset/css/-Login-form-Page-BS4-.css">
+  <link rel="shortcut icon" href="userasset/img/icon.png" type="image/x-icon" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
@@ -26,14 +27,14 @@
           <form action="./includes/register.inc.php" method="post" enctype="multipart/form-data" style="padding-top: 127px;" >
             <input type="hidden" name="action" value="register">
             <h1 data-aos="fade-up" data-aos-duration="250" data-aos-delay="150" style="color: rgb(248,157,19);font-family: 'Black Han Sans', sans-serif;letter-spacing: 5px;">Register</h1>
-            <div class="form-group"><label class="text-secondary" style="font-family: Lato, sans-serif;">Username</label><input class="form-control" type="text" name="username" required></div>
-            <div class="form-group"><label class="text-secondary" style="font-family: Lato, sans-serif;">First Name</label><input class="form-control" type="text" name="firstName" required></div>
-            <div class="form-group" style="font-family: Lato, sans-serif;"><label class="text-secondary">Last Name</label><input class="form-control" type="text" name="lastName" required></div>
-            <div class="form-group" style="font-family: Lato, sans-serif;"><label class="text-secondary">Email</label><input class="form-control" type="text" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}$" inputmode="email" required></div>
-            <div class="form-group" style="font-family: Lato, sans-serif;"><label class="text-secondary">Address</label><input class="form-control" type="text" name="address"></div>
-            <div class="form-group"><label class="text-secondary">Password</label><input class="form-control" name="password" type="password" required=""></div>
-            <div class="form-group"><label class="text-secondary">Confirm Password</label><input class="form-control" name="repeatPass" type="password" required="">
-            <div class="form-group"><label class="text-secondary">Profile Image</label><input type="file" name="profileImage" id="profileImage"></div>
+            <div class="form-group"><label class="text-secondary" style="font-family: Lato, sans-serif;">Username</label><input class="form-control" type="text" name="username" style="font-family: Lato, sans-serif;" required></div>
+            <div class="form-group"><label class="text-secondary" style="font-family: Lato, sans-serif;">First Name</label><input class="form-control" type="text" name="firstName" style="font-family: Lato, sans-serif;" required></div>
+            <div class="form-group" style="font-family: Lato, sans-serif;"><label class="text-secondary">Last Name</label><input class="form-control" type="text" name="lastName" style="font-family: Lato, sans-serif;" required></div>
+            <div class="form-group" style="font-family: Lato, sans-serif;"><label class="text-secondary">Email</label><input class="form-control" type="text" name="email" style="font-family: Lato, sans-serif;" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}$" inputmode="email" required></div>
+            <div class="form-group" style="font-family: Lato, sans-serif;"><label class="text-secondary">Address</label><input class="form-control" type="text" style="font-family: Lato, sans-serif;" name="address"></div>
+            <div class="form-group"><label class="text-secondary" style="font-family: Lato, sans-serif;">Password</label><input class="form-control" name="password" type="password" style="font-family: Lato, sans-serif;" required=""></div>
+            <div class="form-group"><label class="text-secondary" style="font-family: Lato, sans-serif;">Confirm Password</label><input class="form-control" name="repeatPass" type="password" style="font-family: Lato, sans-serif;" required="">
+            <div class="form-group"><label class="text-secondary" style="font-family: Lato, sans-serif;">Profile Image</label><input type="file" name="profileImage" id="profileImage"></div>
             <button class="btn btn-info mt-2" type="submit" data-bs-hover-animate="tada" style="background-color: rgb(220,93,66);width: 126px;">REGISTER</button></div>
           </form>
         </div>

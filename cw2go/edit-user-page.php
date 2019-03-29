@@ -5,9 +5,7 @@ $userID = $_GET['id'];
 $select_edit_query = "SELECT * FROM users WHERE ID = $userID";
 $result = mysqli_query($db_connect, $select_edit_query);
 $row = mysqli_fetch_array($result);
-if(!$row){
-  echo 'nothing to do here';
-}
+
 
 ?>
 <!doctype html>
@@ -162,11 +160,12 @@ if(!$row){
                   <td><input id="lastName" type="text" name="lastName" size="32" maxlength="32" value="<?php echo $row['last_name']; ?>"></td>
                   <td><input id="email" type="text" name="email" size="32" maxlength="64" value="<?php echo $row['email']; ?>" ></td>
                   <td><input id="address" type="text" name="address" size="32" maxlength="254" value="<?php echo $row['address']; ?>" ></td>
-                  </table>
                   <button class="btn-overlay" type='submit'>
                       <span>EDIT</span>
                   </button>
                 </form>
+                  </tr>
+              </table>
 
 
 
