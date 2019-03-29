@@ -55,7 +55,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { #1
      $errors[] = 'username already exists.';
      ;
    }
-      var_dump($_POST);
   //Check if all fields are filled out correctly
   if (empty($errors)) {
   $register_query = "INSERT INTO users (username, first_name, last_name, email, address, password, profile_photo, registered_at)
