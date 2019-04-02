@@ -26,6 +26,7 @@ include('./includes/user-transactions.php');
     include('./includes/header-user.html');
     if(isset($_SESSION['checkout_msg'])){
     $checkout_msg = $_SESSION['checkout_msg'];
+
     echo '<h4>'. $checkout_msg . '</h4>';
     unset($_SESSION['checkout_msg']);
   }

@@ -1,8 +1,8 @@
 <?php
   include('./includes/session-user.php');
   include('./includes/menu.inc.php');
-  
-  
+
+
  ?>
 <!DOCTYPE html>
 <html>
@@ -44,8 +44,11 @@
   <div class="container" style="padding-top: 112px;padding-bottom: 58px;">
   <div class="row product-list dev">
   <?php
-  while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
 
+
+  if($result->num_rows != 0 ){
+  while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+  if(!($row['stock_count'] < 22) ){
   echo '<div class="col-sm-6 col-md-4 product-item animation-element slide-rotate-counterclockwise-180">';
   echo '  <div class="product-container">';
   echo '  <div class="row">';
@@ -54,22 +57,22 @@
   echo '<div class="row">';
   echo '  <div class="col-8">';
   echo '    <h2>'. $row['name'] . '</a></h2>';
-  
+
   echo '  </div>';
   echo '    <div class="col-4"><form action="./includes/add-to-cart.php" method="post">';
   echo '<div class="dropdown"><select name="quantity">
   <option class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="true" style="padding-right: 3px;margin-left: -14px;height: 43px;width: 117px;background-color: rgb(248,157,19);" value="1">QUANTITY</option>';
-  echo '<div class="dropdown-menu" role="menu">
-  <option value="1" class="dropdown-item" role="presentation">1</option>
-  <option value="2" class="dropdown-item" role="presentation" >2</option>
-  <option value="3" class="dropdown-item" role="presentation">3</a></div>
-  <option value="4" class="dropdown-item" role="presentation">4</option>
-  <option value="5" class="dropdown-item" role="presentation" >5</option>
-  <option value="6" class="dropdown-item" role="presentation">6</a></div>
-  <option value="7" class="dropdown-item" role="presentation">7</option>
-  <option value="8" class="dropdown-item" role="presentation" >8</option>
-  <option value="9" class="dropdown-item" role="presentation">9</a></div>
-  <option value="10" class="dropdown-item" role="presentation">10</a></div>';
+  echo '<div class="dropdown-menu" role="menu">';
+  if($row['stock_count']>= 12){ echo '<option value="1" class="dropdown-item" role="presentation">1</option>';}
+  if($row['stock_count']>= 24){ echo '<option value="2" class="dropdown-item" role="presentation" >2</option>';}
+  if($row['stock_count']>= 36){ echo '<option value="3" class="dropdown-item" role="presentation">3</a></div>';}
+  if($row['stock_count']>= 48){ echo '<option value="4" class="dropdown-item" role="presentation">4</option>';}
+  if($row['stock_count']>= 60){ echo '<option value="5" class="dropdown-item" role="presentation" >5</option>';}
+  if($row['stock_count']>= 72){ echo '<option value="6" class="dropdown-item" role="presentation">6</a></div>';}
+  if($row['stock_count']>= 84){ echo '<option value="7" class="dropdown-item" role="presentation">7</option>';}
+  if($row['stock_count']>= 96){ echo '<option value="8" class="dropdown-item" role="presentation" >8</option>';}
+  if($row['stock_count']>= 108){ echo '<option value="9" class="dropdown-item" role="presentation">9</a></div>';}
+  if($row['stock_count']>= 120){ echo '<option value="10" class="dropdown-item" role="presentation">10</a></div>';}
   echo '</select></div>';
   echo '  </div>';
   echo '  </div>';
@@ -79,10 +82,10 @@
   echo '  <p class="product-description">' . $row['description'] . ' </p>';
   echo '    <div class="row">';
   echo '    <div class="col-6"><form action="./includes/add-to-cart.php" method="post">
-            <input type="hidden" name="product_ID" value=' . $row['ID'] . '>
+            <input type="hidden" name="product_ID" value=' . $row['product_ID'] . '>
             <button class="btn btn-light" type="submit" style="background-color: rgb(235,56,18);">Add to Cart </button></div></form>';
   echo '    <div class="col-6">';
-  echo '  <p class="product-price">₱ '. $row['price'] . '</p>';
+  echo '  <p class="product-price">₱ '. $row['price'] . '.00</p>';
   echo '</div>';
   echo '    </div>';
   echo '    </div>';
@@ -90,6 +93,11 @@
   echo '  </div>';
   echo '    </div>';
 }
+}
+}
+else echo 'Sorry, there are no available products at the moment. Please try again another time.';
+
+
   ?>
 </div>
 </div>
@@ -111,7 +119,7 @@
                 </div>
             </div>
             <div class="clearfix"></div>
-           
+
         </div>
     </footer>
     <script src="userasset/js/jquery.min.js"></script>

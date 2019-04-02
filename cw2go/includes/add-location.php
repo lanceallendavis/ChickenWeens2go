@@ -1,9 +1,8 @@
 <?php
-require_once('./includes/session-admin.php');
 
 require_once('./mysqli_connect.php');
 $errors = array();
-
+var_dump($_POST);
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') { #1
 // Initialize an error array.
@@ -31,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { #1
    }
   //Check if all fields are filled out correctly
   if (empty($errors)) {
-  $add_query = "INSERT INTO locations (name, distance, estimated_fee, added_at)
+  $add_query = "INSERT INTO locations (city, distance, estimated_fee, added_at)
   VALUES ('$location_name', '$distance', '$estimated_fee', NOW() )"; #6
   $add_result = mysqli_query($db_connect, $add_query);
   if($add_result){

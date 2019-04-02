@@ -61,14 +61,15 @@ include('./includes/display-cart.php');
     </div>
     <div>
         <?php
-        if($total_row['total'] == NULL){
+        if(isset($_SESSION['messages']['limit'])){
+          echo $_SESSION['messages']['limit'];
+          unset($_SESSION['messages']['limit']);
+        }
+
+        if($total_row['total'] == NULL || isset($_SESSION['messages']['noAdded'])){
             $_SESSION['messages']['noAdded'] = 'You did not add any product';
             echo $_SESSION['messages']['noAdded'];
             unset($_SESSION['messages']['noAdded']);
-        }
-        else if(isset($_SESSION['message']['noAdded'])){
-          echo $_SESSION['messages']['noAdded'];
-          unset($_SESSION['messages']['noAdded']);
         }
         else
         {
@@ -87,7 +88,7 @@ include('./includes/display-cart.php');
                     echo'<h1 class="text-center" style="font-family: Lato, sans-serif;font-size: 20px;padding-top: 40px;">' . $row['product_price'] . '</h5>';
               echo' </div>
               <div class="col">';
-            echo'<a href="./includes/remove-from-cart.php?id=' . $row['ID'] . '" class="btn btn-primary" type="button" style="margin-top: 40px;">Remove<br></a>
+            echo'<a href="./includes/remove-from-cart.php?id=' . $row['ID'] . '&product_id=' . $row['product_ID'] . '" class="btn btn-primary" type="button" style="margin-top: 40px;">Remove<br></a>
              </div>
             </div>
         </div>
@@ -95,6 +96,7 @@ include('./includes/display-cart.php');
     echo '<br>';
      }
    }
+
       ?>
     <div class="row">
       <div class="col-md-7 mb-4"></div>
@@ -108,11 +110,13 @@ include('./includes/display-cart.php');
               <h4 class="card-title">₱<?php if($total_row['total'] == NULL) { echo '0';} else {echo $total_row['total'];} ?></h4>
               <input type="hidden" name="total" value=" <?php echo $total_row['total']; ?>">
               <h4 class="text-muted card-subtitle mb-2">Mode of Payment</h4>
-              <select name="modeOfPayment">
-                <option value="Cash On Delivery">Cash On Delivery</option>
-                <option value="Cash On Pick-Up">Cash On Pick-Up</option>
+              <select name="modeOfPayment" id="modeOfPayment" onChange="javascript:modeOfPaymentCheck();">
+                <option id="cashOnPickUp" value="Cash On Pick-Up"  selected>Cash On Pick-Up</option>
+                <option id="cashOnDelivery" value="Cash On Delivery">Cash On Delivery</option>
+
               </select>
               <br>
+              <div id="cashOnDeliveryInputs" style="visibility:hidden">
               <h4 class="text-muted card-subtitle mb-2" style="margin-top: 2px;">Delivery Address</h4>
               <h6>User Your personal Address   <input type="radio" onclick="javascript:addressCheck();" name="address" value="personalAddress" id="personalCheck" checked></h6>
               <h6>Use another Delivery Address <input type="radio" onclick="javascript:addressCheck();" name="address" value="anotherAddress" id="anotherCheck"></h6>
@@ -138,6 +142,7 @@ include('./includes/display-cart.php');
                 </select>
               <input type="text" placeholder="address" name="address">
               </div>
+            </div>
               <br>
               <button class="btn btn-primary" type="submit" style="margin-top: 11px;background-color: rgb(246,164,40);">Proceed to Checkout<br></button></a>
             </form>
@@ -182,8 +187,17 @@ include('./includes/display-cart.php');
       document.getElementById('ifAnother').style.visibility = 'visible';
   }
   else document.getElementById('ifAnother').style.visibility = 'hidden';
-
 }
+
+function modeOfPaymentCheck() {
+if (document.getElementById('cashOnDelivery').selected) {
+  document.getElementById('cashOnDeliveryInputs').style.visibility = 'visible';
+}
+else
+ document.getElementById('cashOnDeliveryInputs').style.visibility = 'hidden';
+}
+
+
 </script>
     </div>
 </body>

@@ -42,6 +42,9 @@ require_once('./includes/accepted-orders.inc.php');
         <li class="menu-item-has-children dropdown">
           <a href="admin-products.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-book"></i>Products</a>
         </li>
+        <li class="menu-item-has-children dropdown">
+          <a href="admin-stocks.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa  fa-location-arrow"></i>Stocks</a>
+        </li>
         <h3 class="menu-title">Orders</h3>
         <li class="menu-item-has-children dropdown">
           <a href="pending-orders.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-clock-o"></i>Pending Orders</a>
@@ -73,6 +76,10 @@ require_once('./includes/accepted-orders.inc.php');
 </aside>
     <div id="right-panel" class="right-panel">
     <?php include('./includes/header-admin2.html'); ?>
+    <?php if(isset($_SESSION['status_messages'])) { echo '<h4>' . $_SESSION['status_messages'] . '</h4><br>';
+      unset($_SESSION['status_messages']); }
+      ?>
+
       <table id="customers">
         <tr>
           <th style="color: #1b120f;">Order ID</th>
@@ -89,7 +96,7 @@ require_once('./includes/accepted-orders.inc.php');
       echo '<td>'. $row['total'] . '</td>';
       echo '<td>'. $row['accepted_at'] . '</td>';
       echo '<td style="text-align: center;"><a href="./includes/delivered-order.php?id=' . $row['ID'] . '" class="btn btn-primary" type="button" style="margin-top: 6px; margin-right: 6px; background-color: #f89d13; border-radius: 16px; ">Delivered<br></a>';
-      echo '<a href="./includes/cancel-order.php?id=' . $row['ID'] . '" class="btn btn-primary" type="button" style="margin-top: 6px; background-color: #f86a4e; margin-left: 25px;  border-radius: 16px;">Cancel<br></td>';
+      // echo '<a href="./includes/cancel-order.php?id=' . $row['ID'] . '" class="btn btn-primary" type="button" style="margin-top: 6px; background-color: #f86a4e; margin-left: 25px;  border-radius: 16px;">Cancel<br></td>';
     echo '</tr>';
     };
     ?>

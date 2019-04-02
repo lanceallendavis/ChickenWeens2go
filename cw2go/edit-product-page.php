@@ -9,6 +9,8 @@ if(!$row){
   echo 'nothing to do here.';
 }
 
+$list_stocks = "SELECT * FROM stocks";
+$stocks_result = mysqli_query($db_connect, $list_stocks);
 ?>
 <!doctype html>
 <html lang=en>
@@ -22,14 +24,11 @@ if(!$row){
         <?php include('./includes/header-admin.html'); ?>
           <div id="right-panel" class="right-panel">
             <?php include('./includes/header-admin2.html'); ?>
-
-
-
               <table>
               <tr>
                 <td><b>Product ID</b></td>
                 <td><b>Product Name</b></td>
-                <td><b>Type</b></td>
+                <td><b>Corresponding Stock</b></td>
                 <td><b>Description</b></td>
                 <td><b>Price</b></td>
                 <td><b>Availability</b></td>
@@ -40,7 +39,20 @@ if(!$row){
                   <input type="hidden" name="id" value="<?php echo $row["ID"]; ?>">
                   <td><b><?php echo $row["ID"]; ?></b></td>
                   <td><input id="productName" type="text" name="productName" size="16" maxlength="32" value="<?php echo $row['name']; ?>"></td>
-                  <td><input id="type" type="text" name="type" size="8" maxlength="32" value="<?php echo $row['type']; ?>"></td>
+                  <span class="productinput" style="margin-left: 5px;" id="productName">Corresponding Stock
+                  <select name="stockName">
+                    <option value="<?php $row['stock_name'] ?>" size="16"><?php $row['stock_name'] ?></option>
+                    <?php
+                    if($stocks_result){
+                      while($stocks_row = mysqli_fetch_array($stocks_result, MYSQLI_ASSOC)){
+                      if($row['stock_name'] != $stocks_row['name']){
+                      echo '<option size="16" value="'. $stocks_row['name'] . '">' . $stocks_row['name'] . '</option>';
+                    }
+                    }
+                    }
+                     ?>
+                     </select>
+                   </span>
                   <td><input id="description" type="text" name="description" size="32" maxlength="32" value="<?php echo $row['description']; ?>"></td>
                   <td><input id="price" type="text" name="price" size="8" maxlength="64" value="<?php echo $row['price']; ?>" ></td>
                   <td><input id="availability" type="text" name="availability" size="1" maxlength="254" value="<?php echo $row['availability']; ?>" ></td>

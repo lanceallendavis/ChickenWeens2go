@@ -42,6 +42,9 @@ require_once('./includes/delivered-orders.inc.php');
         <li class="menu-item-has-children dropdown">
           <a href="admin-products.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-book"></i>Products</a>
         </li>
+        <li class="menu-item-has-children dropdown">
+          <a href="admin-stocks.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa  fa-location-arrow"></i>Stocks</a>
+        </li>
         <h3 class="menu-title">Orders</h3>
         <li class="menu-item-has-children dropdown">
           <a href="pending-orders.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-clock-o"></i>Pending Orders</a>
@@ -72,6 +75,9 @@ require_once('./includes/delivered-orders.inc.php');
 </aside>
     <div id="right-panel" class="right-panel">
     <?php include('./includes/header-admin2.html'); ?>
+    <?php if(isset($_SESSION['status_messages'])) { echo '<h4>' . $_SESSION['status_messages'] . '</h4><br>';
+      unset($_SESSION['status_messages']); }
+      ?>
       <table id="customers">
         <tr>
           <th style="color: #1b120f;">Order ID</th>

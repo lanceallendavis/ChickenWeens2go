@@ -42,6 +42,9 @@ require_once('./includes/declined-orders.inc.php');
         <li class="menu-item-has-children dropdown">
           <a href="admin-products.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-book"></i>Products</a>
         </li>
+        <li class="menu-item-has-children dropdown">
+          <a href="admin-stocks.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa  fa-location-arrow"></i>Stocks</a>
+        </li>
         <h3 class="menu-title">Orders</h3>
         <li class="menu-item-has-children dropdown">
           <a href="pending-orders.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-clock-o"></i>Pending Orders</a>
