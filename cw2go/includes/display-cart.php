@@ -16,4 +16,4 @@ WHERE user.ID = '$userID'";
 $display_total_result = mysqli_query($db_connect, $total_query);
 $total_row = mysqli_fetch_array($display_total_result, MYSQLI_ASSOC);
 
- ?>
+ ?> 

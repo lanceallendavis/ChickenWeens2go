@@ -47,9 +47,6 @@ require_once('./includes/admin-all-orders.inc.php');
         <li class="menu-item-has-children dropdown">
           <a href="admin-products.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-book"></i>Products</a>
         </li>
-        <li class="menu-item-has-children dropdown">
-          <a href="admin-stocks.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa  fa-location-arrow"></i>Stocks</a>
-        </li>
         <h3 class="menu-title">Orders</h3>
         <li class="menu-item-has-children dropdown">
           <a href="pending-orders.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-clock-o"></i>Pending Orders</a>
@@ -74,6 +71,9 @@ require_once('./includes/admin-all-orders.inc.php');
         </li>
         <li class="menu-item-has-children dropdown">
           <a href="admin-locations.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa  fa-location-arrow"></i>Locations</a>
+        </li><br>
+           <li class="menu-item-has-children dropdown" padding-top: 50px;>
+          <center><button type="button" class="btn btn-danger" style="padding-top; 30px; ">LOGOUT</button></center>
         </li>
       </ul>
   </nav>
@@ -86,8 +86,7 @@ require_once('./includes/admin-all-orders.inc.php');
                     <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
                         <thead style="background color: #f89d13;">
                             <tr>
-                                <th>ID</th>
-                                <th>CUSTOMER NAME</th>
+                                <th>CUSTOMER ID</th>
                                 <th>TOTAL</th>
                                 <th>CURRENT STATUS</th>
                                 <th>MODE OF PAYMENT</th>
@@ -109,8 +108,7 @@ require_once('./includes/admin-all-orders.inc.php');
 
 
                             echo '<tr>';
-                              echo '<td>'. $row['ID'] . '</td>';
-                              echo '<td>'. $row['user_ID']. '</td>';
+                              echo '<td>'. $row['username']. '</td>';
                               echo '<td>'. $row['total'] . '</td>';
                               echo '<td>'. $row['status'] . '</td>';
                               echo '<td>'. $row['mode_of_payment']. '</td>';
@@ -148,7 +146,7 @@ require_once('./includes/admin-all-orders.inc.php');
                 </div>
             </div>
         </div>
-
+        
 
     </div>
     <script src="vendors/jquery/dist/jquery.min.js"></script>

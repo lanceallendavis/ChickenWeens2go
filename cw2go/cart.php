@@ -18,9 +18,10 @@ include('./includes/display-cart.php');
     <link rel="shortcut icon" href="userasset/img/icon.png" type="image/x-icon" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="userasset/css/Pretty-Footer.css">
-    <link rel="stylesheet" href="userasset/css/Review-rating-Star-Review-Button-1.css">
-    <link rel="stylesheet" href="userasset/css/Review-rating-Star-Review-Button.css">
-    <link rel="stylesheet" href="userasset/css/Reviews.css">
+    <link rel="stylesheet" href="userasset/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="userasset/css/beautiful-danger-alert.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="userasset/css/styles.css">
 </head>
 <body style="padding-top: 98px;">
   <nav class="navbar navbar-light navbar-expand-lg fixed-top text-center" id="mainNav" style="height: 98px;background-color: #1b120f;font-family: Lato, sans-serif;">
@@ -62,13 +63,12 @@ include('./includes/display-cart.php');
     <div>
         <?php
         if(isset($_SESSION['messages']['limit'])){
-          echo $_SESSION['messages']['limit'];
+          echo '<div class=alert alert-success border-danger shake animated" role="alert" id="save-sucess" style="background-color: rgba(220,148,148,0.72);border: 1px solid #c70707;"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button><i class="icon ion-android-warning mr-1" style="color: rgb(195,151,37);"></i><span style="color: rgb(41,31,7);">' . $_SESSION['messages']['limit'] . '</span></div>';
           unset($_SESSION['messages']['limit']);
         }
 
         if($total_row['total'] == NULL || isset($_SESSION['messages']['noAdded'])){
-            $_SESSION['messages']['noAdded'] = 'You did not add any product';
-            echo $_SESSION['messages']['noAdded'];
+            echo '<div class=alert alert-success border-danger shake animated" role="alert" id="save-sucess" style="background-color: rgba(186, 186, 62, 0.72);border: 1px solid rgb(246,164,40);"><i class="icon ion-android-warning mr-1" style="color: rgb(195,151,37);"></i><span style="color: rgb(41,31,7);">' . $_SESSION['messages'] ['noAdded'] = 'You did not add any product' . '</span></div>';
             unset($_SESSION['messages']['noAdded']);
         }
         else
@@ -144,8 +144,9 @@ include('./includes/display-cart.php');
               </div>
             </div>
               <br>
-              <button class="btn btn-primary" type="submit" style="margin-top: 11px;background-color: rgb(246,164,40);">Proceed to Checkout<br></button></a>
+              <button class="btn btn-primary" type="submit" style="margin-top: 11px;background-color: rgb(246,164,40);">Proceed to Checkout<br></button>
             </form>
+              
             </div>
           </div>
         </div>

@@ -19,29 +19,80 @@ if(!$row){
     <?php include('./includes/admin-styles.html'); ?>
 </head>
       <body>
-        <?php include('./includes/header-admin.html'); ?>
+         <aside id="left-panel" class="left-panel">
+  <nav class="navbar navbar-expand-sm navbar-default">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fa fa-bars"></i>
+    </button>
+    <a class="navbar-brand" href="admin-page.php"><img src="images/sojubtry.png" alt="Logo" style="margin-top: 10px;"></a>
+      <ul class="nav navbar-nav">
+        <li class="menu-item-has-children dropdown">
+          <a href="admin-page.php"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
+        </li>
+        <li class="menu-item-has-children dropdown">
+          <a href="admin-userslist.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-users"></i>Users</a>
+        </li>
+        <li class="menu-item-has-children dropdown">
+          <a href="admin-products.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-book"></i>Products</a>
+        </li>
+        <li class="active">
+          <a href="admin-stocks.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa  fa-location-arrow"></i>Stocks</a>
+        </li>
+        <h3 class="menu-title">Orders</h3>
+        <li class="menu-item-has-children dropdown">
+          <a href="pending-orders.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-clock-o"></i>Pending Orders</a>
+        </li>
+        <li class="menu-item-has-children dropdown">
+          <a href="accepted-orders.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-check-circle"></i>Accepted Orders</a>
+        </li>
+        <li class="menu-item-has-children dropdown">
+          <a href="declined-orders.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-minus-square"></i>Declined Orders</a>
+        </li>
+        <li class="menu-item-has-children dropdown">
+          <a href="delivered-orders.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-truck"></i>Delivered Orders</a>
+        </li>
+        <li class="menu-item-has-children dropdown">
+          <a href="daily-sales.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa  fa-bar-chart-o"></i>Daily Sales</a>
+        </li>
+        <li class="menu-item-has-children dropdown">
+          <a href="sales-by-product.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa  fa-bookmark-o"></i>Sales By Product</a>
+        </li>
+        <li class="menu-item-has-children dropdown">
+          <a href="admin-all-orders.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa   fa-sort"></i>Orders Summary</a>
+        </li>
+        <li class="menu-item-has-children dropdown">
+          <a href="admin-locations.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa  fa-location-arrow"></i>Locations</a>
+        </li>
+      </ul>
+
+  </nav>
+</aside>
           <div id="right-panel" class="right-panel">
             <?php include('./includes/header-admin2.html'); ?>
-              <table>
-              <tr>
-                <td><b>Stock ID</b></td>
-                <td><b>Stock Name</b></td>
-                <td><b>Stock Count</b></td>
-                <td><b>Demand Count</b></td>
+        <table id="customers" >
+        <tr>
+        <tr>
+          <th style="width: 10%;"><b>Stock ID</b></th>
+          <th><b>Stock Name</b></th>
+          <th><b>Stock Count</b></th>
+          <th><b>Demand Count</b></th>
+          <th><b>Update</b></th>
+        </tr>
 
-              </tr>
               <tr>
                 <form action="./includes/update-stock.php" method="post">
                   <input type='hidden' name='action' value='updateStock'>
                   <input type="hidden" name="id" value="<?php echo $row["ID"]; ?>">
                   <td><b><?php echo $row["ID"]; ?></b></td>
-                  <td><label id="productName" type="text" name="stockName" size="16" maxlength="32" value="<?php echo $row['name']; ?>"><?php echo $row['name']; ?><label></td>
+                  <td><label id="productName" type="text" name="stockName" size="16" maxlength="32" value="<?php echo $row['name']; ?>"><?php echo $row['name']; ?></td>
                   <td><input id="type" type="text" name="stockCount" size="6" maxlength="32" value="<?php echo $row['stock_count']; ?>"></td>
                   <td><input id="description" type="text" name="demand" size="6" maxlength="32" value="<?php echo $row['demand_count']; ?>"></td>
-                  <button class="btn-overlay" type='submit'>
+                  <td><button class='btn btn-danger' style='background-color: #f89d13; margin-left: 15px;'type='submit'>
                       <span>UPDATE</span>
-                  </button>
+                  </button></td> 
                 </form>
+              </tr>
+              </table>
               </div>
 
           <script src="vendors/jquery/dist/jquery.min.js"></script>
@@ -54,25 +105,6 @@ if(!$row){
           <script src="vendors/jqvmap/dist/jquery.vmap.min.js"></script>
           <script src="vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
           <script src="vendors/jqvmap/dist/mapsS/jquery.vmap.world.js"></script>
-          <script>
-              (function($) {
-                  "use strict";
-
-                  jQuery('#vmap').vectorMap({
-                      map: 'world_en',
-                      backgroundColor: null,
-                      color: '#ffffff',
-                      hoverOpacity: 0.7,
-                      selectedColor: '#1de9b6',
-                      enableZoom: true,
-                      showTooltip: true,
-                      values: sample_data,
-                      scaleColors: ['#1de9b6', '#03a9f5'],
-                      normalizeFunction: 'polynomial'
-                  });
-              })(jQuery);
-
-          </script>
 
       </body>
       </html>

@@ -96,15 +96,6 @@ $warning_stocks_result = mysqli_query($db_connect, $warning_stocks);
         ?>
         </form>
       </table>
-      <?php
-
-        while($row = mysqli_fetch_array($warning_stocks_result, MYSQLI_ASSOC)){
-          if($row['stock_count'] < 22){
-          echo '<h4>Your stocks on ' . $row['name'] . ' only has ' . $row['stock_count'] . ' pieces left! </h4> ';
-        }
-      }
-
-       ?>
       <br>
         <a href="#popUp" id="openPopUp" style="font-family: Lato, sans-serif;" > <i class="menu-icon fa fa-plus"> &nbsp; Add Stock Items </i></a>
         <aside id="popUp" class="popup">
@@ -116,10 +107,10 @@ $warning_stocks_result = mysqli_query($db_connect, $warning_stocks);
         <article>
       	<table id="customers" >
           <form action="./includes/stocks.inc.php" method="post" enctype="multipart/form-data">
-         <center> <br>  <input type='hidden' name='action' value='addStock'><input placeholder="Stock Name" class="productinput" style="margin-left: 5px;" id="productName" type="text" name="stockName" size="32" maxlength="32" value="<?php if (isset($_POST['stockName'])) echo $_POST['stockName']; ?>"> <br>
+         <center> <br>  <input type='hidden' name='action' value='addStock'><input placeholder="Stock Name" class="productinput" style="margin-left: 5px; margin-top: 50px;" id="productName" type="text" name="stockName" size="32" maxlength="32" value="<?php if (isset($_POST['stockName'])) echo $_POST['stockName']; ?>"> <br>
             <input placeholder="Stock Count" id="type" class="productinput"  type="text" name="stockCount" size="32" maxlength="32" value="<?php if (isset($_POST['stockCount'])) echo $_POST['stockCount']; ?>"><br>
             <input placeholder="Demand" id="description" class="productinput" type="text" name="demand" size="64" maxlength="32" value="<?php if (isset($_POST['demand'])) echo $_POST['demand']; ?>"><br>
-            <input id="submit" type="submit" name="submit" value="ADD" class="btn btn-danger" style="font-weight: bold; background-color: #f89d13; width: 100%; height: 50px; margin-top: 23px;">
+            <input id="submit" type="submit" name="submit" value="ADD" class="btn btn-danger" style="font-weight: bold; background-color: #f89d13; width: 100%; height: 50px; margin-top: 77px;">
              </center>
             </form>
             </table>
@@ -127,6 +118,15 @@ $warning_stocks_result = mysqli_query($db_connect, $warning_stocks);
         </div>
         <a href="#!" class="closePopUpOutSide"></a>
         </aside>
+         <?php
+
+        while($row = mysqli_fetch_array($warning_stocks_result, MYSQLI_ASSOC)){
+          if($row['stock_count'] < 50){
+          echo '<div class="alert alert-success border-danger shake animated" role="alert" id="save-sucess" style="background-color: rgba(220,148,148,0.72);border: 1px solid #0C6D38; width: 500px; margin-left: 30px;"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button><i class="icon ion-android-warning mr-1" style="color: rgb(195,151,37);"></i><span style="color: rgb(41,31,7);">Your stocks on ' . $row['name'] . ' only has ' . $row['stock_count'] . ' pieces left! </span></div>';
+        }
+      }
+
+       ?>
     </div>
 
     <script src="vendors/jquery/dist/jquery.min.js"></script>

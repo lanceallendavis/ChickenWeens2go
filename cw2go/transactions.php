@@ -17,17 +17,18 @@ include('./includes/user-transactions.php');
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="userasset/css/Pretty-Footer.css">
     <link rel="shortcut icon" href="userasset/img/icon.png" type="image/x-icon" />
-    <link rel="stylesheet" href="userasset/css/Review-rating-Star-Review-Button-1.css">
-    <link rel="stylesheet" href="userasset/css/Review-rating-Star-Review-Button.css">
-    <link rel="stylesheet" href="userasset/css/Reviews.css">
+    <link rel="stylesheet" href="userasset/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="userasset/css/beautiful-danger-alert.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="userasset/css/styles.css">
 </head>
 <body style="padding-top: 118px;">
   <?php
     include('./includes/header-user.html');
-    if(isset($_SESSION['checkout_msg'])){
+      if(isset($_SESSION['checkout_msg'])){
     $checkout_msg = $_SESSION['checkout_msg'];
 
-    echo '<h4>'. $checkout_msg . '</h4>';
+    echo '<div class="alert alert-success shake animated" role="alert" id="save-sucess" style="background-color: #B4F7D2!important; border: 1px solid #0C6D38; width: 500px; float:right;"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button><i class="icon ion-checkmark-round mr-1"></i><span style="color: #0C6D38 !important;">'. $checkout_msg . '<br></span></div>';
     unset($_SESSION['checkout_msg']);
   }
   ?>

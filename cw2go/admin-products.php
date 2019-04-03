@@ -69,11 +69,11 @@ $stocks_result = mysqli_query($db_connect, $list_stocks);
 
     <div id="right-panel" class="right-panel">
       <?php include('./includes/header-admin2.html'); ?>
-        <table id="customers" >
+        <table id="customers" width: 100%; >
         <tr>
           <form action="./includes/products.inc.php" method="post" enctype="multipart/form-data">
         <tr>
-          <th style="width: 10%;"><b>Product Name</b></th>
+          <th><b>Product Name</b></th>
           <th><b>Pieces</b></th>
           <th><b>Corresponding Stock</b></th>
           <th><b>Description</b></th>
@@ -106,9 +106,11 @@ $stocks_result = mysqli_query($db_connect, $list_stocks);
         <article>
       	<table id="customers" >
           <form action="./includes/products.inc.php" method="post" enctype="multipart/form-data">
-         <center> <br>  <input type='hidden' name='action' value='addProduct'><input placeholder="Product Name" class="productinput" style="margin-left: 5px;" id="productName" type="text" name="productName" size="32" maxlength="32" value="<?php if (isset($_POST['productName'])) echo $_POST['productName']; ?>"> <br>
+         <center> <br>  <input type='hidden' name='action' value='addProduct'><input placeholder="Product Name" class="productinput" style="margin-left: 5px;" id="productName" type="text" name="productName" size="32" maxlength="42" value="<?php if (isset($_POST['productName'])) echo $_POST['productName']; ?>"> <br>
            <input placeholder="Pieces" id="description" class="productinput" type="text" name="pieces" size="2" maxlength="2" value="<?php if (isset($_POST['pieces'])) echo $_POST['pieces']; ?>"><br>
-           <span size="16"class="productinput" style="margin-left: 5px;" id="productName">Corresponding Stock
+            <input placeholder="Product Description" id="description" class="productinput" type="text" name="description" size="64" maxlength="252" value="<?php if (isset($_POST['description'])) echo $_POST['description']; ?>"><br>
+            <input placeholder="Product Price" id="price" class="productinput"  type="text" name="price" size="32" maxlength="64" value="<?php if (isset($_POST['price'])) echo $_POST['price']; ?>" ><br>
+                   <span size="16"class="productinput" style="margin-left: 5px;" id="productName">Corresponding Stock
            <select name="stockName">
              <option value="N/A" size="16">Stock Name</option>
              <?php
@@ -121,10 +123,6 @@ $stocks_result = mysqli_query($db_connect, $list_stocks);
               ?>
               </select>
             </span>
-
-
-            <input placeholder="Product Description" id="description" class="productinput" type="text" name="description" size="64" maxlength="32" value="<?php if (isset($_POST['description'])) echo $_POST['description']; ?>"><br>
-            <input placeholder="Product Price" id="price" class="productinput"  type="text" name="price" size="32" maxlength="64" value="<?php if (isset($_POST['price'])) echo $_POST['price']; ?>" ><br>
             <input placeholder="Enter Product Image" type="file" style="width: 230px; margin-bottom: 10px;" class=btn btn-danger; name="productImage" id="productImage"><br>
             <input id="submit" type="submit" name="submit" value="ADD" class="btn btn-danger" style="font-weight: bold; background-color: #f89d13; width: 100%; height: 50px; margin-top: 23px;">
              </center>

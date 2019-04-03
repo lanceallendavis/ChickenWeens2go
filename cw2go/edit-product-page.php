@@ -21,26 +21,72 @@ $stocks_result = mysqli_query($db_connect, $list_stocks);
     <?php include('./includes/admin-styles.html'); ?>
 </head>
       <body>
-        <?php include('./includes/header-admin.html'); ?>
+        <aside id="left-panel" class="left-panel">
+  <nav class="navbar navbar-expand-sm navbar-default">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fa fa-bars"></i>
+    </button>
+    <a class="navbar-brand" href="admin-page.php"><img src="images/sojubtry.png" alt="Logo" style="margin-top: 10px;"></a>
+      <ul class="nav navbar-nav">
+        <li class="menu-item-has-children dropdown">
+          <a href="admin-page.php"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
+        </li>
+        <li class="menu-item-has-children dropdown">
+          <a href="admin-userslist.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-users"></i>Users</a>
+        </li>
+        <li class="active">
+          <a href="admin-products.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-book"></i>Products</a>
+        </li>
+        <li class="menu-item-has-children dropdown">
+          <a href="admin-stocks.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa  fa-location-arrow"></i>Stocks</a>
+        </li>
+        <h3 class="menu-title">Orders</h3>
+        <li class="menu-item-has-children dropdown">
+          <a href="pending-orders.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-clock-o"></i>Pending Orders</a>
+        </li>
+        <li class="menu-item-has-children dropdown">
+          <a href="accepted-orders.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-check-circle"></i>Accepted Orders</a>
+        </li>
+        <li class="menu-item-has-children dropdown">
+          <a href="declined-orders.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-minus-square"></i>Declined Orders</a>
+        </li>
+        <li class="menu-item-has-children dropdown">
+          <a href="delivered-orders.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-truck"></i>Delivered Orders</a>
+        </li>
+        <li class="menu-item-has-children dropdown">
+          <a href="daily-sales.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa  fa-bar-chart-o"></i>Daily Sales</a>
+        </li>
+        <li class="menu-item-has-children dropdown">
+          <a href="sales-by-product.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa  fa-bookmark-o"></i>Sales By Product</a>
+        </li>
+        <li class="menu-item-has-children dropdown">
+          <a href="admin-all-orders.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa   fa-sort"></i>Orders Summary</a>
+        </li>
+        <li class="menu-item-has-children dropdown">
+          <a href="admin-locations.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa  fa-location-arrow"></i>Locations</a>
+        </li>
+      </ul>
+
+  </nav>
+</aside>
           <div id="right-panel" class="right-panel">
             <?php include('./includes/header-admin2.html'); ?>
-              <table>
-              <tr>
-                <td><b>Product ID</b></td>
-                <td><b>Product Name</b></td>
-                <td><b>Corresponding Stock</b></td>
-                <td><b>Description</b></td>
-                <td><b>Price</b></td>
-                <td><b>Availability</b></td>
-              </tr>
+                <table id="customers" width: 100%; >
+        <tr>
+          <th style= "width:10%;"><b>Product Name</b></th>
+          <th><b>Corresponding Stock</b></th>
+          <th><b>Description</b></th>
+          <th><b>Price</b></th>
+          <th><b>Availability</b></th>
+          <th><b>UPDATE</b></th>
+        </tr>
               <tr>
                 <form action="./includes/edit-product.php" method="post">
                   <input type='hidden' name='action' value='editProduct'>
                   <input type="hidden" name="id" value="<?php echo $row["ID"]; ?>">
-                  <td><b><?php echo $row["ID"]; ?></b></td>
                   <td><input id="productName" type="text" name="productName" size="16" maxlength="32" value="<?php echo $row['name']; ?>"></td>
-                  <span class="productinput" style="margin-left: 5px;" id="productName">Corresponding Stock
-                  <select name="stockName">
+                  <td>
+                  <select name="stockName" style="width: 230px;">
                     <option value="<?php $row['stock_name'] ?>" size="16"><?php $row['stock_name'] ?></option>
                     <?php
                     if($stocks_result){
@@ -52,14 +98,16 @@ $stocks_result = mysqli_query($db_connect, $list_stocks);
                     }
                      ?>
                      </select>
-                   </span>
+                 </td>
                   <td><input id="description" type="text" name="description" size="32" maxlength="32" value="<?php echo $row['description']; ?>"></td>
                   <td><input id="price" type="text" name="price" size="8" maxlength="64" value="<?php echo $row['price']; ?>" ></td>
-                  <td><input id="availability" type="text" name="availability" size="1" maxlength="254" value="<?php echo $row['availability']; ?>" ></td>
-                  <button class="btn-overlay" type='submit'>
-                      <span>EDIT</span>
-                  </button>
+                  <td><input id="availability" type="text" name="availability" size="1" style="width: 180px;" maxlength="254" value="<?php echo $row['availability']; ?>" ></td>
+                  <td><button class="btn btn-danger" style="background-color: #f89d13; margin-left: 15px;" type='submit'>
+                      <span>UPDATE</span>
+                      </button></td>
                 </form>
+                </tr>
+              </table>
               </div>
 
           <script src="vendors/jquery/dist/jquery.min.js"></script>
