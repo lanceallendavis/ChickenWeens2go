@@ -47,5 +47,5 @@ if($delivered_result){
   header('location: ../delivered-orders.php');
   mysqli_close();
 }
-
+}
  ?>

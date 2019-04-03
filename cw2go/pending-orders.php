@@ -20,6 +20,7 @@ include('./includes/pending-orders.inc.php');
     <link rel="stylesheet" href="vendors/selectFX/css/table.css">
     <link rel="stylesheet" href="vendors/jqvmap/dist/jqvmap.min.css">
     <link rel="stylesheet" href="assets/css/adminstyle.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Black+Han+Sans">
     <link rel="stylesheet" href="assets/css/table.css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 
@@ -43,7 +44,7 @@ include('./includes/pending-orders.inc.php');
           <a href="admin-products.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-book"></i>Products</a>
         </li>
         <li class="menu-item-has-children dropdown">
-          <a href="admin-stocks.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa  fa-location-arrow"></i>Stocks</a>
+          <a href="admin-stocks.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa   fa-archive"></i>Stocks</a>
         </li>
         <h3 class="menu-title">Orders</h3>
         <li class="active">
@@ -71,16 +72,16 @@ include('./includes/pending-orders.inc.php');
           <a href="admin-locations.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa  fa-location-arrow"></i>Locations</a>
         </li>
       </ul>
-
+      <br>
+      <center><a href= "logout.php"><button type="button" class="btn btn-danger" style="padding-top; 30px; width: 80%; ">LOGOUT</button></a></center>
   </nav>
 </aside>
 
     <!-- Right Panel -->
 
     <div id="right-panel" class="right-panel">
-
+        <h1 class="text-center" style="font-family: 'Black Han Sans', sans-serif;letter-spacing: 6px;color: rgb(248,157,19);background-color: #1b120f; height: 80px; padding-top: 20px; font-size: 28px;">Pending Orders</h1>
         <!-- Header-->
-        <?php include('./includes/header-admin2.html'); ?>
         <table id="customers">
             <tr>
                 <th style="color: #1b120f;">Order ID</th>

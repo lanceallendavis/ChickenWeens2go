@@ -20,6 +20,7 @@ require_once('./includes/session-admin.php');
     <link rel="stylesheet" href="vendors/jqvmap/dist/jqvmap.min.css">
     <link rel="stylesheet" href="assets/css/adminstyle.css">
     <link rel="stylesheet" href="assets/css/table.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Black+Han+Sans">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 </head>
 
@@ -39,6 +40,9 @@ require_once('./includes/session-admin.php');
         </li>
         <li class="menu-item-has-children dropdown">
           <a href="admin-products.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-book"></i>Products</a>
+        </li>
+          <li class="menu-item-has-children dropdown">
+          <a href="admin-stocks.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa   fa-archive"></i>Stocks</a>
         </li>
         <h3 class="menu-title">Orders</h3>
         <li class="menu-item-has-children dropdown">
@@ -66,33 +70,62 @@ require_once('./includes/session-admin.php');
           <a href="admin-locations.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa  fa-location-arrow"></i>Locations</a>
         </li>
       </ul>
+      <br>
+      <center><a href= "logout.php"><button type="button" class="btn btn-danger" style="padding-top; 30px; width: 80%; ">LOGOUT</button></a></center>
   </nav>
 </aside>
     <div id="right-panel" class="right-panel">
-    <?php include('./includes/header-admin2.html'); ?>
-      <table id="customers">
-        <tr>
-          <th style="color: #1b120f;">DATE</th>
-          <th style="color: #1b120f">TOTAL</th>
-          <th style="color: #1b120f">CUSTOMER COUNT</th>
-        </tr>
-    <?php
-require_once('./includes/daily-sales.inc.php');
-    while($row = mysqli_fetch_array($dailyresult, MYSQLI_ASSOC)){
-      echo '<tr>';
-        echo '<td>'. $row['date'] . '</td>';
-        echo '<td>'. $row['total'] . '</td>';
-        echo '<td>'. $row['customer_count'] . '</td>';
-        echo '</tr>';
-    };
-    ?>
-      </table>
+        <h1 class="text-center" style="font-family: 'Black Han Sans', sans-serif;letter-spacing: 6px;color: rgb(248,157,19);background-color: #1b120f; height: 80px; padding-top: 20px; font-size: 28px;">Daily Sales</h1>
+        <div class="col-md-12">
+                        <div class="card">
+                        <div class="card-body">
+                        <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
+                        <thead>
+                        <tr>
+                        <th style="color: #1b120f;">DATE</th>
+                        <th style="color: #1b120f">TOTAL</th>
+                        <th style="color: #1b120f">CUSTOMER COUNT</th>
+                        </tr>
+                <tbody>
+             <?php
+                require_once('./includes/daily-sales.inc.php');
+                    while($row = mysqli_fetch_array($dailyresult, MYSQLI_ASSOC)){
+                      echo '<tr>';
+                        echo '<td>'. $row['date'] . '</td>';
+                        echo '<td>'. $row['total'] . '</td>';
+                        echo '<td>'. $row['customer_count'] . '</td>';
+                        echo '</tr>';
+                    };
+                    ?>
+                 </tbody>
+                </table>
+                </div>
+                </div>
+                </div>
+
     </div>
 
     <script src="vendors/jquery/dist/jquery.min.js"></script>
     <script src="vendors/popper.js/dist/umd/popper.min.js"></script>
     <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="assets/js/main.js"></script>
+     <script src="vendors/jquery/dist/jquery.min.js"></script>
+    <script src="vendors/popper.js/dist/umd/popper.min.js"></script>
+    <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="assets/js/main.js"></script>
+
+
+    <script src="vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="vendors/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
+    <script src="vendors/jszip/dist/jszip.min.js"></script>
+    <script src="vendors/pdfmake/build/pdfmake.min.js"></script>
+    <script src="vendors/pdfmake/build/vfs_fonts.js"></script>
+    <script src="vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="vendors/datatables.net-buttons/js/buttons.colVis.min.js"></script>
+    <script src="assets/js/init-scripts/data-table/datatables-init.js"></script>
 
 
     <script src="vendors/chart.js/dist/Chart.bundle.min.js"></script>

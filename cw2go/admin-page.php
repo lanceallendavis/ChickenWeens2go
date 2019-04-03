@@ -12,6 +12,7 @@ require('./includes/session-admin.php');
         canvas {
         width: 550px;
         height: 100px;
+        background-color: white;    
         }</style>
 </head>
 <body>
@@ -19,11 +20,10 @@ require('./includes/session-admin.php');
   <?php include('./includes/header-admin.html'); ?>
 <!-- END OF SIDE MENU -->
 <!-- MAIN DISPLAY -->
-  <div id="right-panel" class="right-panel">
-    <?php include('./includes/header-admin2.html'); ?>
+  <div id="right-panel" class="right-panel" style="background-color: white;">
+      <h1 class="text-center" style="font-family: 'Black Han Sans', sans-serif;letter-spacing: 6px;color: rgb(248,157,19);background-color: #1b120f; height: 70px; padding-top: 20px; font-size: 28px;">Dashboard</h1>
     <div class="breadcrumbs">
       <div class="page-title">
-        <h1>Dashboard</h1>
       </div>
       <center><canvas id="bar-chart" width="400" height="150"></canvas></center>
     </div>

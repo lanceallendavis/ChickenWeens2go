@@ -43,6 +43,7 @@ include('./includes/display-cart.php');
 </nav>
   <div class="container">
       <h1 class="my-4" style="font-family: 'Black Han Sans', sans-serif;color: rgb(246,164,40);letter-spacing: 6px;">Your Cart</h1>
+      <a href="menu.php"><button class="btn btn-primary"  style="margin-top: 11px;background-color: rgb(246,164,40); float: right;">GO TO MENU ><br></button></a>
 
       <div>
         <div class="container">

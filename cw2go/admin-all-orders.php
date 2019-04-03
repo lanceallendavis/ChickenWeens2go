@@ -25,6 +25,7 @@ require_once('./includes/admin-all-orders.inc.php');
     <link rel="shortcut icon" href="userasset/img/icon.png" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Lato:700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Anonymous+Pro" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Black+Han+Sans">
     <link rel="stylesheet" href="assets/css/adminstyle.css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 </head>
@@ -46,6 +47,9 @@ require_once('./includes/admin-all-orders.inc.php');
         </li>
         <li class="menu-item-has-children dropdown">
           <a href="admin-products.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-book"></i>Products</a>
+        </li>
+          <li class="menu-item-has-children dropdown">
+          <a href="admin-stocks.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa   fa-archive"></i>Stocks</a>
         </li>
         <h3 class="menu-title">Orders</h3>
         <li class="menu-item-has-children dropdown">
@@ -73,13 +77,14 @@ require_once('./includes/admin-all-orders.inc.php');
           <a href="admin-locations.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa  fa-location-arrow"></i>Locations</a>
         </li><br>
            <li class="menu-item-has-children dropdown" padding-top: 50px;>
-          <center><button type="button" class="btn btn-danger" style="padding-top; 30px; ">LOGOUT</button></center>
         </li>
       </ul>
+      <br>
+      <center><a href= "logout.php"><button type="button" class="btn btn-danger" style="padding-top; 30px; width: 80%; ">LOGOUT</button></a></center>
   </nav>
 </aside>
     <div id="right-panel" class="right-panel">
-    <?php include('./includes/header-admin2.html'); ?>
+        <h1 class="text-center" style="font-family: 'Black Han Sans', sans-serif;letter-spacing: 6px;color: rgb(248,157,19);background-color: #1b120f; height: 75px; padding-top: 25px; font-size: 28px;">Order Summary</h1>
         <div class="col-md-12" style="padding: 0px;">
             <div class="card">
                 <div class="card-body">

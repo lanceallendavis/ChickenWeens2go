@@ -35,7 +35,7 @@ $stocks_result = mysqli_query($db_connect, $list_stocks);
           <a href="admin-products.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-book"></i>Products</a>
         </li>
         <li class="menu-item-has-children dropdown">
-          <a href="admin-stocks.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa  fa-location-arrow"></i>Stocks</a>
+          <a href="admin-stocks.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa   fa-archive"></i>Stocks</a>
         </li>
         <h3 class="menu-title">Orders</h3>
         <li class="menu-item-has-children dropdown">
@@ -63,12 +63,13 @@ $stocks_result = mysqli_query($db_connect, $list_stocks);
           <a href="admin-locations.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa  fa-location-arrow"></i>Locations</a>
         </li>
       </ul>
-
+      <br>
+      <center><a href= "logout.php"><button type="button" class="btn btn-danger" style="padding-top; 30px; width: 80%; ">LOGOUT</button></a></center>
   </nav>
 </aside>
 
     <div id="right-panel" class="right-panel">
-      <?php include('./includes/header-admin2.html'); ?>
+        <h1 class="text-center" style="font-family: 'Black Han Sans', sans-serif;letter-spacing: 6px;color: rgb(248,157,19);background-color: #1b120f; height: 80px; padding-top: 20px; font-size: 28px;">Products</h1>
         <table id="customers" width: 100%; >
         <tr>
           <form action="./includes/products.inc.php" method="post" enctype="multipart/form-data">

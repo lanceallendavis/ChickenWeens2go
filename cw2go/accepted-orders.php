@@ -9,19 +9,21 @@ require_once('./includes/accepted-orders.inc.php');
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Ween's Admin Page</title>
-    <meta name="description" content="Sufee Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="apple-touch-icon" href="apple-icon.png">
     <link rel="stylesheet" href="vendors/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="vendors/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="vendors/themify-icons/css/themify-icons.css">
-    <link rel="stylesheet" href="vendors/flag-icon-css/css/flag-icon.min.css">
     <link rel="shortcut icon" href="userasset/img/icon.png" type="image/x-icon" />
     <link rel="stylesheet" href="vendors/selectFX/css/cs-skin-elastic.css">
     <link rel="stylesheet" href="vendors/selectFX/css/table.css">
     <link rel="stylesheet" href="vendors/jqvmap/dist/jqvmap.min.css">
     <link rel="stylesheet" href="assets/css/adminstyle.css">
     <link rel="stylesheet" href="assets/css/table.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Black+Han+Sans">
+    <link rel="stylesheet" href="userasset/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="assets/css/beautiful-danger-alert.css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 </head>
 
@@ -43,7 +45,7 @@ require_once('./includes/accepted-orders.inc.php');
           <a href="admin-products.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-book"></i>Products</a>
         </li>
         <li class="menu-item-has-children dropdown">
-          <a href="admin-stocks.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa  fa-location-arrow"></i>Stocks</a>
+          <a href="admin-stocks.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa   fa-archive"></i>Stocks</a>
         </li>
         <h3 class="menu-title">Orders</h3>
         <li class="menu-item-has-children dropdown">
@@ -71,13 +73,16 @@ require_once('./includes/accepted-orders.inc.php');
           <a href="admin-locations.php" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa  fa-location-arrow"></i>Locations</a>
         </li>
       </ul>
-
+      <br>
+      <center><a href= "logout.php"><button type="button" class="btn btn-danger" style="padding-top; 30px; width: 80%; ">LOGOUT</button></a></center>
   </nav>
 </aside>
     <div id="right-panel" class="right-panel">
-    <?php include('./includes/header-admin2.html'); ?>
-    <?php if(isset($_SESSION['status_messages'])) { echo '<h4>' . $_SESSION['status_messages'] . '</h4><br>';
-      unset($_SESSION['status_messages']); }
+        <h1 class="text-center" style="font-family: 'Black Han Sans', sans-serif;letter-spacing: 6px;color: rgb(248,157,19);background-color: #1b120f; height: 80px; padding-top: 20px; font-size: 28px;">Accepted Orders</h1>
+    <?php if(isset($_SESSION['status_messages'])) { 
+    
+    echo '<div class="alert alert-success shake animated" role="alert" id="save-sucess" style="background-color: #B4F7D2!important; border: 1px solid #0C6D38; width: 98%; margin-left: 15px;"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button><i class="icon ion-checkmark-round mr-1"></i><span style="color: #0C6D38 !important;">' . $_SESSION['status_messages'] . '<br></span></div>';}
+      //unset($_SESSION['status_messages']); }
       ?>
 
       <table id="customers">
