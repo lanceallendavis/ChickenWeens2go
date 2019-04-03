@@ -76,7 +76,7 @@ require_once('./includes/session-admin.php');
 </aside>
     <div id="right-panel" class="right-panel">
         <h1 class="text-center" style="font-family: 'Black Han Sans', sans-serif;letter-spacing: 6px;color: rgb(248,157,19);background-color: #1b120f; height: 80px; padding-top: 20px; font-size: 28px;">Daily Sales</h1>
-        <div class="col-md-12">
+        <div class="col-md-12" style="padding: 0px;">
                         <div class="card">
                         <div class="card-body">
                         <table id="bootstrap-data-table-export" class="table table-striped table-bordered">

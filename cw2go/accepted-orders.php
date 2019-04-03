@@ -84,35 +84,54 @@ require_once('./includes/accepted-orders.inc.php');
     echo '<div class="alert alert-success shake animated" role="alert" id="save-sucess" style="background-color: #B4F7D2!important; border: 1px solid #0C6D38; width: 98%; margin-left: 15px;"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button><i class="icon ion-checkmark-round mr-1"></i><span style="color: #0C6D38 !important;">' . $_SESSION['status_messages'] . '<br></span></div>';}
       //unset($_SESSION['status_messages']); }
       ?>
+         <div class="col-md-12">
+                    <div class="card">
+                    <div class="card-body">
+                    <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
+                    <thead>
+                    <tr>
+                    <th style="color: #1b120f;">Order ID</th>
+                    <th style="color: #1b120f">CUSTOMER NAME</th>
+                    <th style="color: #1b120f">TOTAL</th>
+                    <th style="color: #1b120f">DATE ACCEPTED</th>
+                    <th style="color: #1b120f">SET ACCEPTED STATUS</th>
 
-      <table id="customers">
-        <tr>
-          <th style="color: #1b120f;">Order ID</th>
-          <th style="color: #1b120f">CUSTOMER NAME</th>
-          <th style="color: #1b120f">TOTAL</th>
-          <th style="color: #1b120f">DATE ACCEPTED</th>
-          <th style="color: #1b120f">SET ACCEPTED STATUS</th>
-        </tr>
-    <?php
-    while($row = mysqli_fetch_array($accepted_orders_result, MYSQLI_ASSOC)){
-    echo '<tr>';
-      echo '<td>'. $row['ID'] . '</td>';
-      echo '<td>'. $row['user_name'] . '</td>';
-      echo '<td>'. $row['total'] . '</td>';
-      echo '<td>'. $row['accepted_at'] . '</td>';
-      echo '<td style="text-align: center;"><a href="./includes/delivered-order.php?id=' . $row['ID'] . '" class="btn btn-primary" type="button" style="margin-top: 6px; margin-right: 6px; background-color: #f89d13; border-radius: 16px; ">Delivered<br></a>';
+                        </tr>
+                <tbody>
+               <?php
+               while($row = mysqli_fetch_array($accepted_orders_result, MYSQLI_ASSOC)){
+               echo '<tr>';
+                 echo '<td>'. $row['ID'] . '</td>';
+                 echo '<td>'. $row['user_name'] . '</td>';
+                 echo '<td>'. $row['total'] . '</td>';
+                 echo '<td>'. $row['accepted_at'] . '</td>';
+                 echo '<td style="text-align: center;"><a href="./includes/delivered-order.php?id=' . $row['ID'] . '" class="btn btn-primary" type="button" style="margin-top: 6px; float: left; margin-left: 50px; background-color: #f89d13; border-radius: 16px; ">Delivered<br></a>';
       // echo '<a href="./includes/cancel-order.php?id=' . $row['ID'] . '" class="btn btn-primary" type="button" style="margin-top: 6px; background-color: #f86a4e; margin-left: 25px;  border-radius: 16px;">Cancel<br></td>';
-    echo '</tr>';
-    };
-    ?>
-      </table>
+               echo '</tr>';
+               };
+               ?>
+                 </tbody>
+                </table>
+                </div>
+                </div>
+                </div>
     </div>
 
     <script src="vendors/jquery/dist/jquery.min.js"></script>
     <script src="vendors/popper.js/dist/umd/popper.min.js"></script>
     <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="assets/js/main.js"></script>
-
+    <script src="vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="vendors/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
+    <script src="vendors/jszip/dist/jszip.min.js"></script>
+    <script src="vendors/pdfmake/build/pdfmake.min.js"></script>
+    <script src="vendors/pdfmake/build/vfs_fonts.js"></script>
+    <script src="vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="vendors/datatables.net-buttons/js/buttons.colVis.min.js"></script>
+    <script src="assets/js/init-scripts/data-table/datatables-init.js"></script>
 
     <script src="vendors/chart.js/dist/Chart.bundle.min.js"></script>
     <script src="assets/js/dashboard.js"></script>

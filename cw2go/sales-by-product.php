@@ -97,8 +97,8 @@ require_once('./includes/session-admin.php');
           echo '<td>'. $row['quantity'] . '</td>';
           echo '<td>'. $row['total'] . '</td>';
           echo '</tr>';
-    };
-    ?>
+          };
+          ?>
                  </tbody>
                 </table>
                 </div>

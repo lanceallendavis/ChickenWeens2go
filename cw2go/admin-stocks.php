@@ -18,6 +18,7 @@ $warning_stocks_result = mysqli_query($db_connect, $warning_stocks);
 </head>
 
 <body>
+    
   <aside id="left-panel" class="left-panel">
   <nav class="navbar navbar-expand-sm navbar-default">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
@@ -70,33 +71,50 @@ $warning_stocks_result = mysqli_query($db_connect, $warning_stocks);
 
     <div id="right-panel" class="right-panel">
         <h1 class="text-center" style="font-family: 'Black Han Sans', sans-serif;letter-spacing: 6px;color: rgb(248,157,19);background-color: #1b120f; height: 80px; padding-top: 20px; font-size: 28px;">Stocks</h1>
-        <table id="customers" >
-        <tr>
-          <form action="./includes/products.inc.php" method="post" enctype="multipart/form-data">
-        <tr>
-          <th style="width: 10%;"><b>Stock ID</b></th>
-          <th><b>Stock Name</b></th>
-          <th><b>Stock Count</b></th>
-          <th><b>Demand Count</b></th>
-          <th><b>Date Added</b></th>
-          <th><b>Date Updated</b></th>
-          <th><b>UPDATE</b></th>
-          <th><b>DELETE</b></th>
-        </tr>
-      <?php
-        if($stocks_result){
+          <?php
 
-          while($row = mysqli_fetch_array($stocks_result, MYSQLI_ASSOC)){
-
-          echo '<tr><td>' . $row['ID'] . '</td><td>' . $row['name'] . '</td><td>' . $row['stock_count'] . '</td><td>' . $row['demand_count'] . '</td><td>' . $row['added_at'] . '</td><td>' . $row['updated_at'];
-          echo "<td><a href='update-stock-page.php?id=".$row['ID']."' class='btn btn-danger' style='background-color: #f89d13; margin-left: 15px;'>UPDATE</a></td>";
-          echo "<td><a href='delete-stock.php?id=".$row['ID']."' class='btn btn-danger' style='background-color: #f86a4e; margin-left: 15px;'>DELETE</a></td></tr>";
-          }
+        while($row = mysqli_fetch_array($warning_stocks_result, MYSQLI_ASSOC)){
+          if($row['stock_count'] < 50){
+          echo '<div class="alert alert-success border-danger shake animated" role="alert" id="save-sucess" style="background-color: rgba(220,148,148,0.72);border: 1px solid #0C6D38; margin-top: 10px;  width: 95%; margin-left: 30px;"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button><i class="icon ion-android-warning mr-1" style="color: rgb(195,151,37);"></i><span style="color: rgb(41,31,7);">Your stocks on ' . $row['name'] . ' only has ' . $row['stock_count'] . ' pieces left! </span></div>';
         }
+      }
 
-        ?>
-        </form>
-      </table>
+       ?>
+    
+        <div class="col-md-12">
+                    <div class="card">
+                    <div class="card-body">
+                    <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
+                    <thead>
+                    <tr>
+                   <th style="width: 10%;"><b>Stock ID</b></th>
+                   <th><b>Stock Name</b></th>
+                   <th><b>Stock Count</b></th>
+                   <th><b>Demand Count</b></th>
+                   <th><b>Date Added</b></th>
+                   <th><b>Date Updated</b></th>
+                   <th><b>UPDATE</b></th>
+                   <th><b>DELETE</b></th>
+
+                        </tr>
+                <tbody>
+              <?php
+               if($stocks_result){
+
+                while($row = mysqli_fetch_array($stocks_result, MYSQLI_ASSOC)){
+
+                echo '<tr><td>' . $row['ID'] . '</td><td>' . $row['name'] . '</td><td>' . $row['stock_count'] . '</td><td>' . $row['demand_count'] . '</td><td>' . $row['added_at'] . '</td><td>' . $row['updated_at'];
+                echo "<td><a href='update-stock-page.php?id=".$row['ID']."' class='btn btn-danger' style='background-color: #f89d13; margin-left: 15px;'>UPDATE</a></td>";
+                echo "<td><a href='delete-stock.php?id=".$row['ID']."' class='btn btn-danger' style='background-color: #f86a4e; margin-left: 15px;'>DELETE</a></td></tr>";
+                }
+              }
+
+              ?>
+                 </tbody>
+                </table>
+                </div>
+                </div>
+                </div>
       <br>
         <a href="#popUp" id="openPopUp" style="font-family: Lato, sans-serif;" > <i class="menu-icon fa fa-plus"> &nbsp; Add Stock Items </i></a>
         <aside id="popUp" class="popup">
@@ -119,15 +137,7 @@ $warning_stocks_result = mysqli_query($db_connect, $warning_stocks);
         </div>
         <a href="#!" class="closePopUpOutSide"></a>
         </aside>
-         <?php
-
-        while($row = mysqli_fetch_array($warning_stocks_result, MYSQLI_ASSOC)){
-          if($row['stock_count'] < 50){
-          echo '<div class="alert alert-success border-danger shake animated" role="alert" id="save-sucess" style="background-color: rgba(220,148,148,0.72);border: 1px solid #0C6D38; width: 500px; margin-left: 30px;"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button><i class="icon ion-android-warning mr-1" style="color: rgb(195,151,37);"></i><span style="color: rgb(41,31,7);">Your stocks on ' . $row['name'] . ' only has ' . $row['stock_count'] . ' pieces left! </span></div>';
-        }
-      }
-
-       ?>
+       
     </div>
 
     <script src="vendors/jquery/dist/jquery.min.js"></script>

@@ -82,29 +82,39 @@ include('./includes/pending-orders.inc.php');
     <div id="right-panel" class="right-panel">
         <h1 class="text-center" style="font-family: 'Black Han Sans', sans-serif;letter-spacing: 6px;color: rgb(248,157,19);background-color: #1b120f; height: 80px; padding-top: 20px; font-size: 28px;">Pending Orders</h1>
         <!-- Header-->
-        <table id="customers">
-            <tr>
-                <th style="color: #1b120f;">Order ID</th>
-                <th style="color: #1b120f">CUSTOMER NAME</th>
-                <th style="color: #1b120f">TOTAL</th>
-                <th style="color: #1b120f">Order Date</th>
-                <th style="color: #1b120f">Request</th>
+    
+         <div class="col-md-12">
+                    <div class="card">
+                    <div class="card-body">
+                    <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
+                    <thead>
+                    <tr>
+                    <th style="color: #1b120f;">Order ID</th>
+                    <th style="color: #1b120f">CUSTOMER NAME</th>
+                    <th style="color: #1b120f">TOTAL</th>
+                    <th style="color: #1b120f">Order Date</th>
+                    <th style="color: #1b120f">Request</th>
 
-            </tr>
-            <?php while($row = mysqli_fetch_array($display_result, MYSQLI_ASSOC)){
-            echo '<tr>';
-            echo '<td>' . $row['order_ID'] . '</td>';
-            echo '<td>' . $row['full_name'] . '</td>';
-            echo '<td>' . $row['total'] . '</td>';
-            echo '<td>' . $row['placed_at'] . '</td>';
-            echo '<td>
+                        </tr>
+                <tbody>
+              <?php while($row = mysqli_fetch_array($display_result, MYSQLI_ASSOC)){
+                    echo '<tr>';
+                    echo '<td>' . $row['order_ID'] . '</td>';
+                    echo '<td>' . $row['full_name'] . '</td>';
+                    echo '<td>' . $row['total'] . '</td>';
+                    echo '<td>' . $row['placed_at'] . '</td>';
+                    echo '<td>
                     <a href="./includes/accept-order.php?id=' . $row['order_ID'] . '" class="btn btn-danger" type="button" style="background-color: #f89d13; margin-left: 20px;  border-radius: 16px;">Accept<br></a>
                     <a href="./includes/decline-order.php?id=' . $row['order_ID'] . '" class="btn btn-danger" type="button" style="background-color: #f86a4e; margin-left: 20px;  border-radius: 16px;"">Decline<br>
                   </td>
-            </tr>';
-          }
+                    </tr>';
+                  }
             ?>
-        </table>
+                 </tbody>
+                </table>
+                </div>
+                </div>
+                </div>
     </div>
 
     <script src="vendors/jquery/dist/jquery.min.js"></script>
@@ -114,6 +124,17 @@ include('./includes/pending-orders.inc.php');
     <script src="vendors/chart.js/dist/Chart.bundle.min.js"></script>
     <script src="assets/js/dashboard.js"></script>
     <script src="assets/js/widgets.js"></script>
+    <script src="vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="vendors/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
+    <script src="vendors/jszip/dist/jszip.min.js"></script>
+    <script src="vendors/pdfmake/build/pdfmake.min.js"></script>
+    <script src="vendors/pdfmake/build/vfs_fonts.js"></script>
+    <script src="vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="vendors/datatables.net-buttons/js/buttons.colVis.min.js"></script>
+    <script src="assets/js/init-scripts/data-table/datatables-init.js"></script>
     <script src="vendors/jqvmap/dist/jquery.vmap.min.js"></script>
     <script src="vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
     <script src="vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>

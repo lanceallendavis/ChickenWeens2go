@@ -65,25 +65,35 @@ require('./includes/users-list.inc.php');
 
     <div id="right-panel" class="right-panel">
         <h1 class="text-center" style="font-family: 'Black Han Sans', sans-serif;letter-spacing: 6px;color: rgb(248,157,19);background-color: #1b120f; height: 80px; padding-top: 20px; font-size: 28px;">Userlist</h1>
-        <table id="customers">
-        <tr>
-          <th style="color: #1b120f;"><b>ID</b></th>
-          <th style="color: #1b120f;"><b>Username</b></th>
-          <th style="color: #1b120f;"><b>Role</b></th>
-          <th style="color: #1b120f;"><b>Registered At</b></th>
-          <th style="color: #1b120f;"><b>Delete</b></th>
-        </tr>
-      <?php  while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
-        echo '<tr><td>' . $row['ID'] . '</td><td>' . $row['username'] . '</td><td>' . $row['role'] . '</td><td>' . $row['registered_at'] . '</td>';
-        echo "<td><a href='delete-user.php?id=".$row['ID']."' class='btn btn-danger' style='background-color: #f86a4e; margin-left: 25px;'>DELETE</a></td></tr>";
-      }
+        <div class="col-md-12">
+                    <div class="card">
+                    <div class="card-body">
+                    <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
+                    <thead>
+                    <tr>
+                    <th style="color: #1b120f;"><b>ID</b></th>
+                    <th style="color: #1b120f;"><b>Username</b></th>
+                    <th style="color: #1b120f;"><b>Role</b></th>
+                    <th style="color: #1b120f;"><b>Registered At</b></th>
+                    <th style="color: #1b120f;"><b>Delete</b></th>
 
-         mysqli_free_result ($result);
+                        </tr>
+                <tbody>
+                <?php  while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+                 echo '<tr><td>' . $row['ID'] . '</td><td>' . $row['username'] . '</td><td>' . $row['role'] . '</td><td>' .   $row['registered_at'] . '</td>';
+                 echo "<td><a href='delete-user.php?id=".$row['ID']."' class='btn btn-danger' style='background-color: #f86a4e; float: left;'>DELETE</a></td></tr>";
+               }
 
-        ?>
-      </table>
+                  mysqli_free_result ($result);
 
+                 ?>
+                 </tbody>
+                </table>
+                </div>
+                </div>
+                </div>
     </div>
+    
     <script src="vendors/jquery/dist/jquery.min.js"></script>
     <script src="vendors/popper.js/dist/umd/popper.min.js"></script>
     <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -91,6 +101,17 @@ require('./includes/users-list.inc.php');
     <script src="vendors/chart.js/dist/Chart.bundle.min.js"></script>
     <script src="assets/js/dashboard.js"></script>
     <script src="assets/js/widgets.js"></script>
+       <script src="vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="vendors/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
+    <script src="vendors/jszip/dist/jszip.min.js"></script>
+    <script src="vendors/pdfmake/build/pdfmake.min.js"></script>
+    <script src="vendors/pdfmake/build/vfs_fonts.js"></script>
+    <script src="vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="vendors/datatables.net-buttons/js/buttons.colVis.min.js"></script>
+    <script src="assets/js/init-scripts/data-table/datatables-init.js"></script>
     <script src="vendors/jqvmap/dist/jquery.vmap.min.js"></script>
     <script src="vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
     <script src="vendors/jqvmap/dist/mapsS/jquery.vmap.world.js"></script>

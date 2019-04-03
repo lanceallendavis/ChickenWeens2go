@@ -70,33 +70,42 @@ $stocks_result = mysqli_query($db_connect, $list_stocks);
 
     <div id="right-panel" class="right-panel">
         <h1 class="text-center" style="font-family: 'Black Han Sans', sans-serif;letter-spacing: 6px;color: rgb(248,157,19);background-color: #1b120f; height: 80px; padding-top: 20px; font-size: 28px;">Products</h1>
-        <table id="customers" width: 100%; >
-        <tr>
-          <form action="./includes/products.inc.php" method="post" enctype="multipart/form-data">
-        <tr>
-          <th><b>Product Name</b></th>
-          <th><b>Pieces</b></th>
-          <th><b>Corresponding Stock</b></th>
-          <th><b>Description</b></th>
-          <th><b>Price</b></th>
-          <th><b>Availability</b></th>
-          <th><b>Date Added</b></th>
-          <th><b>EDIT</b></th>
-          <th><b>DELETE</b></th>
-        </tr>
-      <?php
-        if($products_result){
-          while($row = mysqli_fetch_array($products_result, MYSQLI_ASSOC)){
-          echo '<tr><td>' . $row['name'] . '</td><td>' . $row['pieces'] . '</td><td>' . $row['stock_name'] . '</td><td>' . $row['description'] . '</td><td>' . $row['price'] . '</td><td>' . $row['availability'];
-          echo '</td><td>' . $row['added_at'] . '</td>';
-          echo "<td><a href='edit-product-page.php?id=".$row['ID']."' class='btn btn-danger' style='background-color: #f89d13; margin-left: 15px;'>EDIT</a></td>";
-          echo "<td><a href='delete-product.php?id=".$row['ID']."' class='btn btn-danger' style='background-color: #f86a4e; margin-left: 15px;'>DELETE</a></td></tr>";
-          }
-          mysqli_free_result ($products_result);
-        }
-        ?>
-        </form>
-      </table><br>
+   
+        <div class="col-md-12">
+                    <div class="card">
+                    <div class="card-body">
+                    <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
+                    <thead>
+                    <tr>
+                    <th><b>Product Name</b></th>
+                    <th><b>Pieces</b></th>
+                    <th><b>Corresponding Stock</b></th>
+                    <th><b>Description</b></th>
+                    <th><b>Price</b></th>
+                    <th><b>Availability</b></th>
+                    <th><b>Date Added</b></th>
+                    <th><b>EDIT</b></th>
+                    <th><b>DELETE</b></th>
+
+                        </tr>
+                <tbody>
+                <?php
+                if($products_result){
+                  while($row = mysqli_fetch_array($products_result, MYSQLI_ASSOC)){
+                  echo '<tr><td>' . $row['name'] . '</td><td>' . $row['pieces'] . '</td><td>' . $row['stock_name'] . '</td><td>' .         $row['description'] . '</td><td>' . $row['price'] . '</td><td>' . $row['availability'];
+                  echo '</td><td>' . $row['added_at'] . '</td>';
+                  echo "<td><a href='edit-product-page.php?id=".$row['ID']."' class='btn btn-danger' style='background-color: #f89d13; margin-left: 15px;'>EDIT</a></td>";
+                  echo "<td><a href='delete-product.php?id=".$row['ID']."' class='btn btn-danger' style='background-color: #f86a4e; margin-left: 15px;'>DELETE</a></td></tr>";
+                  }
+                  mysqli_free_result ($products_result);
+                }
+                ?>
+                 </tbody>
+                </table>
+                </div>
+                </div>
+                </div>
+        <br>
         <a href="#popUp" id="openPopUp" style="font-family: Lato, sans-serif;" > <i class="menu-icon fa fa-plus"> &nbsp; Add Products </i></a>
         <aside id="popUp" class="popup">
         <div class="popUpContainer">
@@ -139,6 +148,17 @@ $stocks_result = mysqli_query($db_connect, $list_stocks);
     <script src="vendors/popper.js/dist/umd/popper.min.js"></script>
     <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="vendors/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
+    <script src="vendors/jszip/dist/jszip.min.js"></script>
+    <script src="vendors/pdfmake/build/pdfmake.min.js"></script>
+    <script src="vendors/pdfmake/build/vfs_fonts.js"></script>
+    <script src="vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="vendors/datatables.net-buttons/js/buttons.colVis.min.js"></script>
+    <script src="assets/js/init-scripts/data-table/datatables-init.js"></script>
     <script src="vendors/chart.js/dist/Chart.bundle.min.js"></script>
     <script src="assets/js/dashboard.js"></script>
     <script src="assets/js/widgets.js"></script>
