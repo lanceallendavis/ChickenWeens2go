@@ -79,8 +79,8 @@ require_once('./includes/declined-orders.inc.php');
 </aside>
     <div id="right-panel" class="right-panel">
         <h1 class="text-center" style="font-family: 'Black Han Sans', sans-serif;letter-spacing: 6px;color: rgb(248,157,19);background-color: #1b120f; height: 80px; padding-top: 20px; font-size: 28px;">Declined Orders</h1>
-          <?php if(isset($_SESSION['status_messages'])) { 
-    
+          <?php if(isset($_SESSION['status_messages'])) {
+
     echo '<div class="alert alert-success shake animated" role="alert" id="save-sucess" style="background-color: rgba(220,148,148,0.72)!important; border: 1px solid #7e0808; width: 98%; margin-left: 15px;"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button><i class="icon ion-android-warning mr-1" style="color: rgb(195,151,37);"></i><span style="color: #0C6D38 !important;">' . $_SESSION['status_messages'] . '<br></span></div>';}
       //unset($_SESSION['status_messages']); }
       ?>
@@ -92,7 +92,6 @@ require_once('./includes/declined-orders.inc.php');
                     <tr>
                      <th style="color: #1b120f;">Order ID</th>
                     <th style="color: #1b120f">CUSTOMER NAME</th>
-                    <th style="color: #1b120f">ORDER</th>
                     <th style="color: #1b120f">TOTAL</th>
                     <th style="color: #1b120f">DATE DECLINED</th>
 
