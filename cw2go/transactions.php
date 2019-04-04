@@ -43,33 +43,7 @@ include('./includes/user-transactions.php');
           <div class="card-body">';
           echo '  <h4 class="card-title">Order ID #: '. $row['ID'] .'</h4>';
           echo '  <h6 class="text-muted card-subtitle mb-2">Total: '. $row['total'] .'</h6>';
-          echo '  <h6 class="text-muted card-subtitle mb-2">Status: '. $row['status'] .'</h6>';
-
-          echo'  <div class="container">
-  	          <div class="row" style="margin-top:40px;">
-  		          <div class="col-md-6">
-      	           <div class="well well-sm">
-                     <div class="text-right">
-                       <a class="btn btn-success btn-green" href="#reviews-anchor" id="open-review-box">Leave a Review</a>
-                     </div>
-                     <div class="row" id="post-review-box" style="display:none;">
-                       <div class="col-md-12">
-                         <form accept-charset="UTF-8" action="" method="post">
-                          <input id="ratings-hidden" name="rating" type="hidden">
-                          <textarea class="form-control animated" cols="50" id="new-review" name="comment" placeholder="Enter your review here..." rows="5"></textarea>
-                          <div class="text-right">
-                            <div class="stars starrr" data-rating="0"></div>
-                            <a class="btn btn-danger btn-sm" href="#" id="close-review-box" style="display:none; margin-right: 10px;">
-                            <span class="glyphicon glyphicon-remove"></span>Cancel</a>
-                            <button class="btn btn-success btn-md" type="submit">submit</button>
-                          </div>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-  		          </div>
-  	          </div>
-            </div>
+          echo '  <h6 class="text-muted card-subtitle mb-2">Status: '. $row['status'] .'</h6>
           </div>
         </div>
       </div>

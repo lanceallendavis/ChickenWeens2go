@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     <link rel="stylesheet" href="userasset/css/Carousel-Hero.css">
+    <link rel="stylesheet" href="userasset/fonts/ionicons.min.css">
     <link rel="shortcut icon" href="userasset/img/icon.png" type="image/x-icon" />
     <link rel="stylesheet" href="userasset/css/Highlight-Blue.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
@@ -46,6 +47,7 @@
             <div class="carousel-item active">
                 <div class="jumbotron hero-nature carousel-hero" style="height: 646px;background-image: url(&quot;userasset/img/hero2.jpg&quot;);filter: brightness(100%) contrast(98%);">
                 </div>
+                
             </div>
             <div class="carousel-item">
                 <div class="jumbotron hero-photography carousel-hero" style="height: 646px;background-image: url(&quot;userasset/img/hero1.jpg&quot;);">
@@ -93,7 +95,7 @@
                 <div class="col-md-6 col-lg-3 text-center" data-bs-hover-animate="pulse">
                     <div class="mx-auto service-box mt-5"><i class="fa fa-paper-plane-o fa-4x text-primary mb-3 sr-icons" data-aos="zoom-in" data-aos-duration="200" data-aos-delay="400" data-aos-once="true"></i>
                         <h3 class="mb-3" style="color: rgb(248,157,19);">Ready to Ship</h3>
-                        <p class="text-muted mb-0" style="color: rgb(27,18,15);filter: brightness(45%);font-family: Lato, sans-serif;font-size: 17px;">We want to serve you with our classic food in front of your door in no time</p>
+                        <p class="text-muted mb-0" style="color: rgb(27,18,15);filter: brightness(45%);font-family: Lato, sans-serif;font-size: 17px;">We are only accepting orderrs around Metro Manila, Cavite, Rizal and Laguna</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3 text-center" data-bs-hover-animate="pulse">
