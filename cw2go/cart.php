@@ -41,6 +41,7 @@ include('./includes/display-cart.php');
     </div>
   </div>
 </nav>
+    <div class="alert alert-success shake animated" role="alert" id="save-sucess" style="background-color: rgba(246, 164, 40, 0.68)!important; border: 1px solid rgb(240, 148, 9); width: 500px; float: right; margin-top: 10px;"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button><i class="icon ion-android-warning mr-1" style="color: rgb(195,151,37);"></i><span style="color:  Black !important;">The delivery charges shown are only estimated fees<br></span></div>
   <div class="container">
       <h1 class="my-4" style="font-family: 'Black Han Sans', sans-serif;color: rgb(246,164,40);letter-spacing: 6px;">Your Cart</h1>
       <a href="menu.php"><button class="btn btn-primary"  style="margin-top: 11px;background-color: rgb(246,164,40); float: right;">GO TO MENU ><br></button></a>
@@ -108,7 +109,7 @@ include('./includes/display-cart.php');
               <input type="hidden" name="action" value="checkout">
               <input type="hidden" name="user_ID" value="<?php echo $userID ?>">
               <h4 class="text-muted card-subtitle mb-2">Food Total</h4>
-              <h4 class="card-title">₱<?php if($total_row['total'] == NULL) { echo '0';} else {echo $total_row['total'];} ?></h4>
+              <h4 class="card-title">₱<?php if($total_row['total'] == NULL) { echo '0.00';} else {echo $total_row['total'] . '.00';} ?></h4>
               <input type="hidden" name="total" value=" <?php echo $total_row['total']; ?>">
               <h4 class="text-muted card-subtitle mb-2">Mode of Payment</h4>
               <select name="modeOfPayment" id="modeOfPayment" onChange="javascript:modeOfPaymentCheck();">

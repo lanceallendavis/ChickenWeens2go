@@ -10,10 +10,6 @@ $orderID = $_GET['id'];
 $decline_order_query = "UPDATE orders SET status  = 'declined', declined_at = NOW() where ID = $orderID";
 $decline_result = mysqli_query($db_connect, $decline_order_query);
 
-$return_query = "UPDATE stocks left join products on products.stock_name = stocks.name
-left join order_details on products.ID = order_details.product_ID SET stock_count =  stock_count + order_details.stock_deduction  where order_details.order_ID = '$orderID' ";
-$return_result = mysqli_query($db_connect, $return_query);
-
 $email_to_user_query = "SELECT orders.ID as order_ID, users.email as name from users left join orders on users.ID = orders.user_ID where orders.ID = '$orderID' ";
 $email_to_user_result = mysqli_query($db_connect, $email_to_user_query);
 $email_array = mysqli_fetch_array($email_to_user_result, MYSQLI_ASSOC);

@@ -42,13 +42,7 @@
     </div>
   </div>
 </nav>
-<div class="container" style="padding-top: 112px;padding-bottom: 58px;">
-  <?php
-      if($result->num_rows == 0){
-      echo'<div class="alert alert-success border-danger shake animated" role="alert" id="save-sucess" style="background-color: rgba(220,148,148,0.72); margin: 250px;"><i class="icon ion-android-warning mr-1" style="color: rgb(195,151,37);"></i><span style="color: rgb(41,31,7);">Sorry, there are no available products at the moment.</span>
-  </div>';
-}
-  ?>
+  <div class="container" style="padding-top: 112px;padding-bottom: 58px;">
   <div class="row product-list dev">
   <?php
   if($result->num_rows != 0 ){
