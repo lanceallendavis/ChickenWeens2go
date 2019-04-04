@@ -1,4 +1,5 @@
 <?php
+include('./includes/session-user.php');
 include('./includes/user-transactions.php');
  ?>
 <!DOCTYPE html>
@@ -33,23 +34,23 @@ include('./includes/user-transactions.php');
   }
   ?>
 
-  <h1 class="my-4" style="font-family: 'Black Han Sans', sans-serif;color: rgb(246,164,40);letter-spacing: 6px; margin-left: 90px;">Order Transaction</h1>
-  <?php while($row = mysqli_fetch_array($display_result, MYSQLI_ASSOC))
-   {
-    echo'<div class="container">
-    <div class="row">
-      <div class="col-md-5 mb-4">
+  <h1 class="my-4" style="font-family: 'Black Han Sans', sans-serif;color: rgb(246,164,40);letter-spacing: 6px; margin-left: 180px;">Order Transaction</h1>
+  <?php while($row = mysqli_fetch_array($display_result, MYSQLI_ASSOC)): ?>
+   <div class="container">
+    <div class="row" style="width: 1900px; margin-left: 140px;">
+      <div class="col-md-5 mb-12">
         <div class="card h-100">
-          <div class="card-body">';
-          echo '  <h4 class="card-title">Order ID #: '. $row['ID'] .'</h4>';
-          echo '  <h6 class="text-muted card-subtitle mb-2">Total: '. $row['total'] .'</h6>';
-          echo '  <h6 class="text-muted card-subtitle mb-2">Status: '. $row['status'] .'</h6>
+          <div class="card-body">
+            <h4 class="card-title">Order ID #: <?php echo $row['ID'] ?></h4>
+              <h6 class="text-muted card-subtitle mb-2" style="font-weight: bold; color: yellow;">Status: <?php echo $row['status'] ?></h6>
+              <h6 class="text-muted card-subtitle mb-2">Total: <?php echo $row['total'] ?></h6>
+              <a href="<?php echo 'userorders.php?order_id='.$row['ID'] ?>" class="btn btn-success" style="float:right; margin-top: -60px;"> View Order</a>
           </div>
         </div>
       </div>
     </div>
-  </div>';
-} ?>
+  </div>
+    <?php endwhile ?>
      <footer style="margin-top: 3px;background-color: rgb(27,18,15);">
         <div class="row">
             <div class="col-sm-6 col-md-4 footer-navigation">

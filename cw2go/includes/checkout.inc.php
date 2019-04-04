@@ -32,10 +32,6 @@ $order_ID = mysqli_insert_id($db_connect);
                               VALUES ('$order_ID', '$productID', '$quantity', '$price', '$deduct_to_stocks')";
       $order_details_result = mysqli_query($db_connect, $order_details_query);
 
-      $deduct_query = "UPDATE stocks left join products on products.stock_name = stocks.name
-      left join order_details on products.ID = order_details.product_ID SET stock_count =  stock_count - $deduct_to_stocks where products.ID = $productID";
-      $deduct_result = mysqli_query($db_connect, $deduct_query);
-
       $i++;
 
     }

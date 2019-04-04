@@ -95,7 +95,7 @@
                 <div class="col-md-6 col-lg-3 text-center" data-bs-hover-animate="pulse">
                     <div class="mx-auto service-box mt-5"><i class="fa fa-paper-plane-o fa-4x text-primary mb-3 sr-icons" data-aos="zoom-in" data-aos-duration="200" data-aos-delay="400" data-aos-once="true"></i>
                         <h3 class="mb-3" style="color: rgb(248,157,19);">Ready to Ship</h3>
-                        <p class="text-muted mb-0" style="color: rgb(27,18,15);filter: brightness(45%);font-family: Lato, sans-serif;font-size: 17px;">We are only accepting orderrs around Metro Manila, Cavite, Rizal and Laguna</p>
+                        <p class="text-muted mb-0" style="color: rgb(27,18,15);filter: brightness(45%);font-family: Lato, sans-serif;font-size: 17px;">We are only accepting orders around Metro Manila, Cavite, Rizal and Laguna</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3 text-center" data-bs-hover-animate="pulse">
