@@ -7,7 +7,8 @@ SUM(cart.quantity) as cart_quantity, cart.quantity*prod.price AS subtotal
                       FROM products prod
                       inner join cart cart on prod.ID =  cart.product_ID
                       inner join users user on user.ID = cart.user_ID
-                      WHERE user.ID = '$userID' GROUP BY prod.ID";
+                      WHERE user.ID = '$userID'
+                      GROUP BY prod.ID";
 $display_result = mysqli_query($db_connect, $display_cart_query);
 
 $total_query = "SELECT SUM(cart.quantity*prod.price) AS total from products prod
@@ -16,4 +17,4 @@ WHERE user.ID = '$userID'";
 $display_total_result = mysqli_query($db_connect, $total_query);
 $total_row = mysqli_fetch_array($display_total_result, MYSQLI_ASSOC);
 
- ?> 
+ ?>
