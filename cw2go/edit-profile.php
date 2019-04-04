@@ -3,9 +3,9 @@ include('./includes/session-user.php');
 require_once('./includes/mysqli_connect.php');
 $userID = $_SESSION['user']['ID'];
 $select_edit_query = "SELECT * FROM users WHERE ID = $userID";
-$result = $db_connect ->query($select_edit_query);
+$select_results = mysqli_query($db_connect, $select_edit_query);
+$select = mysqli_fetch_array($select_results, MYSQLI_ASSOC);
 
-//echo '<pre>'; die(var_dump($_SESSION)); echo '</pre>';
 ?>
 
 <!DOCTYPE html>
@@ -35,36 +35,34 @@ $result = $db_connect ->query($select_edit_query);
                 <div class="alert alert-info absolue center" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button><span>Profile save with success</span></div>
             </div>
         </div>
-        <form action='includes/edit-user.php' method='post'>
+        <form action='includes/edit-user.php' method='post' enctype='multipart/form-data'>
+            <input type="hidden" name="id" value="<?php echo $_SESSION['user']['ID']; ?>">
             <div class="form-row profile-row">
-                <div class="col-md-4 relative">
-                    <div class="avatar">
-                        <div class="avatar-bg center">
-                        <img src="./images/user-images/<?php echo $_SESSION['user']['profile_photo']; ?>"/> </div>
-                    </div><input type="file" class="form-control" name="avatar-file" style="font-family: Lato, sans-serif;font-size: 18px;"></div>
+                <div class="col-sm-3">
+                            <img src="./images/user-images/<?php echo $select['profile_photo']; ?>" style="width:130px; height: 150px;">
+                    <input type="file" class="form-control" name="profileImage" style="font-family: Lato, sans-serif;font-size: 18px; height:50px; width: 130px;"></div>
                 <div class="col-md-8">
                     <h1 style="font-family: 'Black Han Sans', sans-serif;color: rgb(248,157,19);letter-spacing: 6px;">Edit Profile </h1>
                     <hr>
-                    <div class="form-group"><label>Username</label><input class="form-control" type="text" autocomplete="off" required="" value="<?php echo $_SESSION['user']['username']; ?>" name="email"></div>
                     <div class="form-row">
                         <div class="col-sm-12 col-md-6">
-                            <div class="form-group"><label style="font-family: Lato, sans-serif;">Firstname </label><input class="form-control" type="text" value="<?php echo $_SESSION['user']['first_name']; ?>"  name="firstname"></div>
+                            <div class="form-group"><label style="font-family: Lato, sans-serif;">Firstname </label><input class="form-control" type="text" value="<?php echo $select['first_name']; ?>"  name="firstName"></div>
                         </div>
                         <div class="col-sm-12 col-md-6">
-                            <div class="form-group"><label style="font-family: Lato, sans-serif;">Lastname </label><input class="form-control" type="text" value="<?php echo $_SESSION['user']['last_name']; ?>"  name="lastname"></div>
+                            <div class="form-group"><label style="font-family: Lato, sans-serif;">Lastname </label><input class="form-control" type="text" value="<?php echo $select['last_name']; ?>"  name="lastName"></div>
                         </div>
                     </div>
                     <div class="form-group"><label>Email</label><input class="form-control" type="email" autocomplete="off" required="" value="<?php echo $_SESSION['user']['email']; ?>" name="email"></div>
-                    <div class="form-group"><label style="font-family: Lato, sans-serif;">Address</label><input class="form-control" autocomplete="off" required="" value="<?php echo $_SESSION['user']['address']; ?>" name="address"></div>
+                    <div class="form-group"><label style="font-family: Lato, sans-serif;">Address</label><input class="form-control" autocomplete="off" required="" value="<?php echo $select['address']; ?>" name="address"></div>
                      <hr>
-                     <div class="form-group"><label>Old-Password</label><input class="form-control" type="password" name="password" required=""  autocomplete="off"></div>
+                     <div class="form-group"><label>Old-Password</label><input class="form-control" type="password" name="oldPassword" required=""  autocomplete="off"></div>
                      <hr>
                     <div class="form-row">
                         <div class="col-sm-12 col-md-6">
-                            <div class="form-group"><label>New Password </label><input class="form-control" type="password" name="password" autocomplete="off"></div>
+                            <div class="form-group"><label>New Password </label><input class="form-control" type="password" name="newPassword" autocomplete="off"></div>
                         </div>
                         <div class="col-sm-12 col-md-6">
-                            <div class="form-group"><label style="font-family: Lato, sans-serif;">Confirm Password</label><input class="form-control" type="password" name="confirmpass" autocomplete="off" ></div>
+                            <div class="form-group"><label style="font-family: Lato, sans-serif;">Confirm Password</label><input class="form-control" type="password" name="confirmPass" autocomplete="off" ></div>
                         </div>
                     </div>
                     <hr>
@@ -79,7 +77,7 @@ $result = $db_connect ->query($select_edit_query);
         <div class="row">
             <div class="col-sm-6 col-md-4 footer-navigation">
                 <h3><a href="#"><img src="userasset/img/sojubtry.png" style="width: 226px;height: 87px;"></a></h3>
-               
+
                 <p class="company-name"
                     style="font-family: Lato, sans-serif;">Chicken Ween's 2go © 2019 </p>
             </div> <div class="col-md-4 footer-about">
@@ -93,7 +91,7 @@ $result = $db_connect ->query($select_edit_query);
                 </div>
             </div>
             <div class="clearfix"></div>
-           
+
         </div>
     </footer>
     <script src="userasset/js/jquery.min.js"></script>
@@ -103,7 +101,6 @@ $result = $db_connect ->query($select_edit_query);
     <script src="userasset/js/creative.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
     <script src="https://use.fontawesome.com/1744f3f671.js"></script>
-    <script src="userasset/js/Profile-Edit-Form.js"></script>
     <script src="userasset/js/Subscribe-window.js"></script>
 </body>
 

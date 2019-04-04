@@ -1,4 +1,13 @@
-<?php require('./includes/mysqli_connect.php'); ?>
+<?php
+require('./includes/mysqli_connect.php');
+require('./includes/register.inc.php');
+$locations_query = "SELECT * FROM locations";
+$locations_result = mysqli_query($db_connect, $locations_query);
+
+while($a = mysqli_fetch_array($locations_result, MYSQLI_ASSOC)) {
+    $rows[] = $a;
+  }
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,16 +33,21 @@
     <div class="row mh-100vh">
       <div class="col-10 col-sm-8 col-md-6 col-lg-6 offset-1 offset-sm-2 offset-md-3 offset-lg-0 align-self-center d-lg-flex align-items-lg-center align-self-lg-stretch bg-white p-5 rounded rounded-lg-0 my-5 my-lg-0" id="login-block">
         <div class="m-auto w-lg-75 w-xl-50">
-          <form action="./includes/register.inc.php" method="post" enctype="multipart/form-data" style="padding-top: 127px;" >
+          <form action="register.php" method="post" enctype="multipart/form-data" style="padding-top: 127px;" >
             <input type="hidden" name="action" value="register">
             <h1 data-aos="fade-up" data-aos-duration="250" data-aos-delay="150" style="color: rgb(248,157,19);font-family: 'Black Han Sans', sans-serif;letter-spacing: 5px;">Register</h1>
-            <div class="form-group"><label class="text-secondary" style="font-family: Lato, sans-serif;">Username</label><input class="form-control" type="text" name="username" style="font-family: Lato, sans-serif;" required></div>
-            <div class="form-group"><label class="text-secondary" style="font-family: Lato, sans-serif;">First Name</label><input class="form-control" type="text" name="firstName" style="font-family: Lato, sans-serif;" required></div>
-            <div class="form-group" style="font-family: Lato, sans-serif;"><label class="text-secondary">Last Name</label><input class="form-control" type="text" name="lastName" style="font-family: Lato, sans-serif;" required></div>
-            <div class="form-group" style="font-family: Lato, sans-serif;"><label class="text-secondary">Email</label><input class="form-control" type="text" name="email" style="font-family: Lato, sans-serif;" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}$" inputmode="email" required></div>
-            <div class="form-group" style="font-family: Lato, sans-serif;"><label class="text-secondary">Address</label><input class="form-control" type="text" style="font-family: Lato, sans-serif;" name="address"></div>
-            <div class="form-group"><label class="text-secondary" style="font-family: Lato, sans-serif;">Password</label><input class="form-control" name="password" type="password" style="font-family: Lato, sans-serif;" required=""></div>
-            <div class="form-group"><label class="text-secondary" style="font-family: Lato, sans-serif;">Confirm Password</label><input class="form-control" name="repeatPass" type="password" style="font-family: Lato, sans-serif;" required="">
+            <div class="form-group"><label class="text-secondary" style="font-family: Lato, sans-serif;">Username</label><input class="form-control" type="text" name="username" style="font-family: Lato, sans-serif;" value="<?php if (isset($_POST['username'])) echo $_POST['username']; ?>" required></div>
+            <div class="form-group"><label class="text-secondary" style="font-family: Lato, sans-serif;">First Name</label><input class="form-control" type="text" name="firstName" style="font-family: Lato, sans-serif;" value="<?php if (isset($_POST['firstName'])) echo $_POST['firstName']; ?>" required></div>
+            <div class="form-group" style="font-family: Lato, sans-serif;"><label class="text-secondary">Last Name</label><input class="form-control" type="text" name="lastName" style="font-family: Lato, sans-serif;" value="<?php if (isset($_POST['lastName'])) echo $_POST['lastName']; ?>" required></div>
+            <div class="form-group" style="font-family: Lato, sans-serif;"><label class="text-secondary">Email</label><input class="form-control" type="text" name="email" style="font-family: Lato, sans-serif;" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}$" inputmode="email" value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>" required></div>
+              <div class="form-group" style="font-family: Lato, sans-serif;"><label class="text-secondary">City</label><select class="form-control" name="city">
+              <?php foreach($rows as $row): ?>
+              <option value="<?php echo $row['city']; ?>"><?php echo $row['city']; ?></option>
+            <?php endforeach ?>
+          </select></div>
+            <div class="form-group" style="font-family: Lato, sans-serif;"><label class="text-secondary">Address</label><input class="form-control" type="text" style="font-family: Lato, sans-serif;" name="address" value="<?php if (isset($_POST['address'])) echo $_POST['address']; ?>" required></div>
+            <div class="form-group"><label class="text-secondary" style="font-family: Lato, sans-serif;">Password</label><input class="form-control" name="password" type="password" style="font-family: Lato, sans-serif;" required></div>
+            <div class="form-group"><label class="text-secondary" style="font-family: Lato, sans-serif;">Confirm Password</label><input class="form-control" name="repeatPass" type="password" style="font-family: Lato, sans-serif;" required>
             <div class="form-group"><label class="text-secondary" style="font-family: Lato, sans-serif;">Profile Image</label><input type="file" name="profileImage" id="profileImage"></div>
             <button class="btn btn-info mt-2" type="submit" data-bs-hover-animate="tada" style="background-color: rgb(220,93,66);width: 126px;">REGISTER</button></div>
           </form>

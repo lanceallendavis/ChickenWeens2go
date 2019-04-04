@@ -1,10 +1,10 @@
 <?php
    include('./includes/session-user.php');
    include('./includes/user-transactions-specific.php');
-   
+
    $rows = [];
-   
-   
+
+
     while($a = mysqli_fetch_array($display_result, MYSQLI_ASSOC)) {
         $rows[] = $a;
     }

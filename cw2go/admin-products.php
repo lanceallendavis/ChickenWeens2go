@@ -70,7 +70,7 @@ $stocks_result = mysqli_query($db_connect, $list_stocks);
 
     <div id="right-panel" class="right-panel">
         <h1 class="text-center" style="font-family: 'Black Han Sans', sans-serif;letter-spacing: 6px;color: rgb(248,157,19);background-color: #1b120f; height: 80px; padding-top: 20px; font-size: 28px;">Products</h1>
-   
+
         <div class="col-md-12">
                     <div class="card">
                     <div class="card-body">
@@ -82,20 +82,23 @@ $stocks_result = mysqli_query($db_connect, $list_stocks);
                     <th><b>Corresponding Stock</b></th>
                     <th><b>Description</b></th>
                     <th><b>Price</b></th>
-                    <th><b>Availability</b></th>
                     <th><b>Date Added</b></th>
                     <th><b>EDIT</b></th>
                     <th><b>DELETE</b></th>
+                    <th><b>AVAILABILITY</b></th>
 
                         </tr>
                 <tbody>
                 <?php
                 if($products_result){
                   while($row = mysqli_fetch_array($products_result, MYSQLI_ASSOC)){
-                  echo '<tr><td>' . $row['name'] . '</td><td>' . $row['pieces'] . '</td><td>' . $row['stock_name'] . '</td><td>' .         $row['description'] . '</td><td>' . $row['price'] . '</td><td>' . $row['availability'];
-                  echo '</td><td>' . $row['added_at'] . '</td>';
+                  echo '<tr><td>' . $row['name'] . '</td><td>' . $row['pieces'] . '</td><td>' . $row['stock_name'] . '</td><td>' .         $row['description'] . '</td><td>' . $row['price'] . '</td>';
+                  echo '<td>' . $row['added_at'] . '</td>';
                   echo "<td><a href='edit-product-page.php?id=".$row['ID']."' class='btn btn-danger' style='background-color: #f89d13; margin-left: 15px;'>EDIT</a></td>";
-                  echo "<td><a href='delete-product.php?id=".$row['ID']."' class='btn btn-danger' style='background-color: #f86a4e; margin-left: 15px;'>DELETE</a></td></tr>";
+                  echo "<td><a href='delete-product.php?id=".$row['ID']."' class='btn btn-danger' style='background-color: #f86a4e; margin-left: 15px;'>DELETE</a></td>";
+                  echo "<td><a href='includes/availability.php?id=".$row['ID']."' class='btn btn-danger' style='background-color: #1b120f; margin-left: 15px;'>";
+                  if($row['availability'] == 1) echo'AVAILABLE'; else echo 'UNAVAILABLE'; echo"</a></td></tr>";
+
                   }
                   mysqli_free_result ($products_result);
                 }
@@ -116,12 +119,12 @@ $stocks_result = mysqli_query($db_connect, $list_stocks);
         <article>
       	<table id="customers" >
           <form action="./includes/products.inc.php" method="post" enctype="multipart/form-data">
-         <center> <br>  <input type='hidden' name='action' value='addProduct'><input placeholder="Product Name" class="productinput" style="margin-left: 5px;" id="productName" type="text" name="productName" size="32" maxlength="42" value="<?php if (isset($_POST['productName'])) echo $_POST['productName']; ?>"> <br>
-           <input placeholder="Pieces" id="description" class="productinput" type="text" name="pieces" size="2" maxlength="2" value="<?php if (isset($_POST['pieces'])) echo $_POST['pieces']; ?>"><br>
-            <input placeholder="Product Description" id="description" class="productinput" type="text" name="description" size="64" maxlength="252" value="<?php if (isset($_POST['description'])) echo $_POST['description']; ?>"><br>
-            <input placeholder="Product Price" id="price" class="productinput"  type="text" name="price" size="32" maxlength="64" value="<?php if (isset($_POST['price'])) echo $_POST['price']; ?>" ><br>
+         <center> <br>  <input type='hidden' name='action' value='addProduct'><input placeholder="Product Name" class="productinput" style="margin-left: 5px;" id="productName" type="text" name="productName" size="32" maxlength="42" value="<?php if (isset($_POST['productName'])) echo $_POST['productName']; ?>" required> <br>
+           <input placeholder="Pieces" id="description" class="productinput" type="text" name="pieces" size="2" maxlength="2" value="<?php if (isset($_POST['pieces'])) echo $_POST['pieces']; ?>" required><br>
+            <input placeholder="Product Description" id="description" class="productinput" type="text" name="description" size="64" maxlength="252" value="<?php if (isset($_POST['description'])) echo $_POST['description']; ?>" required><br>
+            <input placeholder="Product Price" id="price" class="productinput"  type="text" name="price" size="32" maxlength="64" value="<?php if (isset($_POST['price'])) echo $_POST['price']; ?>" required><br>
                    <span size="16"class="productinput" style="margin-left: 5px;" id="productName">Corresponding Stock
-           <select name="stockName">
+           <select name="stockName" required>
              <option value="N/A" size="16">Stock Name</option>
              <?php
              if($stocks_result){

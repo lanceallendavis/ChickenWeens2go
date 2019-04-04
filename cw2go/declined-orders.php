@@ -81,7 +81,7 @@ require_once('./includes/declined-orders.inc.php');
           <?php if(isset($_SESSION['status_messages'])) {
 
     echo '<div class="alert alert-success shake animated" role="alert" id="save-sucess" style="background-color: rgba(220,148,148,0.72)!important; border: 1px solid #7e0808; width: 98%; margin-left: 15px;"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button><i class="icon ion-android-warning mr-1" style="color: rgb(195,151,37);"></i><span style="color: #0C6D38 !important;">' . $_SESSION['status_messages'] . '<br></span></div>';}
-      //unset($_SESSION['status_messages']); }
+      unset($_SESSION['status_messages']); }
       ?>
         <div class="col-md-12">
                     <div class="card">

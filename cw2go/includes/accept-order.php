@@ -10,16 +10,12 @@ $orderID = $_GET['id'];
 $accept_order_query = "UPDATE orders SET status = 'accepted', accepted_at = NOW() where ID = '$orderID'";
 $accept_result = mysqli_query($db_connect, $accept_order_query);
 
-$deduct_query = "UPDATE stocks left join products on products.stock_name = stocks.name
-left join order_details on products.ID = order_details.product_ID SET stock_count =  stock_count - order_details.stock_deduction  where order_details.order_ID = '$orderID' ";
-$deduct_result = mysqli_query($db_connect, $deduct_query);
-
 $email_to_user_query = "SELECT orders.ID as order_ID, users.email as name from users left join orders on users.ID = orders.user_ID where orders.ID = '$orderID' ";
 $email_to_user_result = mysqli_query($db_connect, $email_to_user_query);
 $email_array = mysqli_fetch_array($email_to_user_result, MYSQLI_ASSOC);
 $email = $email_array['name'];
 
-if($accept_result && $deduct_result){
+if($accept_result){
   $_SESSION['status_messages'] = "Order ID: " . $orderID . " has been accepted";
 
   $mail = new PHPMailer(true);

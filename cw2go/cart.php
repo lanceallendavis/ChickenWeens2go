@@ -41,11 +41,10 @@ include('./includes/display-cart.php');
     </div>
   </div>
 </nav>
-    <div class="alert alert-success shake animated" role="alert" id="save-sucess" style="background-color: rgba(246, 164, 40, 0.68)!important; border: 1px solid rgb(240, 148, 9); width: 500px; float: right; margin-top: 10px;"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button><i class="icon ion-android-warning mr-1" style="color: rgb(195,151,37);"></i><span style="color:  Black !important;">The delivery charges shown are only estimated fees<br></span></div>
+    <div class="alert alert-success shake animated" role="alert" id="save-sucess" style="background-color: rgba(246, 164, 40, 0.68)!important; border: 1px solid rgb(240, 148, 9); width: 500px; float: right; margin-top: 10px;"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button><i class="icon ion-android-warning mr-1" style="color: rgb(195,151,37);"></i><span style="color:  Black !important;">NOTE: For COD, The delivery charge shown is only an estimated fee which depends on the area that will be delivered to. For Pick-Ups, we only accept orders with pick-up time from 9AM - 8PM.<br></span></div>
+
   <div class="container">
       <h1 class="my-4" style="font-family: 'Black Han Sans', sans-serif;color: rgb(246,164,40);letter-spacing: 6px;">Your Cart</h1>
-      <a href="menu.php"><button class="btn btn-primary"  style="margin-top: 11px;background-color: rgb(246,164,40); float: right;">GO TO MENU ><br></button></a>
-
       <div>
         <div class="container">
             <div class="row">
@@ -78,7 +77,7 @@ include('./includes/display-cart.php');
         while($row = mysqli_fetch_array($display_result, MYSQLI_ASSOC)){
         echo '<div class="container">
             <div class="row">
-                <div class="col-md-3"><img src="userasset/img/ck1.jpg" style="width: 175px;height: 115px; margin-left: 60px;"></div>
+                <div class="col-md-3"><img src="./images/product-images/' . $row['product_image'] . '" style="width: 175px;height: 115px; margin-left: 60px;"></div>
                 <div class="col-md-3 text-center" style="padding-top: 20px;">';
                   echo'  <h1 style="font-weight: bold; font-family: Lato, sans-serif;font-size: 20px;">'. $row['product_name'] . '</h1>';
                   echo '  <p style="font-family: Roboto, sans-serif;">'. $row['product_description'] . '</p>
@@ -100,11 +99,15 @@ include('./includes/display-cart.php');
    }
 
       ?>
-    <div class="row">
+
+    <div class="row" style="margin-right: 200px;">
       <div class="col-md-7 mb-4"></div>
         <div class="col-md-5 mb-4">
           <div class="card h-100">
             <div class="card-body">
+
+              <a href="menu.php"><button class="btn btn-primary"  style="margin-top: 11px;background-color: rgb(246,164,40); float: right;">GO TO MENU ><br></button></a>
+
               <form action='./checkout.php' method='post'>
               <input type="hidden" name="action" value="checkout">
               <input type="hidden" name="user_ID" value="<?php echo $userID ?>">
@@ -114,9 +117,12 @@ include('./includes/display-cart.php');
               <h4 class="text-muted card-subtitle mb-2">Mode of Payment</h4>
               <select name="modeOfPayment" id="modeOfPayment" onChange="javascript:modeOfPaymentCheck();">
                 <option id="cashOnPickUp" value="Cash On Pick-Up"  selected>Cash On Pick-Up</option>
+
                 <option id="cashOnDelivery" value="Cash On Delivery">Cash On Delivery</option>
 
               </select>
+              <label for="pickUpTime" id='timelbl'>Choose a time for picking up your order:</label>
+              <input type="time" id="pickUpTime" name="pickUpTime" min="9:00" max="22:00">
               <br>
               <div id="cashOnDeliveryInputs" style="visibility:hidden">
               <h4 class="text-muted card-subtitle mb-2" style="margin-top: 2px;">Delivery Address</h4>
@@ -124,31 +130,17 @@ include('./includes/display-cart.php');
               <h6>Use another Delivery Address <input type="radio" onclick="javascript:addressCheck();" name="address" value="anotherAddress" id="anotherCheck"></h6>
               <div id="ifAnother" style="visibility:hidden">
                 <select name="city">
-                  <option value="Makati">Makati</option>
-                  <option value="Manila">Manila</option>
-                  <option value="Caloocan">Caloocan</option>
-                  <option value="LasPinas">LasPinas</option>
-                  <option value="Malabon">Malabon</option>
-                  <option value="Marikina">Marikina</option>
-                  <option value="Muntinlupa">Muntinlupa</option>
-                  <option value="Navotas">Navotas</option>
-                  <option value="Paranaque">Paranaque</option>
-                  <option value="Pasay">Pasay</option>
-                  <option value="Pasig">Pasig</option>
-                  <option value="Quezon">Quezon</option>
-                  <option value="San Juan">San</option>
-                  <option value="Taguig">Taguig</option>
-                  <option value="Valenzuela">Valenzuela</option>
-                  <option value="Cavite">Cavite</option>
-
+                  <?php foreach($rows as $row): ?>
+                  <option value="<?php echo $row['city']; ?>"><?php echo $row['city']; ?></option>
+                <?php endforeach ?>
                 </select>
-              <input type="text" placeholder="address" name="address">
+              <input type="text" placeholder="address" name="givenAddress">
               </div>
             </div>
               <br>
               <button class="btn btn-primary" type="submit" style="margin-top: 11px;background-color: rgb(246,164,40);">Proceed to Checkout<br></button>
             </form>
-              
+
             </div>
           </div>
         </div>
@@ -195,9 +187,18 @@ include('./includes/display-cart.php');
 function modeOfPaymentCheck() {
 if (document.getElementById('cashOnDelivery').selected) {
   document.getElementById('cashOnDeliveryInputs').style.visibility = 'visible';
+  document.getElementById('pickUpTime').style.visibility = 'hidden';
+  document.getElementById('timelbl').style.visibility = 'hidden';
+
+
+
 }
-else
+else{
  document.getElementById('cashOnDeliveryInputs').style.visibility = 'hidden';
+ document.getElementById('ifAnother').style.visibility = 'hidden';
+ document.getElementById('pickUpTime').style.visibility = 'visible';
+ document.getElementById('timelbl').style.visibility = 'visible';
+}
 }
 
 

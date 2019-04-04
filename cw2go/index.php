@@ -1,3 +1,13 @@
+<?php
+require_once('includes/mysqli_connect.php');
+$menu_query = "SELECT * FROM products";
+$menu_results = mysqli_query($db_connect, $menu_query);
+$rows = [];
+
+ while($a = mysqli_fetch_array($menu_results, MYSQLI_ASSOC)) {
+     $rows[] = $a;
+ }
+ ?>
 <!DOCTYPE html>
 <html>
 
@@ -47,7 +57,7 @@
             <div class="carousel-item active">
                 <div class="jumbotron hero-nature carousel-hero" style="height: 646px;background-image: url(&quot;userasset/img/hero2.jpg&quot;);filter: brightness(100%) contrast(98%);">
                 </div>
-                
+
             </div>
             <div class="carousel-item">
                 <div class="jumbotron hero-photography carousel-hero" style="height: 646px;background-image: url(&quot;userasset/img/hero1.jpg&quot;);">
@@ -56,7 +66,7 @@
             <div class="carousel-item">
                 <div class="jumbotron hero-technology carousel-hero" style="height: 646px;background-image: url(&quot;userasset/img/hero3.jpg&quot;);">
                     <h1  style="margin-top: 203px;font-family: 'Black Han Sans', sans-serif;color: rgb(230,222,221); float:left; margin-left: 100px;">We are Chicken Weens's 2go</h1>
-                    <p class="hero-subtitle" style="font-family: Lato, sans-serif;font-size: 20px;margin-top: -23px; margin-left: 80px;"><br>We treasuere the wing with love. We serve flavored Chicken in a different way wherein you can enjoy it.<br><br></p>
+                    <p class="hero-subtitle" style="font-family: Lato, sans-serif;font-size: 20px;margin-top: -23px; margin-left: 80px;"><br>We treasure the wing with love. We serve flavored Chicken in a different way wherein you can enjoy it.<br><br></p>
                     <p><a style="margin-left: -680px;"class="btn btn-primary btn-lg hero-button" role="button" href="login.php">Order Now</a></p>
                 </div>
             </div>
@@ -95,7 +105,7 @@
                 <div class="col-md-6 col-lg-3 text-center" data-bs-hover-animate="pulse">
                     <div class="mx-auto service-box mt-5"><i class="fa fa-paper-plane-o fa-4x text-primary mb-3 sr-icons" data-aos="zoom-in" data-aos-duration="200" data-aos-delay="400" data-aos-once="true"></i>
                         <h3 class="mb-3" style="color: rgb(248,157,19);">Ready to Ship</h3>
-                        <p class="text-muted mb-0" style="color: rgb(27,18,15);filter: brightness(45%);font-family: Lato, sans-serif;font-size: 17px;">We are only accepting orders around Metro Manila, Cavite, Rizal and Laguna</p>
+                        <p class="text-muted mb-0" style="color: rgb(27,18,15);filter: brightness(45%);font-family: Lato, sans-serif;font-size: 17px;">Currently, We accept orders around Metro Manila, Cavite, Rizal and Laguna areas</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3 text-center" data-bs-hover-animate="pulse">
@@ -110,57 +120,13 @@
     <section id="portfolio" class="p-0">
         <div class="container-fluid p-0">
             <div class="row no-gutters popup-gallery">
-                <div class="col-sm-6 col-lg-4"><a href="userasset/img/thumbnails/1.jpg" class="portfolio-box"><img class="img-fluid" src="userasset/img/thumbnails/1.jpg"><div class="portfolio-box-caption"><div class="portfolio-box-caption-content"><div class="project-category text-faded"><span>Chicken Ween's 2go</span></div><div class="project-name"><span>Korean Barbeque</span></div></div></div></a></div>
-                <div
-                    class="col-sm-6 col-lg-4"><a href="userasset/img/thumbnails/2.jpg" class="portfolio-box"><img class="img-fluid" src="userasset/img/thumbnails/2.jpg"><div class="portfolio-box-caption"><div class="portfolio-box-caption-content"><div class="project-category text-faded"><span>Chicken Ween's 2go</span></div><div class="project-name"><span>Buffalo Wings</span></div></div></div></a></div>
-            <div
-                class="col-sm-6 col-lg-4"><a href="userasset/img/thumbnails/3.jpg" class="portfolio-box"><img class="img-fluid" src="userasset/img/thumbnails/3.jpg"><div class="portfolio-box-caption"><div class="portfolio-box-caption-content"><div class="project-category text-faded"><span>Chicken Ween's 2go</span></div><div class="project-name"><span>Chicken Parmesan</span></div></div></div></a></div>
-        <div
-            class="col-sm-6 col-lg-4"><a href="userasset/img/thumbnails/4.jpg" class="portfolio-box"><img class="img-fluid" src="userasset/img/thumbnails/4.jpg"><div class="portfolio-box-caption"><div class="portfolio-box-caption-content"><div class="project-category text-faded"><span>Chicken Ween's 2go</span></div><div class="project-name"><span>Honey Garlic</span></div></div></div></a></div>
-            <div
-                class="col-sm-6 col-lg-4"><a href="userasset/img/thumbnails/5.jpg" class="portfolio-box"><img class="img-fluid" src="userasset/img/thumbnails/5.jpg"><div class="portfolio-box-caption"><div class="portfolio-box-caption-content"><div class="project-category text-faded"><span>Chicken Ween's 2go</span></div><div class="project-name"><span>Buttered Soy</span></div></div></div></a></div>
-                <div
-                    class="col-sm-6 col-lg-4"><a href="userasset/img/thumbnails/6.jpg" class="portfolio-box"><img class="img-fluid" src="userasset/img/thumbnails/6.jpg"><div class="portfolio-box-caption"><div class="portfolio-box-caption-content"><div class="project-category text-faded"><span>Chicken Ween's 2go</span></div><div class="project-name"><span>Sriracha Wings</span></div></div></div></a></div>
-                    </div>
+              <?php foreach($rows as $row): ?>
+                <div class="col-sm-6 col-lg-4"><a href="./images/product-images/<?php echo $row['product_image']; ?>" class="portfolio-box"><img class="img-fluid" src="./images/product-images/<?php echo $row['product_image']; ?>" style="width: 100%; height: 350px;"><div class="portfolio-box-caption"><div class="portfolio-box-caption-content"><div class="project-category text-faded"><span>Chicken Ween's 2go</span></div><div class="project-name"><span><?php echo $row['name']; ?></span></div></div></div></a></div>
+
+              <?php endforeach ?>
                     </div>
     </section>
-    <div class="testimonials-clean" style="padding-top: 32px;background-color: rgb(230,222,221);height: 601px;">
-        <div class="container">
-            <div class="intro">
-                <h2 class="text-center" data-aos="fade-up" data-aos-duration="350" data-aos-delay="150" style="font-family: 'Black Han Sans', sans-serif;letter-spacing: 6px;color: rgb(248,157,19);">Testimonials </h2>
-                <p class="text-center" style="padding-top: -36px;margin-bottom: 14px;">Our customers love us! Read what they have to say below. To know more why our costumer trust us.&nbsp;</p>
-            </div>
-            <div class="row people" style="background-color: #f89d13;">
-                <div class="col-md-6 col-lg-4 item" data-bs-hover-animate="swing" style="background-color: #f89d13;">
-                    <div class="box">
-                        <p class="description">I love how the chicken was coated. And how tender the chicken was. Ii highly reccomend the buffalo wings</p>
-                    </div>
-                    <div class="author"><img class="rounded-circle" src="userasset/img/1.jpg">
-                        <h5 class="name">Allison Magnaye</h5>
-                        <p class="title">January 18 2019</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 item" data-bs-hover-animate="swing">
-                    <div class="box">
-                        <p class="description">It was very juicy and the flavor was really really good. The delivery was fast. </p>
-                    </div>
-                    <div class="author"><img class="rounded-circle" src="userasset/img/3.jpg">
-                        <h5 class="name">Karl Vivo</h5>
-                        <p class="title">January 28 2019</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 item" data-bs-hover-animate="swing">
-                    <div class="box">
-                        <p class="description">It has an very yummy not just but also tasted so yummy. I will surelly order again. </p>
-                    </div>
-                    <div class="author"><img class="rounded-circle" src="userasset/img/2.jpg">
-                        <h5 class="name">Guia Reyes</h5>
-                        <p class="title">Febuary 18 2019</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
     <div class="highlight-blue" style="background-color: rgb(27,18,15);">
         <div class="container">
             <div class="intro">
@@ -181,10 +147,10 @@
             </div>
             <div class="row">
                 <div class="col-lg-4 ml-auto text-center" data-bs-hover-animate="tada"><i class="fa fa-phone fa-3x mb-3 sr-contact" data-aos="zoom-in" data-aos-duration="300" data-aos-once="true"></i>
-                    <p style="font-family: Lato, sans-serif;">+63-977635590</p>
+                    <p style="font-family: Lato, sans-serif;">+63-9156546325</p>
                 </div>
                 <div class="col-lg-4 mr-auto text-center" data-bs-hover-animate="tada"><i class="fa fa-envelope-o fa-3x mb-3 sr-contact" data-aos="zoom-in" data-aos-duration="300" data-aos-delay="300" data-aos-once="true"></i>
-                    <p><a href="mailto:your-email@your-domain.com" style="font-family: Lato, sans-serif;">chickenweens2go@gmail.com</a></p>
+                    <p><a href="mailto:your-email@your-domain.com" style="font-family: Lato, sans-serif;">cw2goph@gmail.com</a></p>
                 </div>
             </div>
         </div>
@@ -206,7 +172,7 @@
                 </div>
             </div>
             <div class="clearfix"></div>
-           
+
         </div>
     </footer>
     <script src="userasset/js/jquery.min.js"></script>

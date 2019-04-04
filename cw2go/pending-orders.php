@@ -81,7 +81,7 @@ include('./includes/pending-orders.inc.php');
     <div id="right-panel" class="right-panel">
         <h1 class="text-center" style="font-family: 'Black Han Sans', sans-serif;letter-spacing: 6px;color: rgb(248,157,19);background-color: #1b120f; height: 80px; padding-top: 20px; font-size: 28px;">Pending Orders</h1>
         <!-- Header-->
-    
+
          <div class="col-md-12">
                     <div class="card">
                     <div class="card-body">
@@ -91,6 +91,8 @@ include('./includes/pending-orders.inc.php');
                     <th style="color: #1b120f;">Order ID</th>
                     <th style="color: #1b120f">CUSTOMER NAME</th>
                     <th style="color: #1b120f">TOTAL</th>
+                    <th style="color: #1b120f">Mode of payment</th>
+                    <th style="color: #1b120f">Pick-Up Time</th>
                     <th style="color: #1b120f">Order Date</th>
                     <th style="color: #1b120f">Request</th>
 
@@ -101,6 +103,9 @@ include('./includes/pending-orders.inc.php');
                     echo '<td>' . $row['order_ID'] . '</td>';
                     echo '<td>' . $row['full_name'] . '</td>';
                     echo '<td>' . $row['total'] . '</td>';
+                    echo '<td>' . $row['mode_of_payment'] . '</td>';
+                    echo '<td>' . $row['pick_up_time'] . '</td>';
+
                     echo '<td>' . $row['placed_at'] . '</td>';
                     echo '<td>
                     <a href="./includes/accept-order.php?id=' . $row['order_ID'] . '" class="btn btn-danger" type="button" style="background-color: #f89d13; margin-left: 20px;  border-radius: 16px;">Accept<br></a>

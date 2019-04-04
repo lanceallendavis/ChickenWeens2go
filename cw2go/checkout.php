@@ -22,9 +22,13 @@
 <?php include('./includes/header-user.html'); ?>
   <section class="text-center" style="padding-top: 160px;height: 748px;font-size: 18px;padding-left: 90px;">
     <div class="col" style="padding-left: 109px;width: 1172px;">
+      <div class="alert alert-success shake animated" role="alert" id="save-sucess" style="background-color: rgba(246, 164, 40, 0.68)!important; border: 1px solid rgb(240, 148, 9); width: 500px; float: right; margin-top: 10px;"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button><i class="icon ion-android-warning mr-1" style="color: rgb(195,151,37);"></i><span style="color:  Black !important;">NOTE: You cannot
+        cancel your order upon its placement.<br></span></div>
+      <table class="table">
       <h1 class="text-left shake animated" style="color: rgb(248,157,19);font-family: 'Black Han Sans', sans-serif;font-size: 41px;letter-spacing: 6px;">Checkout Details</h1>
+
         <div class="table-responsive" style="font-family: Roboto, sans-serif;width: 941px;color: rgb(27,18,15);">
-          <table class="table">
+
             <thead>
               <tr style="line-height: 38px;font-family: Lato, sans-serif;font-weight: bold;">
                 <th style="width: 356px;">ORDER</th>
@@ -89,7 +93,12 @@
               echo '<tr>
                 <td></td>
                 <td class="text-right" style="width: 323px;">Delivery Address</td>
-                <td><input type="hidden" name="deliveryAddress" value="'. $address_row['city'] . '">' . $address_row['city'] . '</td>
+                <td><input type="hidden" name="deliveryAddress" value="'. $address_row['address'] . '">' . $address_row['address'] . '</td>
+              </tr>';
+              echo '<tr>
+                <td></td>
+                <td class="text-right" style="width: 323px;">City</td>
+                <td><input type="hidden" name="city" value="'. $address_row['city'] . '">' . $address_row['city'] . '</td>
               </tr>';
               echo '<tr>
                 <td></td>
@@ -97,9 +106,17 @@
                 <td><input type="hidden" name="estimatedFee" value="'. $address_row['estimated_fee'] . '">' . $address_row['estimated_fee'] . '</td>
               </tr>';
             }
-        
+
+            if(isset($_POST['pickUpTime'])){
+              $pick_up_time = date("g:i A", strtotime($_POST['pickUpTime']));
+            echo '<tr>
+              <td></td>
+              <td class="text-right" style="width: 323px;">Delivery Address</td>
+              <td><input type="hidden" name="pickUpTime" value="'. $pick_up_time . '">' . $pick_up_time. '</td>
+            </tr>';}
             ?>
-              <tr></tr>
+              <tr>
+</tr>
               <tr>
                 <td></td>
                 <td class="text-right" data-bs-hover-animate="shake" style="font-weight: bold;">TOTAL</td>

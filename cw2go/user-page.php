@@ -3,6 +3,15 @@ session_start();
 if(!isset($_SESSION['user']['role']) || ($_SESSION['user']['role'] !== 'user')){
   header('location: index.php');
 }
+require_once('includes/mysqli_connect.php');
+
+$menu_query = "SELECT * FROM products";
+$menu_results = mysqli_query($db_connect, $menu_query);
+$rows = [];
+
+ while($a = mysqli_fetch_array($menu_results, MYSQLI_ASSOC)) {
+     $rows[] = $a;
+ }
 ?>
 <!DOCTYPE html>
 <html>
@@ -65,27 +74,18 @@ if(!isset($_SESSION['user']['role']) || ($_SESSION['user']['role'] !== 'user')){
     <section style="height: 377px;background-color: #e6dedd;">
         <div class="container" style="height: 362px; padding-bottom: 90px">
             <div class="row" style="margin-top: -121px;padding-left: 62px;padding-top: 36px;"><div class="col">
+  <?php foreach($rows as $row): ?>
   <figure class="snip1573">
-  <img src="userasset/img/ck1.jpg" alt="sample89" />
+  <img src="./images/product-images/<?php echo $row['product_image']; ?>" alt="sample89" />
   <figcaption>
-    <h3>Buy Now</h3>
-  </figcaption>
-  <a href="menu.php"></a>
-  </figure> 
-  <figure class="snip1573">
-  <img src="userasset/img/ck3.jpg" alt="sample89" />
-  <figcaption>
-  <h3>Buy Now</h3>
+    <h3>Buy Now!</h3>
   </figcaption>
   <a href="menu.php"></a>
   </figure>
+<?php endforeach ?>
 
-<figure class="snip1573"><img src="userasset/img/ck2.jpg" alt="sample92" />
-  <figcaption>
-    <h3>Buy Now</h3>
-  </figcaption>
-  <a href="menu.php"></a>
-</figure></div></div>
+</div>
+</div>
         </div>
     </section>
     <div style="height: 80px; background-color: #e6dedd;"></div>
@@ -132,8 +132,8 @@ if(!isset($_SESSION['user']['role']) || ($_SESSION['user']['role'] !== 'user')){
         </div>
     </div>
     <section class="card-section-imagia" style="padding-top: -53px;background-color: rgb(230,222,221);">
-        <h1 style="color: rgb(248,157,19);font-family: 'Black Han Sans', sans-serif;letter-spacing: 6px;">Holiday Discount</h1>
-        <h2 style="font-family: Lato, sans-serif;">Posset maiora firmatum nunc cuniculis</h2>
+        <h1 style="color: rgb(248,157,19);font-family: 'Black Han Sans', sans-serif;letter-spacing: 6px;">Holiday Discounts!</h1>
+        <h2 style="font-family: Lato, sans-serif;">WATCH OUT FOR DISCOUNTS LIKE THESE SOON!</h2>
         <div class="container">
             <div class="row">
                 <div class="col-sm-6 col-md-4">
@@ -228,7 +228,7 @@ if(!isset($_SESSION['user']['role']) || ($_SESSION['user']['role'] !== 'user')){
                 </div>
             </div>
             <div class="clearfix"></div>
-           
+
         </div>
     </footer>
     <script src="userasset/js/jquery.min.js"></script>

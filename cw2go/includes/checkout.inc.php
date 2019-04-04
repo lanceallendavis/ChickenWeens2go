@@ -7,7 +7,14 @@ include('mysqli_connect.php');
 require_once('session-user.php');
 $userID = mysqli_real_escape_string($db_connect,trim($_POST['user_ID']));
 $total = mysqli_real_escape_string($db_connect,trim($_POST['total']));
+$city = mysqli_real_escape_string($db_connect,trim($_POST['city']));
 $mode_of_payment = mysqli_real_escape_string($db_connect,trim($_POST['modeOfPayment']));
+if(isset($_POST['pickUpTime'])){
+  $pick_up_time = mysqli_real_escape_string($db_connect,trim($_POST['pickUpTime']));
+}
+else {
+  $pick_up_time = NULL;
+}
 if(isset($_POST['deliveryAddress'])){
   $delivery_address = mysqli_real_escape_string($db_connect,trim($_POST['deliveryAddress']));
 }
@@ -17,8 +24,8 @@ else{
 
 if($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['action'] == "checkout"){
 if(!isset($_POST['noProduct'])){
-$order_query = "INSERT INTO orders (user_ID, total, status, mode_of_payment, delivery_address, placed_at)
-                VALUES ('$userID', '$total', 'pending', '$mode_of_payment', '$delivery_address',   now())";
+$order_query = "INSERT INTO orders (user_ID, total, status, mode_of_payment, delivery_address, city, pick_up_time, placed_at)
+                VALUES ('$userID', '$total', 'pending', '$mode_of_payment', '$delivery_address','$city', '$pick_up_time',   now())";
 $order_result = mysqli_query($db_connect, $order_query);
 $order_ID = mysqli_insert_id($db_connect);
   if($order_result){
@@ -31,6 +38,11 @@ $order_ID = mysqli_insert_id($db_connect);
       $order_details_query = "INSERT INTO order_details (order_ID, product_ID, quantity, subtotal, stock_deduction)
                               VALUES ('$order_ID', '$productID', '$quantity', '$price', '$deduct_to_stocks')";
       $order_details_result = mysqli_query($db_connect, $order_details_query);
+
+      $deduct_query = "UPDATE stocks left join products on products.stock_name = stocks.name
+      left join order_details on products.ID = order_details.product_ID SET stock_count =  stock_count - $deduct_to_stocks where products.ID = $productID";
+      $deduct_result = mysqli_query($db_connect, $deduct_query);
+
 
       $i++;
 
