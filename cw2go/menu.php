@@ -43,11 +43,12 @@
   </div>
 </nav>
   <div class="container" style="padding-top: 112px;padding-bottom: 58px;">
+
   <div class="row product-list dev">
   <?php
   if($result->num_rows != 0 ){
   while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
-  if(!($row['stock_count'] < 22) ){
+  if(($row['stock_count'] >= 22) ){
   echo '<div class="col-sm-6 col-md-4 product-item animation-element slide-rotate-counterclockwise-180">';
   echo '  <div class="product-container">';
   echo '  <div class="row">';
@@ -75,10 +76,13 @@
   echo '</select></div>';
   echo '  </div>';
   echo '  </div>';
-  echo '<div class="product-rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i><a href="#" class="small-text">82 reviews</a></div>';
+  echo '<div class="product-rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i><a href="#" class="small-text"></a></div>';
+  echo '  <h5 class="product-description">' . $row['pieces'] . ' Pieces</h5>';
+
   echo '    <div class="row">';
   echo '    <div class="col-12">';
   echo '  <p class="product-description">' . $row['description'] . ' </p>';
+
   echo '    <div class="row">';
   echo '    <div class="col-6"><form action="./includes/add-to-cart.php" method="post">
             <input type="hidden" name="product_ID" value=' . $row['product_ID'] . '>
@@ -94,7 +98,9 @@
 }
 }
 }
-else echo 'Sorry, there are no available products at the moment. Please try again another time.';
+else
+echo '<div class=alert alert-success border-danger shake animated" role="alert" id="save-sucess" style="background-color: rgba(220,148,148,0.72);border: 1px solid #c70707;"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button><i class="icon ion-android-warning mr-1" style="color: rgb(195,151,37);">Sorry we are currently out of stock. </i><span style="color: rgb(41,31,7);"></span></div>
+';
 
 
   ?>

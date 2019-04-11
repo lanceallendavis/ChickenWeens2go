@@ -7,7 +7,8 @@ require('mysqli_connect.php');
 //query to get data from the table
 $query = sprintf("SELECT DATE(accepted_at) as stock_date, total, SUM(stock_deduction) stocks
                   FROM orders left join order_details on orders.ID = order_details.order_ID
-                  WHERE accepted_at >= (CURDATE() - INTERVAL 1 MONTH ) and order_details.product_ID = 57
+                  left join products on order_details.product_ID = products.ID
+                  WHERE accepted_at >= (CURDATE() - INTERVAL 1 MONTH ) AND stock_name = 'Chicken'
                   GROUP BY date(stock_date)");
 
 //execute query

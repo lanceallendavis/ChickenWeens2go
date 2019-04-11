@@ -119,10 +119,10 @@ $stocks_result = mysqli_query($db_connect, $list_stocks);
         <article>
       	<table id="customers" >
           <form action="./includes/products.inc.php" method="post" enctype="multipart/form-data">
-         <center> <br>  <input type='hidden' name='action' value='addProduct'><input placeholder="Product Name" class="productinput" style="margin-left: 5px;" id="productName" type="text" name="productName" size="32" maxlength="42" value="<?php if (isset($_POST['productName'])) echo $_POST['productName']; ?>" required> <br>
-           <input placeholder="Pieces" id="description" class="productinput" type="text" name="pieces" size="2" maxlength="2" value="<?php if (isset($_POST['pieces'])) echo $_POST['pieces']; ?>" required><br>
+         <center> <br>  <input type='hidden' name='action' value='addProduct'><input placeholder="Product Name" class="productinput" style="margin-left: 5px;" id="productName" type="text" name="productName" size="32" maxlength="42" pattern="[A-Za-z]+" value="<?php if (isset($_POST['productName'])) echo $_POST['productName']; ?>" required> <br>
+           <input placeholder="Pieces" id="description" class="productinput" type="number" min="5" max="12" name="pieces" size="2" maxlength="2" value="<?php if (isset($_POST['pieces'])) echo $_POST['pieces']; ?>" required><br>
             <input placeholder="Product Description" id="description" class="productinput" type="text" name="description" size="64" maxlength="252" value="<?php if (isset($_POST['description'])) echo $_POST['description']; ?>" required><br>
-            <input placeholder="Product Price" id="price" class="productinput"  type="text" name="price" size="32" maxlength="64" value="<?php if (isset($_POST['price'])) echo $_POST['price']; ?>" required><br>
+            <input placeholder="Product Price" id="price" class="productinput"  type="number" min="0.00" max="10000.00" name="price" size="32" maxlength="64" value="<?php if (isset($_POST['price'])) echo $_POST['price']; ?>" required><br>
                    <span size="16"class="productinput" style="margin-left: 5px;" id="productName">Corresponding Stock
            <select name="stockName" required>
              <option value="N/A" size="16">Stock Name</option>

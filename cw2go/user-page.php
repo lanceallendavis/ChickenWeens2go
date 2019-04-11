@@ -74,9 +74,11 @@ $rows = [];
     <section style="height: 377px;background-color: #e6dedd;">
         <div class="container" style="height: 362px; padding-bottom: 90px">
             <div class="row" style="margin-top: -121px;padding-left: 62px;padding-top: 36px;"><div class="col">
-  <?php foreach($rows as $row): ?>
+  <?php
+  foreach($rows as $row): ?>
   <figure class="snip1573">
-  <img src="./images/product-images/<?php echo $row['product_image']; ?>" alt="sample89" />
+  <img src="./images/product-images/<?php
+   echo $row['product_image']; ?>" alt="sample89" />
   <figcaption>
     <h3>Buy Now!</h3>
   </figcaption>

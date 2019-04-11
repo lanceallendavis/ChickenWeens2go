@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { #1
 // Initialize an error array.
   // Check if username is entered
   $name = $_FILES['profileImage']['name'];
-  $path = "../images/user-images/" . $name;
+  $path = "images/user-images/" . $name;
   move_uploaded_file($_FILES['profileImage']['tmp_name'], $path);
   if($_POST['action'] == 'register'){
   if (empty($_POST['username'])) {

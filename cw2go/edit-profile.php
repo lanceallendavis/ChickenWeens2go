@@ -55,17 +55,17 @@ $select = mysqli_fetch_array($select_results, MYSQLI_ASSOC);
                     <div class="form-group"><label>Email</label><input class="form-control" type="email" autocomplete="off" required="" value="<?php echo $_SESSION['user']['email']; ?>" name="email"></div>
                     <div class="form-group"><label style="font-family: Lato, sans-serif;">Address</label><input class="form-control" autocomplete="off" required="" value="<?php echo $select['address']; ?>" name="address"></div>
                      <hr>
-                     <div class="form-group"><label>Old-Password</label><input class="form-control" type="password" name="oldPassword" required=""  autocomplete="off"></div>
+                     <div class="form-group"><label>Password</label><input class="form-control" type="password" name="oldPassword" required=""  autocomplete="off"></div>
                      <hr>
-                    <div class="form-row">
+                    <!-- <div class="form-row">
                         <div class="col-sm-12 col-md-6">
                             <div class="form-group"><label>New Password </label><input class="form-control" type="password" name="newPassword" autocomplete="off"></div>
                         </div>
                         <div class="col-sm-12 col-md-6">
                             <div class="form-group"><label style="font-family: Lato, sans-serif;">Confirm Password</label><input class="form-control" type="password" name="confirmPass" autocomplete="off" ></div>
                         </div>
-                    </div>
-                    <hr>
+                    </div> -->
+                    <!-- <hr> -->
                     <div class="form-row">
                         <div class="col-md-12 content-right"><button class="btn btn-primary form-btn" type="submit">SAVE </button></div>
                     </div>

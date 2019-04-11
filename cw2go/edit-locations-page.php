@@ -1,8 +1,8 @@
 <?php
 require_once('./includes/mysqli_connect.php');
-$productID = $_GET['id'];
+$locationID = $_GET['id'];
 
-$select_edit_query = "SELECT * FROM products WHERE ID = $productID";
+$select_edit_query = "SELECT * FROM locations WHERE ID = $locationID";
 $result = mysqli_query($db_connect, $select_edit_query);
 $row = mysqli_fetch_array($result);
 if(!$row){
@@ -74,35 +74,20 @@ $stocks_result = mysqli_query($db_connect, $list_stocks);
               <h1 class="text-center" style="font-family: 'Black Han Sans', sans-serif;letter-spacing: 6px;color: rgb(248,157,19);background-color: #1b120f; height: 80px; padding-top: 20px; font-size: 28px;">Edit Product</h1>
                 <table id="customers" width: 100%; >
         <tr>
-          <th style= "width:10%;"><b>Product Name</b></th>
-          <th><b>Corresponding Stock</b></th>
-          <th><b>Description</b></th>
-          <th><b>Price</b></th>
-          <th><b>Availability</b></th>
-          <th><b>UPDATE</b></th>
+          <th><b>City</b></th>
+          <th><b>Distance</b></th>
+          <th><b>Estimated Fee</b></th>
+          <th><b>Update</b></th>
+
         </tr>
               <tr>
-                <form action="./includes/edit-product.php" method="post">
+                <form action="./includes/edit-location.php" method="post">
                   <input type='hidden' name='action' value='editProduct'>
                   <input type="hidden" name="id" value="<?php echo $row["ID"]; ?>">
-                  <td><input id="productName" type="text" name="productName" size="16" maxlength="32" value="<?php echo $row['name']; ?>"></td>
-                  <td>
-                  <select name="stockName" style="width: 230px;">
-                    <option value="<?php $row['stock_name'] ?>" size="16"><?php $row['stock_name'] ?></option>
-                    <?php
-                    if($stocks_result){
-                      while($stocks_row = mysqli_fetch_array($stocks_result, MYSQLI_ASSOC)){
-                      if($row['stock_name'] != $stocks_row['name']){
-                      echo '<option size="16" value="'. $stocks_row['name'] . '">' . $stocks_row['name'] . '</option>';
-                    }
-                    }
-                    }
-                     ?>
-                     </select>
-                 </td>
-                  <td><input id="description" type="text" name="description" size="32" maxlength="32" value="<?php echo $row['description']; ?>"></td>
-                  <td><input id="price" type="number" min="0.00" max="1000.00" name="price" size="8" maxlength="64" value="<?php echo $row['price']; ?>" ></td>
-                  <td><input id="availability" type="text" name="availability" size="1" style="width: 180px;" maxlength="254" value="<?php echo $row['availability']; ?>" ></td>
+                  <td><input id="productName" type="text" name="city" size="16" maxlength="32" value="<?php echo $row['city']; ?>"></td>
+
+                  <td><input id="description" type="text" name="distance" size="32" maxlength="32" value="<?php echo $row['distance']; ?>"></td>
+                  <td><input id="price" type="text" name="estimated_fee" size="8" maxlength="64" value="<?php echo $row['estimated_fee']; ?>" ></td>
                   <td><button class="btn btn-danger" style="background-color: #f89d13; margin-left: 15px;" type='submit'>
                       <span>UPDATE</span>
                       </button></td>

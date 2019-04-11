@@ -7,15 +7,16 @@ include('mysqli_connect.php');
 require_once('session-user.php');
 $userID = mysqli_real_escape_string($db_connect,trim($_POST['user_ID']));
 $total = mysqli_real_escape_string($db_connect,trim($_POST['total']));
-$city = mysqli_real_escape_string($db_connect,trim($_POST['city']));
 $mode_of_payment = mysqli_real_escape_string($db_connect,trim($_POST['modeOfPayment']));
 if(isset($_POST['pickUpTime'])){
+  $city = NULL;
   $pick_up_time = mysqli_real_escape_string($db_connect,trim($_POST['pickUpTime']));
 }
 else {
   $pick_up_time = NULL;
 }
 if(isset($_POST['deliveryAddress'])){
+  $city = mysqli_real_escape_string($db_connect,trim($_POST['city']));
   $delivery_address = mysqli_real_escape_string($db_connect,trim($_POST['deliveryAddress']));
 }
 else{

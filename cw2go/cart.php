@@ -80,6 +80,8 @@ include('./includes/display-cart.php');
                 <div class="col-md-3"><img src="./images/product-images/' . $row['product_image'] . '" style="width: 175px;height: 115px; margin-left: 60px;"></div>
                 <div class="col-md-3 text-center" style="padding-top: 20px;">';
                   echo'  <h1 style="font-weight: bold; font-family: Lato, sans-serif;font-size: 20px;">'. $row['product_name'] . '</h1>';
+                  echo '  <p style="font-family: Roboto, sans-serif;">'. $row['pieces'] . ' Pieces</p>';
+
                   echo '  <p style="font-family: Roboto, sans-serif;">'. $row['product_description'] . '</p>
                 </div>
                 <div class="col-md-3">';

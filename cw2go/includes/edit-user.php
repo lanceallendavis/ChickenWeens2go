@@ -17,6 +17,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 $edit_query = "UPDATE users SET first_name='$firstName', last_name='$lastName', email='$email', address='$address'
                WHERE ID = '$id' AND password = SHA1('$password')";
 $result = mysqli_query($db_connect, $edit_query);
+
+if(isset($_FILES)){
+  $photo_query = "UPDATE users SET profile_photo = '$name' WHERE ID = '$id'";
+  $photo_result = mysqli_query($db_connect, $photo_query);
+}
  if($result){
  header('location: ../user-page.php');
  echo 'edit successful';

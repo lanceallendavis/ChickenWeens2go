@@ -18,7 +18,7 @@ $warning_stocks_result = mysqli_query($db_connect, $warning_stocks);
 </head>
 
 <body>
-    
+
   <aside id="left-panel" class="left-panel">
   <nav class="navbar navbar-expand-sm navbar-default">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
@@ -80,7 +80,7 @@ $warning_stocks_result = mysqli_query($db_connect, $warning_stocks);
       }
 
        ?>
-    
+
         <div class="col-md-12">
                     <div class="card">
                     <div class="card-body">
@@ -94,7 +94,7 @@ $warning_stocks_result = mysqli_query($db_connect, $warning_stocks);
                    <th><b>Date Added</b></th>
                    <th><b>Date Updated</b></th>
                    <th><b>UPDATE</b></th>
-                   <th><b>DELETE</b></th>
+                <th><b>DELETE</b></th>
 
                         </tr>
                 <tbody>
@@ -105,7 +105,7 @@ $warning_stocks_result = mysqli_query($db_connect, $warning_stocks);
 
                 echo '<tr><td>' . $row['ID'] . '</td><td>' . $row['name'] . '</td><td>' . $row['stock_count'] . '</td><td>' . $row['demand_count'] . '</td><td>' . $row['added_at'] . '</td><td>' . $row['updated_at'];
                 echo "<td><a href='update-stock-page.php?id=".$row['ID']."' class='btn btn-danger' style='background-color: #f89d13; margin-left: 15px;'>UPDATE</a></td>";
-                echo "<td><a href='delete-stock.php?id=".$row['ID']."' class='btn btn-danger' style='background-color: #f86a4e; margin-left: 15px;'>DELETE</a></td></tr>";
+               echo "<td><a href='includes/delete-stock.php?id=".$row['ID']."' class='btn btn-danger' style='background-color: #f86a4e; margin-left: 15px;'>DELETE</a></td></tr>";
                 }
               }
 
@@ -137,7 +137,7 @@ $warning_stocks_result = mysqli_query($db_connect, $warning_stocks);
         </div>
         <a href="#!" class="closePopUpOutSide"></a>
         </aside>
-       
+
     </div>
 
     <script src="vendors/jquery/dist/jquery.min.js"></script>

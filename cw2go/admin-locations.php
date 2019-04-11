@@ -67,7 +67,7 @@ $products_result = mysqli_query($db_connect, $list_products);
 
     <div id="right-panel" class="right-panel">
         <h1 class="text-center" style="font-family: 'Black Han Sans', sans-serif;letter-spacing: 6px;color: rgb(248,157,19);background-color: #1b120f; height: 80px; padding-top: 20px; font-size: 28px;">Location</h1>
-  
+
         <div class="col-md-12">
                     <div class="card">
                     <div class="card-body">
@@ -88,8 +88,8 @@ $products_result = mysqli_query($db_connect, $list_products);
                    while($row = mysqli_fetch_array($products_result, MYSQLI_ASSOC)){
                    echo '<tr><td>' . $row['city'] . '</td><td>' . $row['distance']  . 'KM' . '</td><td>₱' . $row['estimated_fee'];
                    echo '</td><td>' . $row['added_at'] . '</td>';
-                   echo "<td><a href='edit-product-page.php?id=".$row['ID']."' class='btn btn-danger' style='background-color: #f89d13; margin-left: 15px;'>EDIT</a></td>";
-                   echo "<td><a href='delete-product.php?id=".$row['ID']."' class='btn btn-danger' style='background-color: #f86a4e; margin-left: 15px;'>DELETE</a></td></tr>";
+                   echo "<td><a href='edit-locations-page.php?id=".$row['ID']."' class='btn btn-danger' style='background-color: #f89d13; margin-left: 15px;'>EDIT</a></td>";
+                   echo "<td><a href='includes/delete-location.php?id=".$row['ID']."' class='btn btn-danger' style='background-color: #f86a4e; margin-left: 15px;'>DELETE</a></td></tr>";
                    }
                    mysqli_free_result ($products_result);
                  }
@@ -111,9 +111,9 @@ $products_result = mysqli_query($db_connect, $list_products);
       	<table id="customers" >
           <form action="./includes/add-location.php" method="post" enctype="multipart/form-data">
          <center> <br><br><br>  <input type='hidden' name='action' value='addLocation'>
-            <input placeholder="Location Name" class="productinput" style="margin-left: 5px;" id="productName" type="text" name="locationName" size="32" maxlength="32" value="<?php if (isset($_POST['locationName'])) echo $_POST['locationName']; ?>"> <br>
-            <input placeholder="Location Distance(KM)" id="type" class="productinput"  type="text" name="distance" size="32" maxlength="32" value="<?php if (isset($_POST['distance'])) echo $_POST['distance']; ?>"><br>
-            <input placeholder="Estimated Fee(PHP)" id="description" class="productinput" type="text" name="estimatedFee" size="64" maxlength="32" value="<?php if (isset($_POST['estimatedFee'])) echo $_POST['estimatedFee']; ?>"><br>
+            <input placeholder="Location Name" class="productinput" style="margin-left: 5px;" id="productName" type="text" name="locationName" size="32" maxlength="32" value="<?php if (isset($_POST['locationName'])) echo $_POST['locationName']; ?>" required> <br>
+            <input placeholder="Location Distance(KM)" id="type" class="productinput"  type="text" name="distance" size="32" maxlength="32" value="<?php if (isset($_POST['distance'])) echo $_POST['distance']; ?>" required><br>
+            <input placeholder="Estimated Fee(PHP)" id="description" class="productinput" type="text" name="estimatedFee" size="64" maxlength="32" value="<?php if (isset($_POST['estimatedFee'])) echo $_POST['estimatedFee']; ?>" required><br>
             <input id="submit" type="submit" name="submit" value="ADD" class="btn btn-danger" style="font-weight: bold; background-color: #f89d13; width: 100%; height: 50px; margin-top: 80px;">
              </center>
             </form>

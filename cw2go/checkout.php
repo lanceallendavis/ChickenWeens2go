@@ -107,11 +107,11 @@
               </tr>';
             }
 
-            if(isset($_POST['pickUpTime'])){
+            if(isset($_POST['pickUpTime']) && $mode_of_payment == 'Cash On Pick-Up'){
               $pick_up_time = date("g:i A", strtotime($_POST['pickUpTime']));
             echo '<tr>
               <td></td>
-              <td class="text-right" style="width: 323px;">Delivery Address</td>
+              <td class="text-right" style="width: 323px;">Pick-Up Time</td>
               <td><input type="hidden" name="pickUpTime" value="'. $pick_up_time . '">' . $pick_up_time. '</td>
             </tr>';}
             ?>

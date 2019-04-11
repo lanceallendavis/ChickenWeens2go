@@ -35,8 +35,8 @@ if($delivered_result){
 
     //CONTENT
     $mail->isHTML(true);
-    $mail->Subject = 'Order Accepted';
-    $mail->Body = 'Hi your order has been accepted!';
+    $mail->Subject = 'Order Delivered';
+    $mail->Body = 'Hi your order has been delivered!';
     $mail->send();
     header('location: ../delivered-orders.php');
     mysqli_close();
