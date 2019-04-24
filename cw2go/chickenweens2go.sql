@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 03, 2019 at 11:47 AM
--- Server version: 10.1.30-MariaDB
--- PHP Version: 7.2.1
+-- Generation Time: Apr 24, 2019 at 04:22 PM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 7.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -36,6 +36,13 @@ CREATE TABLE `cart` (
   `added_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`ID`, `user_ID`, `product_ID`, `quantity`, `added_at`) VALUES
+(11, 22, 58, 1, '2019-04-04 15:13:58');
+
 -- --------------------------------------------------------
 
 --
@@ -56,7 +63,23 @@ CREATE TABLE `locations` (
 
 INSERT INTO `locations` (`ID`, `city`, `distance`, `estimated_fee`, `added_at`) VALUES
 (1, 'Manila', 13, 130, '2019-03-25 06:12:22'),
-(2, 'Munti', 20, 200, '2019-03-29 05:39:10');
+(2, 'Muntinlupa', 20, 200, '2019-04-05 01:34:11'),
+(4, 'Cavite', 28, 270, '2019-04-05 01:31:12'),
+(5, 'Rizal', 20, 190, '2019-04-05 01:33:16'),
+(6, 'Laguna', 34, 335, '2019-04-05 01:33:59'),
+(7, 'Makati', 2, 20, '2019-04-05 01:34:33'),
+(8, 'Las Piñas', 14, 135, '2019-04-05 01:35:06'),
+(9, 'Malabon', 15, 145, '2019-04-05 01:35:28'),
+(10, 'Marikina', 10, 108, '2019-04-05 01:35:56'),
+(11, 'Navotas', 13, 130, '2019-04-05 01:36:17'),
+(12, 'Parañaque', 11, 111, '2019-04-05 01:36:36'),
+(13, 'Pasay', 6, 55, '2019-04-05 01:36:55'),
+(14, 'Pasig', 5, 50, '2019-04-05 01:37:22'),
+(15, 'Quezon City', 13, 130, '2019-04-05 01:37:47'),
+(16, 'San Juan', 3, 30, '2019-04-05 01:38:05'),
+(17, 'Taguig', 6, 60, '2019-04-05 01:38:22'),
+(18, 'Valenzuela', 14, 140, '2019-04-05 01:38:40'),
+(19, 'Mandaluyong', 3, 30, '2019-04-05 01:39:19');
 
 -- --------------------------------------------------------
 
@@ -70,32 +93,23 @@ CREATE TABLE `orders` (
   `total` int(11) NOT NULL,
   `status` varchar(11) NOT NULL,
   `mode_of_payment` varchar(32) NOT NULL,
+  `city` varchar(16) NOT NULL,
   `delivery_address` varchar(128) NOT NULL,
   `placed_at` timestamp NULL DEFAULT NULL,
   `accepted_at` datetime DEFAULT NULL,
   `declined_at` datetime DEFAULT NULL,
   `delivered_at` datetime DEFAULT NULL,
-  `cancelled_at` timestamp NULL DEFAULT NULL
+  `cancelled_at` timestamp NULL DEFAULT NULL,
+  `pick_up_time` varchar(16) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`ID`, `user_ID`, `total`, `status`, `mode_of_payment`, `delivery_address`, `placed_at`, `accepted_at`, `declined_at`, `delivered_at`, `cancelled_at`) VALUES
-(28, 22, 448, 'accepted', 'Cash On Delivery', 'Manila', '2019-04-01 21:36:14', '2019-04-02 05:36:30', NULL, NULL, NULL),
-(29, 22, 318, 'accepted', 'Cash On Pick-Up', '', '2019-04-01 21:41:04', '2019-04-02 05:41:52', NULL, NULL, NULL),
-(30, 22, 318, 'accepted', 'Cash On Pick-Up', '', '2019-04-01 21:43:10', '2019-04-02 05:44:46', NULL, NULL, NULL),
-(31, 22, 808, 'accepted', 'Cash On Pick-Up', '', '2019-04-02 06:01:05', '2019-04-02 14:02:00', NULL, NULL, NULL),
-(32, 22, 2716, 'delivered', 'Cash On Pick-Up', '', '2019-04-02 06:04:12', '2019-04-02 14:04:36', NULL, '2019-04-02 14:05:01', NULL),
-(33, 22, 1590, 'accepted', 'Cash On Pick-Up', '', '2019-04-02 06:10:54', '2019-04-02 14:11:29', NULL, NULL, NULL),
-(34, 22, 2557, 'accepted', 'Cash On Pick-Up', '', '2019-04-02 06:57:42', '2019-04-02 14:58:22', NULL, NULL, NULL),
-(35, 22, 196, 'accepted', 'Cash On Pick-Up', '', '2019-04-02 09:39:54', '2019-04-02 17:41:30', NULL, NULL, NULL),
-(36, 23, 690, 'accepted', 'Cash On Pick-Up', '', '2019-04-03 08:42:04', '2019-04-03 17:16:21', NULL, NULL, NULL),
-(37, 23, 345, 'accepted', 'Cash On Pick-Up', '', '2019-04-03 08:52:36', '2019-04-03 17:16:42', NULL, NULL, NULL),
-(38, 23, 690, 'accepted', 'Cash On Pick-Up', '', '2019-04-03 09:07:28', '2019-04-03 17:16:58', NULL, NULL, NULL),
-(39, 23, 690, 'accepted', 'Cash On Pick-Up', '', '2019-04-03 09:08:09', '2019-04-03 17:17:44', NULL, NULL, NULL),
-(40, 23, 1501, 'accepted', 'Cash On Pick-Up', '', '2019-04-03 09:23:24', '2019-04-03 17:24:07', NULL, NULL, NULL);
+INSERT INTO `orders` (`ID`, `user_ID`, `total`, `status`, `mode_of_payment`, `city`, `delivery_address`, `placed_at`, `accepted_at`, `declined_at`, `delivered_at`, `cancelled_at`, `pick_up_time`) VALUES
+(18, 30, 780, 'declined', 'Cash On Pick-Up', '', '', '2019-04-11 03:29:21', NULL, '2019-04-11 11:29:41', NULL, NULL, '1:00 PM'),
+(19, 30, 1020, 'declined', 'Cash On Pick-Up', '', '', '2019-04-11 03:40:12', NULL, '2019-04-11 11:40:33', NULL, NULL, '1:00 PM');
 
 -- --------------------------------------------------------
 
@@ -117,34 +131,13 @@ CREATE TABLE `order_details` (
 --
 
 INSERT INTO `order_details` (`ID`, `order_ID`, `product_ID`, `quantity`, `subtotal`, `stock_deduction`) VALUES
-(39, 22, 57, 4, 636, 48),
-(40, 22, 58, 6, 954, 6),
-(41, 22, 59, 5, 245, 5),
-(42, 23, 58, 8, 1272, 8),
-(43, 23, 59, 7, 343, 7),
-(44, 24, 57, 2, 318, 24),
-(45, 25, 57, 2, 318, 24),
-(46, 26, 57, 2, 318, 24),
-(47, 27, 57, 2, 318, 24),
-(48, 28, 57, 2, 318, 24),
-(49, 29, 57, 2, 318, 24),
-(50, 30, 57, 2, 318, 24),
-(51, 31, 57, 2, 318, 24),
-(52, 31, 59, 10, 294, 10),
-(53, 32, 57, 6, 954, 72),
-(54, 32, 58, 8, 1272, 8),
-(55, 32, 59, 10, 490, 10),
-(56, 33, 57, 10, 1590, 120),
-(57, 34, 57, 7, 1113, 84),
-(58, 34, 58, 6, 954, 6),
-(59, 34, 59, 10, 294, 10),
-(60, 35, 59, 4, 196, 4),
-(61, 36, 65, 10, 690, 900),
-(62, 37, 65, 5, 276, 450),
-(63, 38, 65, 10, 690, 900),
-(64, 39, 65, 10, 690, 900),
-(65, 40, 64, 10, 790, 790),
-(66, 40, 66, 9, 79, 540);
+(32, 18, 60, 2, 240, 10),
+(33, 18, 61, 2, 300, 10),
+(34, 18, 63, 2, 240, 10),
+(35, 19, 60, 2, 240, 10),
+(36, 19, 61, 2, 300, 10),
+(37, 19, 63, 2, 240, 10),
+(38, 19, 64, 2, 240, 10);
 
 -- --------------------------------------------------------
 
@@ -171,12 +164,12 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`ID`, `name`, `stock_name`, `pieces`, `description`, `price`, `product_image`, `availability`, `added_at`, `stock`, `demand`) VALUES
-(64, 'Buffalo Ween\'s', 'Fries', '79', 'Taste the goodness of our new Buffalo Ween\'s with the touch of spicy flavor that will capture you in every bite.', 79, '2.jpg', 10, '2019-04-03 09:20:24', 0, 0),
-(65, 'Korean Bbq Ween\'s', 'Chicken', '90', 'Taste the sweet-spicy flavor wings of Korean Bbq chicken wings!', 69, '1.jpg', 1, '2019-04-03 05:34:24', 0, 0),
-(66, 'Honey Garlic Ween\'s', 'Chicken', '60', 'Sweet spicy and garlicky chicken wings!', 79, '4.jpg', 1, '2019-04-03 05:35:15', 0, 0),
-(67, 'Buttered Soy', 'Chicken', '70', 'taste the magic that happens between butter and soy sauce!', 79, '6.jpg', 1, '2019-04-03 05:36:09', 0, 0),
-(68, 'Chicken Parmesan Ween\'s', 'Chicken', '50', 'Tender wings topped with cheese! for people who don\'t like it spicy', 79, '3.jpg', 1, '2019-04-03 05:37:08', 0, 0),
-(69, 'Grilled Ween\'s', 'N/A', '50', 'We are taking it to the next level by grilling the chicken for a different taste of wings.  t', 79, '5.jpg', 1, '2019-04-03 05:38:41', 0, 0);
+(60, 'Korean Barbeque Wings', 'Chicken', '5', 'Taste the sweet-spicy flavor wings of Korean Barbeque Wings!', 120, '1.jpg', 1, '2019-04-05 01:44:58', 0, 0),
+(61, 'Honey Garlic Wings', 'Chicken', '5', 'Sweet spicy and garlicky chicken wings!', 150, '4.jpg', 1, '2019-04-05 01:46:00', 0, 0),
+(62, 'Buffalo Wings', 'Chicken', '5', 'Inspired from the original new york buffalo wings!', 150, '2.jpg', 0, '2019-04-05 05:08:00', 0, 0),
+(63, 'Buttered Soy Chicken Wings', 'Chicken', '5', 'Taste the magic that happens between butter and soy sauce!', 120, '6.jpg', 1, '2019-04-05 01:48:04', 0, 0),
+(64, 'Chicken Parmesan Wings', 'Chicken', '5', 'Tender Wings topped with cheese! For people who don\'t like it spicy.', 120, '3.jpg', 1, '2019-04-05 01:49:43', 0, 0),
+(65, 'Sriracha Chicken Wings', 'Chicken', '5', 'The ultimate hot and spicy chicken wings!', 150, '5.jpg', 1, '2019-04-05 01:50:32', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -198,10 +191,8 @@ CREATE TABLE `stocks` (
 --
 
 INSERT INTO `stocks` (`ID`, `name`, `stock_count`, `demand_count`, `added_at`, `updated_at`) VALUES
-(1, 'Chicken', -539, 200, '2019-04-01 14:31:26', '2019-04-03 09:18:55'),
-(2, 'Fries', -604, 200, '2019-04-01 18:40:00', '2019-04-02 06:55:56'),
-(3, 'Tenders', 194, 300, '2019-04-01 18:40:28', '2019-04-02 17:41:00'),
-(4, 'Drinks', 200, 150, '2019-04-03 09:29:08', NULL);
+(1, 'Chicken', 25, 200, '2019-04-01 14:31:26', '2019-04-11 03:28:53'),
+(3, 'Tenders', 270, 300, '2019-04-01 18:40:28', '2019-04-05 03:26:18');
 
 -- --------------------------------------------------------
 
@@ -229,9 +220,14 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`ID`, `role`, `username`, `first_name`, `last_name`, `email`, `address`, `city`, `password`, `profile_photo`, `registered_at`) VALUES
 (15, 'admin', 'yaboyLA', 'LA', 'Davis', 'dlanceallen@gmail.com', 'LPC', '', '6c7ca345f63f835cb353ff15bd6c5e052ec08e7a', '', '2019-02-25 08:59:41'),
-(19, 'user', 'abel', 'Abel', 'Weeknd', 'abel@gmail.com', 'LPC', '', '270ccadd491759f6149d7c6344907790b31eec91', 'sparda.png', '2019-03-24 14:35:57'),
 (22, 'user', 'lanceallendavis', 'LA', 'Davis', 'lanceallendavis@gmail.com', 'Manila', 'Manila', '12dea96fec20593566ab75692c9949596833adc9', 'sparda.png', '2019-03-30 14:08:58'),
-(23, 'user', 'EllaLably', 'Lovely', 'Endozo', 'ella@gmail.com', 'Muntinlupa City', '', 'b3daa77b4c04a9551b8781d03191fe098f325e67', 'birthday.png', '2019-04-03 05:40:18');
+(24, 'user', 'Airam', 'Airam', 'Santos', 'santosairam.as@gmail.com', 'ARSC', 'Manila', '12dea96fec20593566ab75692c9949596833adc9', 'download.jpg', '2019-04-05 01:08:46'),
+(25, 'user', 'Lably', 'Lovely', 'Endozo', 'ellaendozo457@gmail.com', 'Block 9 Lot 13 Arellano Str. Katarungan Village', 'Muntinlupa', 'b3daa77b4c04a9551b8781d03191fe098f325e67', 'download.jpg', '2019-04-05 03:17:11'),
+(26, 'user', 'wtf', '123', '123', 'dasfd@gmail.com', 'sdasd', 'Manila', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', '', '2019-04-05 03:44:51'),
+(27, 'user', 'user', 'sample', 'sample', 'lanceallendavis@gmail.com', 'sample street', 'Manila', '12dea96fec20593566ab75692c9949596833adc9', 'IMG_5695.jpg', '2019-04-05 04:35:11'),
+(28, 'user', 'username', 'sample', 'sample', 'lanceallendavis@gmail.com', 'sample street', 'Manila', '12dea96fec20593566ab75692c9949596833adc9', 'IMG_5695.jpg', '2019-04-05 04:36:12'),
+(29, 'user', 'lance', 'lance', 'davis', 'lanceallendavis@gmail.com', 'Manila', 'Manila', '12dea96fec20593566ab75692c9949596833adc9', '', '2019-04-05 04:37:26'),
+(30, 'user', 'someone', 'anyone', 'anyone', 'someone@gmail.com', 'somewhere', 'Manila', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'sparda.png', '2019-04-11 03:11:09');
 
 --
 -- Indexes for dumped tables
@@ -287,43 +283,43 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `ID` int(32) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `ID` int(32) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `locations`
 --
 ALTER TABLE `locations`
-  MODIFY `ID` int(16) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID` int(16) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `ID` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `ID` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `ID` int(32) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `ID` int(32) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `ID` int(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
+  MODIFY `ID` int(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
 -- AUTO_INCREMENT for table `stocks`
 --
 ALTER TABLE `stocks`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `ID` int(16) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `ID` int(16) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
